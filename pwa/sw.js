@@ -1,7 +1,5 @@
 var CACHE_NAME = 'cachev1';
 var urlsToCache = [
-  '/pwa/index.html',
-  '/pwa/imgs/q1.png',
   '/pwa/imgs/q_stack.png'
 ];
 
