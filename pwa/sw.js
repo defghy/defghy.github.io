@@ -28,11 +28,6 @@ self.addEventListener('install', function(event) {
 
 // 拦截请求
 self.addEventListener('fetch', function(event) {
-  // 判定是否需要走缓存逻辑
-  if (!needCache(event.request.url)) {
-    return
-  }
-
   event.respondWith(
     caches.match(event.request).then(function(response) {
       // Cache hit - return response
@@ -53,9 +48,10 @@ self.addEventListener('fetch', function(event) {
         // to clone it so we have two streams.
         var responseToCache = response.clone();
 
-        caches.open(CACHE_NAME).then(function(cache) {
-          cache.put(event.request, responseToCache);
-        });
+        caches.open(CACHE_NAME)
+          .then(function(cache) {
+            cache.put(event.request, responseToCache);
+          });
 
         return response;
       });
