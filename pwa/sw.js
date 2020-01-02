@@ -16,6 +16,7 @@ self.addEventListener('install', function(event) {
 
 // 拦截请求
 self.addEventListener('fetch', function(event) {
+  return event;
   event.respondWith(
     caches.match(event.request).then(function(response) {
       // Cache hit - return response
