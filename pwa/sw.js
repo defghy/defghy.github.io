@@ -25,12 +25,14 @@ function fetchRequest({ request, cache }) {
       return response;
     }
 
-    // IMPORTANT:Clone the response. A response is a stream
-    // and because we want the browser to consume the response
-    // as well as the cache consuming the response, we need
-    // to clone it so we have two streams.
-    var responseToCache = response.clone();
-    cache.put(request, responseToCache);
+    if (needCache(request.url)) {
+      // IMPORTANT:Clone the response. A response is a stream
+      // and because we want the browser to consume the response
+      // as well as the cache consuming the response, we need
+      // to clone it so we have two streams.
+      var responseToCache = response.clone();
+      cache.put(request, responseToCache);
+    }
 
     return response;
   });
