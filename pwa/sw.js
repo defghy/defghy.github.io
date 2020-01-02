@@ -1,5 +1,8 @@
 var CACHE_NAME = 'cachev1';
 var urlsToCache = [
+  '/pwa/',
+  '/pwa/index.html',
+  '/pwa/imgs/q1.png',
   '/pwa/imgs/q_stack.png'
 ];
 
@@ -14,13 +17,13 @@ self.addEventListener('install', function(event) {
 
 // 拦截请求
 self.addEventListener('fetch', function(event) {
-  return event;
   event.respondWith(
     caches.match(event.request).then(function(response) {
       // Cache hit - return response
       if (response) {
         return response;
       }
+      return fetch(event.request);
 
       var fetchRequest = event.request.clone();
       return fetch(fetchRequest).then(function(response) {
