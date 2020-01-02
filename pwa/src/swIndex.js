@@ -1,5 +1,7 @@
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register('./sw.js').then(function(registration) {
+  navigator.serviceWorker.register('./src/sw.js', {
+    scope: '/'
+  }).then(function(registration) {
     var serviceWorker;
     if (registration.installing) {
       serviceWorker = registration.installing;
