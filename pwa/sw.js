@@ -47,6 +47,7 @@ self.addEventListener('install', function(event) {
 
 // 拦截请求
 self.addEventListener('fetch', function(event) {
+  let request = event.request;
   event.respondWith(caches.open(CACHE_NAME).then(function (cache) {
     return cache.match(request).then(function (response) {
         if (response && response.ok) {
