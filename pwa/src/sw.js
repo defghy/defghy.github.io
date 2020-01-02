@@ -10,7 +10,11 @@
 </head>
 
 <body>
-  <script type="text/javascript" src="./src/swIndex.js" />
+  Hello World!!
+
+<script type="text/javascript">
+  console.log('init');
+</script>
 </body>
 
 </html>
