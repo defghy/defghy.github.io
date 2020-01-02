@@ -5,6 +5,17 @@ var urlsToCache = [
   '/pwa/imgs/q1.png',
   '/pwa/imgs/q_stack.png'
 ];
+var dict = urlsToCache.reduce((data, item) => {
+  data[item] = true;
+  return data;
+}, {});
+
+function needCache(url) {
+  url = url.toLowerCase();
+  var pathname = url.match(/http[s]*\:\/\/[^\/]+(\/.+)/);
+  pathname = pathname && pathname[1];
+  return dict[pathname];
+}
 
 // 添加缓存
 self.addEventListener('install', function(event) {
@@ -17,13 +28,17 @@ self.addEventListener('install', function(event) {
 
 // 拦截请求
 self.addEventListener('fetch', function(event) {
+  // 判定是否需要走缓存逻辑
+  if (!needCache(event.request.url)) {
+    return
+  }
+
   event.respondWith(
     caches.match(event.request).then(function(response) {
       // Cache hit - return response
       if (response) {
         return response;
       }
-      return fetch(event.request);
 
       var fetchRequest = event.request.clone();
       return fetch(fetchRequest).then(function(response) {
@@ -38,10 +53,9 @@ self.addEventListener('fetch', function(event) {
         // to clone it so we have two streams.
         var responseToCache = response.clone();
 
-        caches.open(CACHE_NAME)
-          .then(function(cache) {
-            cache.put(event.request, responseToCache);
-          });
+        caches.open(CACHE_NAME).then(function(cache) {
+          cache.put(event.request, responseToCache);
+        });
 
         return response;
       });
