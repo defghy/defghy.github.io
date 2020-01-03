@@ -1,5 +1,16 @@
-// trigger fresh 2020-01-03 15:40
+// trigger fresh 2020-01-03 19:57
 var CACHE_NAME = 'cachev1';
+
+function informUpgrade () {
+  self.clients.matchAll().then(function (clients) {
+    if (clients && clients.length) {
+      clients.forEach(function (client) {
+        // 发送字符串'sw.update'
+        client.postMessage('sw.update');
+      })
+    }
+  })
+}
 
 // 添加缓存
 self.addEventListener('install', function(event) {
@@ -9,7 +20,7 @@ self.addEventListener('install', function(event) {
     ]);
   }).then(function () {
     return self.skipWaiting();
-  })
+  });
   event.waitUntil(done);
 });
 
@@ -17,6 +28,8 @@ self.addEventListener('install', function(event) {
 self.addEventListener('activate', function(event) {
   const done = caches.delete(CACHE_NAME).then(function() {
     return self.clients.claim()
+  }).then(function() {
+    informUpgrade();
   })
   event.waitUntil(done);
 });

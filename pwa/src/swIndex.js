@@ -21,4 +21,11 @@ if (navigator.serviceWorker) {
   }).catch(function(err) {
     console.error('service worker初始化失败: ', err);
   });
+
+
+  navigator.serviceWorker.addEventListener('message', function (e) {
+    if (e.data === 'sw.update') {
+       alert('页面有更新');
+    }
+  });
 }
