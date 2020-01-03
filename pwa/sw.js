@@ -1,19 +1,24 @@
+// trigger fresh 2020-01-03 15:40
 var CACHE_NAME = 'cachev1';
 
 // 添加缓存
 self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll([
-        '/pwa/index.html'
-      ]);
-    })
-  );
+  const done = caches.open(CACHE_NAME).then(function(cache) {
+    return cache.addAll([
+      '/pwa/index.html'
+    ]);
+  }).then(function () {
+    return self.skipWaiting();
+  })
+  event.waitUntil(done);
 });
 
 // 更新缓存
 self.addEventListener('activate', function(event) {
-
+  const done = caches.delete(CACHE_NAME).then(function() {
+    return self.clients.claim()
+  })
+  event.waitUntil(done);
 });
 
 var CACHE_DICT = [
