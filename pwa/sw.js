@@ -17,6 +17,7 @@ self.addEventListener('activate', function(event) {
 });
 
 var CACHE_DICT = [
+  { test: /\/pwa\/(index\.html)?$/, },
   { test: /^https:.*github.io.*(.jpg|.jpeg|.png)$/, }
 ];
 
