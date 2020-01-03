@@ -13,7 +13,7 @@ self.addEventListener('install', function(event) {
 
 // 更新缓存
 self.addEventListener('activate', function(event) {
-  debugger;
+
 });
 
 var CACHE_DICT = [
@@ -49,6 +49,9 @@ function fetchRequest({ request, cache }) {
 // 拦截请求
 self.addEventListener('fetch', function(event) {
   let request = event.request;
+  if (!needCache(request.url)) {
+    return;
+  }
   event.respondWith(caches.open(CACHE_NAME).then(function (cache) {
     return cache.match(request).then(function (response) {
         if (response && response.ok) {

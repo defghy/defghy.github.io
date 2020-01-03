@@ -1,3 +1,3 @@
 ## 页面入口
 
-- [pwa测试](https://defghy.github.io/pwa)
+- [pwa测试](https://defghy.github.io/pwa/index.html)
