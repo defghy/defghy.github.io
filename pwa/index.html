@@ -2,42 +2,16 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Service Worker</title>
-    <script>
-      if (navigator.serviceWorker) {
-        navigator.serviceWorker.register('./sw.js', {
-          scope: './'
-        }).then(function(registration) {
-          var serviceWorker;
-          if (registration.installing) {
-            serviceWorker = registration.installing;
-            console.log('installing');
-          } else if (registration.waiting) {
-            serviceWorker = registration.waiting;
-            console.log('waiting');
-          } else if (registration.active) {
-            serviceWorker = registration.active;
-            console.log('active');
-          }
-          if (serviceWorker) {
-            serviceWorker.addEventListener('statechange', function (e) {
-
-            });
-          }
-        }).catch(function(err) {
-          console.error('service worker初始化失败: ', err);
-        });
-      }
-    </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Service Worker</title>
+  <script src="./src/swIndex.js"></script>
 </head>
 
 <body>
-  <!-- <img src="./imgs/q1.png" /> -->
-  <!-- <img src="./imgs/q_stack.png" /> -->
-  <!-- <script src="./src/swIndex.js"></script> -->
+  <img src="./imgs/q1.png" />
+  <img src="./imgs/q_stack.png" />
 </body>
 
 </html>

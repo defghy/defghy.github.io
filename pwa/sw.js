@@ -1,20 +1,28 @@
 var CACHE_NAME = 'cachev1';
-var urlsToCache = [
-  '/pwa/',
-  '/pwa/index.html',
-  '/pwa/imgs/q1.png',
-  '/pwa/imgs/q_stack.png'
+
+// 添加缓存
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(function(cache) {
+      return cache.addAll([
+        '/pwa/index.html'
+      ]);
+    })
+  );
+});
+
+// 更新缓存
+self.addEventListener('activate', function(event) {
+  debugger;
+});
+
+var CACHE_DICT = [
+  { test: /^https:.*github.io.*(.jpg|.jpeg|.png)$/, }
 ];
-var dict = urlsToCache.reduce((data, item) => {
-  data[item] = true;
-  return data;
-}, {});
 
 function needCache(url) {
   url = url.toLowerCase();
-  var pathname = url.match(/http[s]*\:\/\/[^\/]+(\/.+)/);
-  pathname = pathname && pathname[1];
-  return dict[pathname];
+  return CACHE_DICT.find(rule => rule.test.test(url));
 }
 
 function fetchRequest({ request, cache }) {
@@ -37,15 +45,6 @@ function fetchRequest({ request, cache }) {
     return response;
   });
 }
-
-// 添加缓存
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(urlsToCache);
-    })
-  );
-});
 
 // 拦截请求
 self.addEventListener('fetch', function(event) {
