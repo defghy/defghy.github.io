@@ -69,7 +69,8 @@ import { Button } from 'package-common';
 
 可惜这样是不行的。
 这涉及到`vant`这种ui组件库的另一个功能，`部分引入`；
-> 即部分引入，vant官方使用`babel-plugin-import`实现此功能。只需要配置babel.config.js即可实现。
+![部分引入](https://hy911.oss-cn-hangzhou.aliyuncs.com/babelImport/part_import.jpeg)
+> 即只引入部分组件，vant官方使用`babel-plugin-import`实现此功能。只需要配置babel.config.js即可实现。
 
 ```
 // babel.config.js
