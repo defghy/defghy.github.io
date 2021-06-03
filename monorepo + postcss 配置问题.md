@@ -56,14 +56,14 @@ module.exports = {
 一个自然的解决办法是将`vant`收敛到某个包中，其他包使用的时候从这个包里面引用
 
 ```
-// package-common
+// puzzle-common
 
 import { Button } from 'vant';
 
 export { Button };
 
-// package-mobile
-import { Button } from 'package-common';
+// puzzle-mobile
+import { Button } from 'puzzle-common';
 
 ```
 
@@ -92,7 +92,7 @@ module.exports = {
 
 demo如下
 ```
-// package-common
+// puzzle-common
 
 import { Button } from 'vant';
 
@@ -103,9 +103,15 @@ require('vant/es/button/style/index.js');
 ```
 因此对于我们上面的使用方式产生了如下问题
 
+> 相关命令链接
+```
+NODE_OPTIONS=--max_old_space_size=4096 BROWSERSLIST_ENV=development npx --node-arg=--inspect-brk vue-cli-service serve --host 0.0.0.0
+```
+[addDefault, addSideEffect](https://babel.dev/docs/en/babel-helper-module-imports)
+
 ### 3.0
 ```
-// package-common
+// puzzle-common
 
 import { Button } from 'vant';
 
@@ -117,15 +123,15 @@ var _button = require('vant/es/button');
 require('vant/es/button/style/index.js');
 module.exports.Button = _button;
 
-// package-mobile
-var _button = require('package-common').Button;
+// puzzle-mobile
+var _button = require('puzzle-common').Button;
 
 ```
 
 可以看出所有组件已经率先由`puzzle-common`引入，失去了部分引入的特性，随着各个包的开发common中的vant体积会越来越大；
 
 ## 解决办法
-需要使得`package-common`适配`babel-plugin-import`，使得其支持部分引入。
+需要使得`puzzle-common`适配`babel-plugin-import`，使得其支持部分引入。
 #### 首先
 配置`puzzle-common`的目录结构如下
 ![目录结构](https://hy911.oss-cn-hangzhou.aliyuncs.com/common_vant.png)
@@ -142,13 +148,13 @@ export * from 'vant/es/button/style/index.js';
 ```
 
 #### 其次
-重新配置`babel-import-plugin`，这次以`package-common`为入口
+重新配置`babel-import-plugin`，这次以`puzzle-common`为入口
 ```
 // babel.config.js
 
   plugins: [
     ['import', {
-      libraryName: 'package-common/vant',
+      libraryName: 'puzzle-common/vant',
       libraryDirectory: '',
       style: true
     }, 'vant']
@@ -157,14 +163,14 @@ export * from 'vant/es/button/style/index.js';
 
 此时引用转译如下
 ```
-// package-mobile
+// puzzle-mobile
 
-import { Button } from 'package-common/vant';
+import { Button } from 'puzzle-common/vant';
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-var _button = require('package-common/vant/es/button/index.ts');
-require('package-common/vant/es/button/style.js');
+var _button = require('puzzle-common/vant/es/button/index.ts');
+require('puzzle-common/vant/es/button/style.js');
 ```
 
 符合我们的预期，效果正常。
