@@ -11,7 +11,7 @@
 > 1. 设置html的font-size对pc端组件的影响
 > 2. chrome最小12px问题
 
-## 1.2 px => rem
+### 1.2 px => rem
 统一度量衡
 
 ```
