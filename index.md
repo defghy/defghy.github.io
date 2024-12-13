@@ -1,3 +1,8 @@
+---
+layout: default
+title: Defghy_Home
+---
+
 ## 页面入口
 
 - [pwa测试](https://defghy.github.io/pwa/index.html)

@@ -1,3 +1,8 @@
+---
+layout: default
+title: Vue2 Devtools Causing Page Lag, Solution
+---
+
 # Vue2 Devtools Causing Page Lag, Solution
 
 ## Background
