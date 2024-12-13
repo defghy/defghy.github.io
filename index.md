@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: custom
 title: Defghy_Home
 description: blog list
 ---
