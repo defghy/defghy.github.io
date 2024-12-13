@@ -3,8 +3,6 @@ layout: default
 title: Vue2 Devtools Causing Page Lag, Solution
 ---
 
-# Vue2 Devtools Causing Page Lag, Solution
-
 ## Background
 - Our project was upgraded to `vue@2.7.16`.
 - It is challenging to upgrade old `vue@2` projects to `vue@3`.
