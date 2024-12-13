@@ -1,6 +1,9 @@
 ---
 layout: default
 title: Vue2 Devtools Causing Page Lag, Solution
+target_github_url: https://github.com/kxxxlfe/devtools
+github:
+  zip_url: https://github.com/kxxxlfe/devtools/releases/download/5.4.1/vue-devtools@5.4.1.zip
 ---
 
 ## Background
