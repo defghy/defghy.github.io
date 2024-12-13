@@ -1,4 +1,4 @@
 ## 页面入口
 
 - [pwa测试](https://defghy.github.io/pwa/index.html)
-- [像素图demo](https://defghy.github.io/pixel-art-demo/index.html)
+- [202409 vue devtools@5.3.4](https://defghy.github.io/docs/vue_devtools@5.3.4.md)
