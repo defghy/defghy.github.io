@@ -8,4 +8,5 @@ description: blog list
 
 - [pwa测试](https://defghy.github.io/pwa/index.html)
 - [一种自动触摸反馈方案](https://defghy.github.io/docs_cn/auto_touch_feedback)
+- [一个monorepo与postcss和vant冲突问题解决方案](https://defghy.github.io/docs_cn/monorepo_postcss_config)
 - [vue devtools@5.3.4 extend](https://defghy.github.io/docs/vue2_devtools_extended)
