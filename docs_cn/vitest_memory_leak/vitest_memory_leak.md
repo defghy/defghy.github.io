@@ -1,3 +1,9 @@
+---
+layout: custom
+title: vitest内存泄露追踪
+description: 批量执行大量`test case`，内存不断上涨导致了内存泄露
+---
+
 ## 背景
 项目使用`vite5`与`vitest`；自动化测试脚本产生了内存泄露。
 使用命令`vitest run --logHeapUsage=true`打印结果如下
