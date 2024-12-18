@@ -5,6 +5,11 @@ plugins:
 defaults:
   -
     scope:
-      path:            "defghy/**/*.*"
+      path: "defghy/**/*.*"
     values:
-      sitemap:         false
+      sitemap: false
+  - 
+    scope:
+      path: "google7d2ed205f6bf437f*"
+    values:
+      sitemap: false
