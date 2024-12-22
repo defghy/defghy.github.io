@@ -6,6 +6,7 @@ target_github_url: https://github.com/kxxxlfe/devtools
 show_downloads: true
 github:
   zip_url: https://github.com/kxxxlfe/devtools/releases
+last_modified_at:   2024-12-22 11:37:00 +0000
 ---
 
 ## 背景

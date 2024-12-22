@@ -2,3 +2,9 @@ theme: jekyll-theme-cayman
 url: "https://defghy.github.io" # the base hostname & protocol for your site
 plugins:
   - jekyll-sitemap
+defaults:
+  -
+    scope:
+      path: "defghy/**/*.*"
+    values:
+      sitemap: false
