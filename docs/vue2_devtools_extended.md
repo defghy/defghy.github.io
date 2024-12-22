@@ -5,7 +5,7 @@ description: Vue.js devtools@5.3.4 Causing Page Lagging, Solution Below
 target_github_url: https://github.com/kxxxlfe/devtools
 show_downloads: true
 github:
-  zip_url: https://github.com/kxxxlfe/devtools/releases/download/5.4.1/vue-devtools@5.4.1.zip
+  zip_url: https://github.com/kxxxlfe/devtools/releases/download/5.4.2/vue-devtools@5.4.2.zip
 ---
 
 ## Background
