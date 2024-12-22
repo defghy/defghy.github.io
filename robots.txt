@@ -1,3 +1,4 @@
-User-agent: *
-Disallow: /defghy/
 Sitemap: https://defghy.github.io/sitemap.xml
+
+User-agent: *
+Disallow:
