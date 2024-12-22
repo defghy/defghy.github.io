@@ -6,6 +6,7 @@ target_github_url: https://github.com/kxxxlfe/devtools
 show_downloads: true
 github:
   zip_url: https://github.com/kxxxlfe/devtools/releases/download/5.4.2/vue-devtools@5.4.2.zip
+last_modified_at:   2024-12-22 11:37:00 +0000
 ---
 
 ## Background
