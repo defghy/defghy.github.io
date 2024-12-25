@@ -1,0 +1,507 @@
+
+2022年12月26日 11:21
+node服务添加周边
+    env环境判断支持
+    leader does not be active in 60000ms on port 问题解决
+推送添加7期平均测试
+趋势表需求
+    添加useScenes，控制图使用场景
+    editor生命周期提前
+    puzzle-schema公共化
+线上问题
+    增加 crossOriginLoading 与 crossorigin 配置解决跨域问题
+    node server 解决 pivotMetricFields 为 null 导致接口报错
+    解决特殊场景click优先于mouseup，导致click与mask互斥失效
+    指标卡闪烁问题
+    高级排序维度查询缺少全局筛选问题
+    表格截图截不全问题
+    tc下切换看板，清空联动配置
+
+2022年12月19日 11:09
+趋势表需求
+    规划beforeQuery生命周期
+    移动端接入生命周期
+    crash插件纳入新的生命周期
+推送添加7期平均开发
+
+2022年12月12日 10:52
+趋势表需求
+    生命周期适配自定义图表开发
+    出具文档
+线上
+    解决明细筛选emptystr问题
+    修正vetur.config不识别custom-widgets问题
+    趋势表的nodejs兼容
+
+2022年12月05日 10:00
+趋势表需求
+    出具技术文档
+优化
+    webpack打包去掉注释
+    各个平台接入生命周期
+    尝试composition-api与class混写
+调研
+    git分支代码混乱，使用cherry-pick找回
+    vite.config.js已经满足了动态配置的需求
+
+2022年11月25日 15:36
+图表跳转开发完成
+lod表达式筛选器2期验收上线
+趋势表需求
+    出具技术文档
+线上问题
+    看板多次保存时序问题
+    富指标卡编辑预览不一致问题
+    下钻图表icon问题
+优化
+    异步队列公共逻辑
+    无用文件脚本增加依赖分析功能
+
+2022年11月21日 10:21
+图表跳转开发完成
+    图上工具代码适配
+    拆分复用table-interact逻辑
+lod表达式筛选器2期测试
+优化
+    支持sep环境
+
+2022年11月18日 10:55
+图表跳转评审开发
+    图上工具代码适配
+lod表达式筛选器2期测试
+优化
+    支持sep环境
+
+2022年11月15日 11:40
+图表跳转评审开发
+    实现跳转弹窗筛选器生成逻辑
+    图上分析逻辑重写
+    梳理图表生命周期插件未来写法
+线上问题
+    图表联动，下钻，支持自定义聚合方式
+    图表联动再次点击反选fix
+
+2022年11月07日 11:41
+图表跳转评审开发
+    重新定义图上工具(图内汇总，指标筛选，7期平均，日期对比)实现
+优化
+    所有页面引入ktrace，忽略所有静态资源
+线上问题
+    解决移动端富文本错误引入问题
+    图上工具导致的节假日问题，洞察删除字段后筛选禁用问题
+    mousedown还原为click
+
+2022年11月01日 16:01
+交互1期
+    重写highlight样式Action
+图表跳转评审开发
+    技术文档书写
+明细|结果筛选合并
+    评审完毕，给出工作量拆解与工作量
+优化
+    替换moment为dayjs
+
+2022年10月24日 14:30
+交互1期
+    重构框选交互各阶段逻辑
+    解决拖拽失灵，由于count的dom触发了mouseleave
+lod表达式筛选器2期测试
+优化
+    项目包关系图更新
+    海外地图label颜色策略
+    rich-text-editor动态引入
+
+2022年10月17日 15:03
+进度图-动态目标
+    进度图实现方式调研
+sdk适配地图开发-label适配上线
+交互1期
+    定位click与mousedown冲突问题，mousedown后弹窗就出来了，这时候松开鼠标也不触发click了
+    自定义联动支持数组格式
+    移除interact下冗余代码
+    viewFilter记录颜色设置
+    简化field保存数据，不保存完整fieldInfo
+    analyze-filter代码复用，检测到field不可用时disable
+    scrollHidden重写，不能无限制触发
+lod表达式筛选器2期测试
+oncall
+    移动端趋势图无法编辑问题
+
+2022年10月08日 15:49
+sdk适配地图开发
+    海外地图label逻辑开发
+
+2022年09月26日 20:00
+堆积图添加异常值处理上线
+sdk适配地图开发
+    增加afterQueryParams钩子
+    轴名称与tip支持
+    开放refresh功能
+    开放下拉配置功能
+    放开上传容量限制
+    关于vue与composition-api可能多份问题
+        - puzzle-sdk使用lib打包时默认会增加externals的vue
+        - vue统一使用kwaibi-cli下的
+        - composition-api同上
+        - puzzle-sdk打包排除composition-api
+    新增功能形成docs
+交互1期
+    自定义图表联动兼容
+        - puzzle-chart/src/convert/addon/event.ts 使用事件，chart.on(...)
+        - puzzle-chart/src/convert/controller/interaction.ts 配置交互 chart.interaction(...)
+        - puzzle-chart/src/convert/interaction/index.ts 注册交互 registerAction
+分享
+
+2022年09月20日 15:58
+堆积图添加异常值处理
+    isNaN判断[1]与[1,2,3]不标准问题
+sdk对外开放联动功能
+sdk适配地图开发
+    提供本地看板开发模式
+分享准备
+    添加参考
+
+2022年09月13日 19:27
+堆积图scale计算问题
+    形成docs，总结影响范围
+    updateStackRange 加钩子更合理
+堆积图添加异常值处理
+lod表达式筛选器2期测试
+sdk对外开放联动功能
+    尝试移除 isStopPropagation
+    无用代码：
+        data: { ...data, [TARGET_TYPE]: targetType, [POINT_DATA]: pointData },
+优化
+    移除alicdn
+    修复洞察开启时的报错
+分享
+    添加css镂空方案，evenodd 与 nonezero
+域名统一
+
+2022年09月06日 14:12
+域名统一技术评审
+lod表达式筛选器2期测试
+sdk对外开放联动功能开发，尝试移除无用逻辑
+堆积图scale计算问题调研
+线上
+    优化日期对比颜色计算插值逻辑
+    dayjs下timezone报错问题
+    数据集切换，选项与实际查询参数不符问题
+bugfix
+    洞察弹窗权限
+    看板弹窗权限
+    移除无用参数 ignoreSetting
+
+2022年08月29日 11:36
+域名统一技术方案
+    优化文件依赖分析脚本，移除干扰项文件(400+)
+lod表达式筛选器2期开发
+分享
+    关于语法树AST的运用
+    关于利用webpack收集依赖
+
+2022年08月22日 10:17
+自定义图表支持 composition-api
+项目支持node16，移除老版本sass
+域名统一技术方案
+线上问题修复
+    海外筛选器时区错误
+    高级排序增加tooltip
+
+2022年08月15日 10:18
+下载警告提示(看板，多维，取数)
+kconf使用公共接口上线
+优化
+    高级排序增加tooltip
+    指标卡调整字体
+线上问题修复
+    洞察查询参数错误
+    海外筛选器时区错误
+    老筛选器间距问题
+    切换看板sheetId不更新问题
+    snap.corp不展示feedback icon
+    平铺采用异步查询
+    图表分享 海外 url不对
+    打断循环跳转
+
+2022年08月08日 10:57
+自定义图表发布流程提测
+权限新增config
+    移除无用代码，整合重复逻辑
+上线
+    表格条件颜色批量设置字段功能
+
+2022年08月01日 10:25
+自定义图表发布流程提测
+表格条件颜色批量设置字段功能开发测试
+对接权限url开发
+
+2022年07月29日 17:04
+自定义图表发布流程提测
+表格条件颜色批量设置字段功能开发测试
+线上
+    修正7日平均导致的颜色无法设置问题
+    修正看板埋点来源字段为空问题
+kfx迁移
+    kwaibi的302逻辑，迁移release, sgp
+
+2022年07月25日 14:38
+自定义图表发布流程提测
+完善埋点公共参数
+    修正life-cycle的mixin逻辑
+kfx迁移
+    tc,olap迁移完成
+
+2022年07月20日 15:37
+自定义图表发布流程联调
+    移动端新增流程
+    打包使用root方式
+移动端开放数据集批量替换
+埋点缺失问题追踪
+
+2022年07月11日 14:14
+自定义图表发布流程开发
+    移动端，node-server相关
+tab切换埋点
+    使用 interceptorObserver 监听元素是否展示
+线上问题修复
+    指标卡日期字段，空数据展示问题
+node服务迁移容器云
+    国内线上环境
+
+2022年07月04日 11:24
+自定义图表发布流程开发
+    发包流程
+线上
+    全局筛选器，维度查询fix
+    解决筛选器type判断不完整问题
+kfx迁移
+    kwaibi域名迁移 test、rc
+node服务迁移容器云
+    迁移rc与sgp环境
+
+2022年06月27日 10:15
+自定义图表发布流程开发
+    快捷新建弹窗
+    puzzle-sdk单独打包
+筛选器备注
+线上
+    全局筛选器支持切换sheet
+
+2022年06月20日 10:29
+自定义图表发布流程开发
+    移除decision-center相关代码
+    puzzle-renderer抽取lazyLoaded逻辑
+迁移kfx
+    olap迁移：test rc release
+    tc：test rc
+线上
+    批量配置字段，选择字段导致unit发生了undefined赋值
+    合并请求时，提前请求，需要渲染header，否则指标筛选不生效
+定位 内存溢出 问题
+    provide: { plugins: this } 变为 { plugins: () => this }
+
+2022年06月16日 14:04
+自定义图表发布流程开发
+    整合editor-api代码
+迁移kfx
+    自动部署插件自用
+线上
+    时间筛选器 快捷区间 与 选择范围 冲突问题
+    移除puzzle-iconfont相关依赖
+node服务迁移容器云
+
+2022年06月07日 11:26
+数组数据集字段类型测试上线
+自定义图表发布流程开发
+    移除PuzzleEditorAPI的无用逻辑代码，移除puzzle-event-emitter
+
+2022年05月23日 11:52
+数组数据集字段类型测试
+node服务迁移容器云
+    机器配额不足问题，暂时无解，缩容
+    申请新的内部域名
+    创建海外环境
+优化
+    移除无用upgrade包
+迁移vite
+    修复postcss-pxtorem的exclude设置为函数问题
+线上
+    轴字段顺序对汇总方式由影响 newest
+
+2022年05月17日 11:06
+缓存sql查询方式修改上线
+数组数据集字段类型开发
+    drag相关组件迁移puzzle-sdk，移动端复用
+优化
+    gaia放开小时粒度
+
+2022年05月09日 10:11
+缓存sql查询方式修改待上线
+数组数据集字段类型开发
+    提取公共组件 field-item.vue
+    优化筛选器reference实现策略，包装在div内部
+线上问题
+    筛选器因子切换筛选器自动收起
+
+2022年04月29日 20:32
+优化需求集合开发上线
+缓存sql查询方式修改待上线
+调研自定义图表方案
+其他
+    看板接入ps-sdk，移除olap冗余sdk代码
+    优化widget-data监听策略
+    轴范围兼容辅助线
+    指标卡错误白屏问题
+    缓存数字问题修复
+
+2022年04月24日 10:08
+优化需求集合开发
+    优化筛选器组件目录结构
+缓存sql查询方式修改待上线
+调研自定义图标方案
+优化
+    删除无用文件(44+)
+    辅助线 & 轴单位 范围问题修复
+
+2022年04月18日 10:04
+优化需求集合
+    整合副指标计算逻辑(移动端指标卡，折线图，pc端指标趋势图)
+    优化图内汇总流程，减少参数传递
+缓存sql查询方式修改开发测试上线
+线上
+    门户优化功能上线
+    删除无用文件(129+)上线
+    告警百分比单位问题fix
+    移除 notification-dialog 和 notification-banner
+
+2022年04月08日 19:12
+文案一致性开发提测
+    条图系列使用新的preCheck流程，优化到puzzle-base;
+缓存sql查询方式修改开发测试上线
+门户优化功能开发
+使用normalModuleFactory下的beforeResolve，利用enhanced-resolve收集依赖，进行无用文件删除
+线上
+    级联筛选器：filterConfig中快照层数与配置不一致问题修复
+    下钻时单位%展示问题修复
+    图内汇总与指标筛选器冲突问题修复
+    删除引导 feat/off-custom-dialog-banner-intro 上线
+
+2022年04月02日 19:14
+单位&格式测试二次上线
+     解决下钻widget的百分比格式，需要洗数据问题
+矩形树图配置侧测试上线
+线上
+    优化辅助线对单位转换的支持，减少参数传递
+    移动端+预格式化代码逻辑
+    transform修改了data，导致transform多处调用时产生死循环，使用once解决
+其他
+    级联参数 query in 技术需求方案对接
+
+2022年03月28日 10:16
+单位&格式测试二次上线
+矩形树图配置侧测试
+    图表预检流程新增
+上线
+    移动端指标卡日期展示空数据兼容
+
+2022年03月21日 20:47
+单位&格式测试
+    对比日期，columns数据修复format
+    辅助线匹配轴单位
+矩形树图配置侧开发
+    dimension与puzzle-chart复用1套数据
+上线
+    下钻里明细表设置超链接不生效
+    指标卡展示数据日期为空问题修复
+    filterConfig影响级联筛选器
+
+2022年03月07日 10:24
+单位&格式开发测试
+评分反馈重新划分模块儿开发上线
+上线
+    切换图表导致富文本编辑器parseHTML，加key解决
+    洞察添加特殊请求头header
+kwai-ui升级
+    统一引入 override_v2.less
+    el-tabs offset的影响
+线上问题
+    指标卡展示数据日期为空问题修复
+
+2022年02月28日 10:09
+单位&格式开发测试
+评分反馈重新划分模块儿
+    聚合逻辑到feedback.ts
+线上问题解决
+    切换图表导致html文本被转义
+洞察添加特殊请求头header
+kwai-ui升级
+    - 估算公共操作时间成本
+    - 尝试引入，升级版本，修改babel配置，修改国际化相关
+
+2022年02月21日 10:04
+单位&格式开发
+下线老报表平台导入功能上线
+移动端嵌入ios下iframe问题修复
+    cookie策略改为内存变量
+    懒加载对于iframe不使用observer
+优化
+    动态切换天策的favicon；
+    数据集新增看板（移动端）
+评估
+    kwai-ui升级，公共操作时间成本
+配合vue-devtools提出issue，并给出复现(https://github.com/vuejs/devtools/issues/1710)
+
+2022年02月14日 11:03
+下线老报表平台导入功能
+单位&格式开发
+移动端页面嵌套iframe问题解决
+    解决方案：修改cookie实现方式：mockUserTokenCorsKey
+    懒加载库vue-lazyload，他使用了原生的 IntersectionObserver 特性，这个特性在safari下的iframe中滚动时不触发
+
+2022年02月10日 10:09
+UI一致性开发后续上线
+下线老报表平台导入功能
+    配合ps-sdk配置引导
+指标筛选器样式优化为内部滚动
+单位&格式开发
+    优化 type 为 % 业务逻辑
+和兴华沟通
+    不能轻易动手，否则很可能返工
+    等待兴华优先表达
+        - 对于其提出的方案摆明缺点，其可能不接受
+        - 然后使用已有功能完成其目的
+
+2022年01月24日 18:17
+UI一致性开发
+    ps-sdk接入，notice放置于app
+    新增 rc-tc-sgp 环境
+单指标下拉查询缓存上线
+指标筛选器交互优化开发上线
+报表平台下线相关入口，下线流程
+    curl https://huyu.kproxy.corp.kuaishou.com/build.zip --output build.zip
+    unzip build.zip -d ./
+    mv /data/web_server/project/data-corp-kuaishou-com /data/web_server/project/data-corp-kuaishou-com-bak
+    mv ./build ../data-corp-kuaishou-com
+olap移除iframe技术方案docs
+
+2022年01月24日 18:17
+图表标注需求测试
+单位&格式支持金额转换
+    所有页面初始化流程从串行改为Promise.all
+线上问题修复
+    天策切换不删除mainShareId问题
+chrome-extension vite 形成文章
+
+2022年01月17日 09:58
+UI一致性开发
+    大屏深色模式
+    天策portal，深色模式
+
+2022年01月04日 11:33
+非系统时间求同环比测试走查
+图表标注需求开发
+    使用 clip-path 替代 z-index 方案
+    简化现有 widget-item 工具交互流程
+    形成docs
+chrome-extension: 支持iframe和页面同时mock

@@ -1,0 +1,641 @@
+2020年12月31日 20:52
+新看板国际化开发提测
+    修改element-ui需要更新dll，依赖过重，移除element-ui
+移动端前期工作
+    给出排期，里程碑
+    给出技术方案
+    pc端页面骨架
+筛选器细粒度优化开发
+线上问题修复
+    洞察周聚合判断问题
+
+2020年12月28日 13:13
+新看板国际化开发提测
+    统一依赖
+    locale迁移至business-ui
+    走查问题修复
+    组件库awesomedatepicker国际化
+筛选器细粒度优化
+    编辑弹窗储存必要数据
+cicd
+    细化clean规则
+    优化方案docs
+    样例测试
+线上bugfix
+    告警修改showname
+
+2020年12月21日 10:51
+新看板国际化开发提测
+    kwaiword弹窗
+    生成kwaiword功能 zh + 本地文件 + 接口
+    中文正则搜索：[\u4e00-\u9fa5]+
+    $l, $t增加文案连接功能，区分中英文
+    business-ui组件转移至base
+    增加月，日的翻译
+awesomeDatepicker问题修复
+    文案，日历结束日期问题
+extension添加无权限提示
+
+2020年12月11日 21:30
+过滤器组
+    ocean主题检测当前theme-chalk版本
+    重写ocean脚本支持最新nodejs
+element-ui
+    添加clearable支持
+    完善文档 + 上线
+    修复线上问题(isDynamic缺失，动态时间计算)
+oncall问题修复
+    2次config调用导致重复的fieldList
+    清洗 tab 下 widgetLayout 数据，解除死循环
+    时区，后端多次返回不一致问题
+外部访问新域名kwaibimin，统一枚举
+
+2020年12月05日 17:04
+过滤器组
+    editor增加不识别图表支持
+element-ui
+    awesome支持error样式
+kwaibi扩展 上线
+    动态查找项目功能
+    使用公共env
+问题修复-天策
+    增加判空，修改收藏地址
+    富文本链接编辑，浮层覆盖问题
+    图表之间覆盖问题
+
+2020年11月30日 11:33
+过滤器组
+element-ui
+    动态时间支持年周月季
+kwaibi扩展
+    增加一键切换kapi身份功能
+    增加sourcemap方便调试
+    解决chrome变量的ts声明错误
+问题修复
+    留存数据字段默认聚合方式 去重
+删除
+    @ks/puzzle-element-theme
+    @ks/puzzle-main
+
+2020年11月23日 10:11
+过滤器组
+    validate流程
+    结果过滤器弹窗支持array
+    lazyload尝试使用observer参数
+    insight拆分独立模块儿，使用format-query-params公共逻辑
+时区问题-公共timezone
+    moment改为moment-timezone
+    puzzle-chart不修改数据，改为clone
+
+2020年11月16日 13:55
+过滤器组开发-时间表单-elementui
+        提取 dynamic2static inner2value value2inner 逻辑
+        css更新，通过link走本地build，不影响其他项目
+        动态增加 disable，季度功能
+    过滤器组
+        分享
+        抽取公共validate逻辑
+
+2020年11月09日 14:46
+天玑新看板对接
+使用 location.ancestorOrigins 获取父级窗口url
+线上过滤器触发问题
+
+过滤器组开发-时间表单
+element-ui开发
+route.config.js 动态生成route，利用了require会引入路径下所有模块儿，支持变量
+
+2020年11月02日 16:29
+过滤器组开发
+field选择器(按图表，数据集，缓存，联动，切换)
+数字筛选器
+
+2020年10月26日 09:53
+gaia需求提测问题修复
+闲时加载-崩溃检测
+1. 崩溃策略实现(无renderEnd，足够的render时间)
+beforeUnload 记录图表渲染时间
+2. plugin方式实现
+过滤器触发刷新采用 plugin
+https://kwaibi.corp.kuaishou.com/pc/dashboard/edit/?dashboardId=18354 sunxuchu
+https://kwaibi.corp.kuaishou.com/pc/dashboard/preview/?dashboardId=2000806 huangyajing
+
+2020年10月19日 10:51
+数据集批量替换需求对接开发联调
+增加撤回时间点
+邮件推送开发联调提测
+outlook样式问题修复
+gaia需求对接，开发进度90%
+医院2次检查身体（血，尿）
+
+2020年09月20日 10:55
+    ResizeObserver能监听resize
+    新看板问题修复
+    数据集批量替换需求对接开发
+
+2020年09月14日 14:35
+新看板
+    新看板记录过滤器filterConfig功能
+    account接口降低请求次数
+    统一util/authCenter
+
+2020年09月07日 09:56
+新看板
+    天策接口增加报错开关notify
+    sentry导致死循环，升级解决
+    puzzle-table无故刷新问题
+    上线
+分享docs
+关于vscode下gitlens用法，替代gitlab页面
+Object.keys问题 https://stackoverflow.com/questions/280713/elements-order-in-a-for-in-loop
+kwai海外增加sgp域名
+    nginx修改方法
+    代码
+
+2020年08月28日 15:09
+新看板
+    已知bugfix
+线上问题
+    父子看板展示异常
+    string类型字段特殊情况下format问题
+优化发布脚本
+
+2020年08月16日 17:09
+新看板打通
+    老看板登录问题
+    puzzle发布test
+    puzzle-portal发布test
+    系统管理、邮件推送、收藏。。。
+    天策门户引入renderer(增加 report)
+ktrace引入
+修正打包脚本为js，自动计算依赖
+
+2020年08月10日 11:25
+前端技术分享
+    nginx: brotli 预压缩
+    https握手优化
+    cdn负载均衡
+kwaibi小问题
+    pid为null情况
+新看板
+    看板列表，数据集与新看板打通
+        编辑，预览，复制，收藏
+    变更记录 + 发布功能迁移
+    尝试puzzle中js引入ts
+        独立ts文件
+        ts-loader版本
+        strict false
+阿里图标支持彩色
+
+2020年08月03日 15:38
+新看板
+    puzzle-render逻辑（过滤器，表格）
+    公共逻辑迁移dashboard-base
+    过滤器render逻辑迁移dashboard-base
+    filter的name在弹窗内设置
+    下钻功能完成
+    迁移留存率弹窗完成
+    过滤器配置快照
+    图表备注迁移
+cookie失效无限重启增加拦截弹窗
+
+2020年07月26日 11:17
+过滤器流程联调
+table迁移新看板
+    detail, group, cross3个表格迁移
+    if颜色弹窗迁移
+    下钻逻辑了解熟悉
+新开页面使用新的进程
+    window.open("https://vuejs.org/", "PromoteFirefoxWindowName", "noopener,noreferrer");
+
+2020年07月24日 09:41
+外部访问
+    cdn使用公共cdn
+报表迁移
+    iframe与页面不同步问题修复
+    切换tab选中dashboard
+过滤器迁移新看板
+    树形数据集字段选择
+    数字、日期、文字2过滤器迁移
+    过滤器请求数据处理
+
+2020年07月13日 15:24
+done
+门户url规则修改后续问题修复
+海外访问上线
+培训课程下
+过滤器迁移新看板
+    编辑弹窗拆分树形
+    优化elementui typings配置
+过滤器 老逻辑查看学习
+    编辑弹窗开发
+    聚合组件功能迁移完成
+
+2020年07月05日 18:19
+海外留存已上线
+外部访问测试
+    死循环定位，破除；所有导航都应该走router
+挂出重命名上线
+    需要重构portal页面
+堆积百分比开发提测上线
+门户portal站点url规则修改开发(决策中心、普通门户、个人域名门户)
+    抽取洞察insight弹窗逻辑为modal
+使用performance帮助定位性能问题
+
+2020年07月05日 18:20
+海外留存测试
+外部访问开发联调测试上线
+    增加函数式弹窗，content直接在props会使得$option变成reactive的，导致一些组件有问题。使用components + name解决
+挂出重命名开发
+    hangout弹窗使用函数式弹窗
+堆积百分比开发
+    transpileDependencies: [
+        // can be string or regex https://cli.vuejs.org/core-plugins/babel.html
+        '包名',
+    ],
+项目熟悉
+    微前端框架：qiankun
+        主应用
+            main html: /bi/portal
+        微应用
+            portal html: /portal
+            umd打包
+            使用history api进行路由跳转
+    动画icon：lottie
+    基础概念
+        dashboard => widget(dataset + chart)
+        widget
+        chart
+        dataset
+
+2020年06月20日 18:35
+新人培训视频观看考试
+KuaiBI培训视频观看，项目学习
+    使用Object.freeze来实现只读属性
+    合并分支自动发布逻辑：每次发布2个服务，micro服务和普通服务
+    vue.config学习：随机cdn，全局css mixin，pwa
+    拖拽与resize采用vue-grid-layout
+    puzzle-table 采用 ag-grid
+    chart
+        1. @/schema + 后端数据 = 配置
+        2. 从Object生成list，如何保证顺序？
+留存相关需求 + 业务代码熟悉
+    数据集导入编辑添加 留存维度 字段
+    引入 optional chaining
+    修复3个bug
+functional组件问题：
+    components字段不好使，需要使用props或者inject字段hack。全局组件没问题(https://github.com/vuejs/vue/issues/7492)
+
+2020年06月08日 21:03
+试用pixi开发类似京东拖拽合成图片功能
+vue-stack-router源码学习
+
+2020年06月01日 10:07
+    webrtc实现demo(视频 + 屏幕共享)
+    external原理
+        代码中ext模块儿替换为require('vue')，由使用者的webpack将其转换为真正模块儿id
+    Vue的extends mixins, extend mixin
+    ajax withcredentials 与 Access-Control-Allow-Credentials
+        false 不发cookie，tls证书，http身份验证。同时忽略response的set-cookie
+        true 要求Access-Control-Allow-Origin为具体域名，不能为*
+    数字之和为10的组合数 递归解法
+    中间件洋葱模型 实现
+    回顾webpack升级，cssnano问题
+    gif埋点优于ajax
+    正则表达式小括号作用(
+        1. 模式匹配, 正则中 \1, 正则外面可以得到
+        2. 与|一起用，结合 非获取匹配符号
+            ?: /windows(?:98|2000)/ // 模式匹配不存储
+            ?= /windows(?=98|2000)/.match('windows98')  // windows
+            ?! /windows(?=98|2000)/.match('windows3.1') // windows
+    css变量
+        1. -- 配合 var
+        2. svg的fill等属性也可以用var
+    animate.css了解
+    pixi.js createJS egret 了解
+
+2020年05月22日 22:55
+router源码分析
+    1. 由root(挂载router方)调用init
+回顾周报
+    1. rn ios12.2 webview video播放问题(https://github.com/react-native-community/react-native-webview/issues/500)
+    	dom exception怀疑是video使用问题
+    	xcode模拟器没有问题，微信钉钉app没有问题。 排除视频格式问题，video使用问题
+    	搜索得知ios去年出过类似问题，怀疑为ios系统问题。 排除前端问题，从系统找原因
+    	怀疑为webview问题，提issue；查询rn文档，问题解决
+    	原生同事能够直接从源码定位到webview，我只能从文档
+    	uiwebview
+    		position fixed抖动问题
+    		onscroll触发不及时问题
+    		ajax缓存问题
+    2. nsis添加埋点
+    	1. nsis脚本钩子处发送埋点(安装成功，失败，卸载)
+    	2. app打开后记录用户id文件，nsis读取文件埋点
+    3. Auth组件
+    	1. 有权限展示，无权限不展示
+    	2. 全部展示，并提示权限
+    4. wepy长列表优化
+    	setData优化 + 渲染优化
+    5. 打印单格式化脚本(handlerbar + template + json => json)
+    6. 发布脚本检测是否基于最新的master
+    7. im拆包：element-ui处理
+深拷贝实现
+super(props)做了什么: (赋值props)
+拼音html：ruby + rt
+nwjs (node + chromium)
+    1. 相同的js引擎
+    2. 相同的event loop线程
+    3. node加载后symbols移动到webkit
+    4. 在render进程中进行node的start
+
+2020年05月16日 17:32
+cluster端口复用原理
+    第一个worker通知主线程新建端口(if (handle === undefined))
+DOM事件 callback会触发执行微任务(https://stackoverflow.com/questions/55709512/why-is-there-a-difference-in-the-task-microtask-execution-order-when-a-button-is)
+纯css实现滚动居底
+    flex reverse 与 scroll-snap-type 都有缺陷
+vue事件原理(dom, component)
+__webpack_require__原理(modules, exports, 递归__webpack_require__)
+Array.prototype.reduce实现（不传第2个参数时）
+X-Frame-Options禁用iframe测试
+vuex原理
+    1. 使用 Vue.mixin，给每一个组件绑定$store；方法是mixin监听beforeCreate事件，然后把parent的$store赋值给自己(beforeCreate自上向下调用);
+    2. new Store时，将state赋值给一个new Vue的data，为store._vm
+    3. mapState时，返回computed的方法，方法内容为 name => this.$store.state[name];
+vue-router原理
+    1. router-view组件向上遍历获取routerViewDepth，与routes深度对应
+    2. Vue.prototype.$route($root._route)，每次router修改更改此属性
+    3. 切换路由，会修改_route, 会触发$root重新render，继而触发所有router-view重新render
+    4. keep-alive: vnode.componentInstance = cache[key].componentInstance
+http2改善了
+    http在返回之前会一直占用tcp连接问题
+
+2020年05月11日 20:20
+boss直聘面试
+    parseInt
+抖音1面
+    transfer-encoding: chunked
+    websocket 长连接握手
+        tcp 3次握手
+	    connection: keep-live closed upgrade
+	    upgrade: websocket
+	    服务端返回 101
+	chrome原理
+    	1个浏览器进程
+    	1个GPU进程
+    	1个网络进程
+    	2个渲染进程(一个Tab一个进程)
+    		1.GUI线程(主要负责解析HTML、CSS和渲染页面)
+    		2.JS引擎线程(负责解析和执行JS代码)
+    		3.事件线程(控制事件循环)
+    		4.定时器线程(处理定时器相关逻辑)
+    		5.异步请求线程(发起Ajax时会生成该线程)
+    	extension进程
+    nwjs原理 (https://github.com/nwjs/nw.js/wiki/how-node.js-is-integrated-with-chromium)
+贝壳一面
+    cluster原理：端口复用（NODE_UNIQUE_ID）
+美团闪购1面
+    手写Promise
+美团金融1面
+    手写Map
+    https原理(身份验证，信息加密)
+ 
+
+2020年05月07日 09:30
+学习新技术的步骤
+    熟悉项目
+    老员工答疑
+    实际修改项目走通全流程
+    	查文档
+    	写测试代码
+    	搜百度
+    	写文章
+商城taro小程序学习，首页
+IndexHeader
+    context provider + useContext
+    滚动：createIntersectionObserver + 锚点header-observe-anchor
+    电话：Taro.makePhoneCall
+    icon: view + classname
+    Taro.memo: 函数式组件的PureComponent
+    hooks: useState, useEffect, useMemo, useCallback
+TangramIndex
+    typescript: interface; 泛型;
+rn回顾
+
+2020年05月01日 21:54
+售后承诺赔联调测试上线
+售后对接分类库测试
+
+完善简历
+回顾本人前端历程，回忆代码
+  环形进度条的svg实现stroke-dashoffset
+  小球抛物的svg实现offset-path
+迁移webview调试的文档到有道云
+vue依赖收集学习
+
+2020年04月26日 10:15
+聊天记录15天保存提测上线
+售后接入风控联调提测上线
+售后承诺赔开发
+    拆分search，整单赔，customOrder 组件
+    公共createOrder方法，弃用eval
+    统一启动服务命令区分环境
+    manage系统资源上传cdn
+    解决iframe undefined报错
+    进入页面自动搜索
+发起售后替换 申请售后原因 为级联
+im优化
+    新消息通知增加条件：document.hasFocus()
+
+2020年04月20日 11:41
+聊天记录15天保存开发
+    sdk拆分消息模块儿
+    历史聊天记录有200条限制兼容
+    工作台可复制粘贴模块儿增加下划线
+    记录用户修改的窗口大小
+售后接入风控
+    放开买贵赔100个限制
+    页面增加loading
+im优化
+    tinymce升级5调研demo
+    历史会话支持图片宽高占位
+
+2020年04月13日 10:04
+撤回消息问题追踪
+    进行中会话增加撤销支持
+    补充导航栏页面权限
+    导航栏减少跳出系统的页面
+im优化
+    利用pointer-events，使得弹窗模块儿化程度提升。
+    新消息推送采用merge处理，根据时间抛弃老的消息。
+    图片进行中会话占位计算优化
+售后系统优化
+    统一域名local.yunshanmeicai.com
+    静态资源上传cdn
+
+2020年04月07日 09:55
+会话列表2期测试上线
+数据相关页面增加埋点开发上线
+element-ui隔离调研
+q：tooltip无效：ref失败，原因未知
+a: 将tooltip代码移出自己维护
+
+q: resize 与 overflow 无法共存
+a: 外面再套一层容器 resize容器和tooltip平级
+
+q: dev: 不同的vue；prod: 相同的vue
+a: dev环境会优先使用lib目录下的vue和element，导致vue版本不一致冲突；测试环境配置external使用相同版本vue
+
+q: lib下的vue用处
+a: 2个vue: 编译时使用自己的vue，执行时使用宿主的vue
+im优化
+    增加置顶开关
+    记忆用户配置到storage
+    多入口文件，区分打包
+客服系统
+    工单中心分页bugfix
+    删除城市日报等页面
+    im创建工单网络慢bugfix
+
+2020年03月30日 10:04
+会话列表2期联调测试
+rdc接入im
+    增加cdn打包脚本，demo，Readme
+    修改font引入方式
+    统一样式
+im 2.1优化
+    聊天支持订单，商品样式
+    快捷回复加搜索
+    提示语音
+      扩大语音提示范围（room消息 排队中，历史会话也提示）
+      替换 msg消息 语音
+      缩短普通消息提示间隔为10s
+    提示弹窗
+      优先使用系统弹窗
+      未授权则降级为页面弹窗
+      弹窗停留时间3s
+      点击弹窗，定位到标签页
+    机器人会话文案兼容
+im环境优化
+    使用node打包替换bash，兼容windows
+    im增加publish自动打包脚本
+    调研element-ui模块儿化，与系统使用环境隔离
+      $--font-path: '~element-ui/lib/theme-chalk/fonts';
+      @import "~element-ui/packages/theme-chalk/src/index";
+    弹窗销毁问题修复
+
+2020年03月23日 09:49
+会话质检开发
+    迁移新git
+    优化历史消息im样式
+会话列表2期开发
+    拆分search组件
+销售转客服联调自测
+    迁移新git
+IM线问题
+    将element-ui移除打包
+    移除element-ui与element-ui/lib，使用正则
+客服系统优化
+    增加老版工作台按钮权限
+
+2020年03月16日 16:07
+工单关联im图片测试上线
+    使用document.hidden增加提醒范围
+会话质检开发
+销售转客服开发
+IM线上问题追踪
+    增加埋点数据(当前tab，弹窗是否显示，页面是否显示)
+    使用长轮询代替长连接
+    加入长轮询埋点，追加sdk日志
+    moment库替换为dayjs
+客服系统优化
+    im工单来源session_id补齐
+
+2020年03月09日 13:21
+质检需求联调测试
+im机器人bc区分测试上线
+工单关联im图片开发
+    新图片组件对接新工作台工单
+    新图片组件对接工单详情
+    新图片组件对接立项管理
+    新图片组件对接质检工单
+    窗口支持拖拽
+    窗口支持scale缩放
+    窗口支持resize
+    样式修改，缩减无效空间
+IM线上问题追踪
+    使用埋点+自定义数据追踪问题
+
+2020年03月02日 10:20
+im文档完善
+    增加图片展示
+埋点需求上线及后续优化
+    埋点url加入调试工具
+质检需求开发
+    解决67%缩放抖动问题
+    对接后端接口拆分
+im机器人bc区分开发联调
+    表格使用配置
+工单关联im图片技术评审
+
+2020年02月24日 15:09
+工单闭环提测上线
+    提取工单数据格式化到store
+im优化
+    服务端时间可能不准，兼容
+    手动接单与自动接单问题追踪修复
+    报错类型优化（重连失败，重连成功）
+    重连后刷新逻辑
+埋点需求开发提测
+    使用directive声明埋点
+    使用router配置埋点
+质检需求开发
+支持rdc接入，工作台区分19渠道等小需求
+
+2020年02月17日 09:51
+im优化
+    拆分npm上线
+    排队列表分页
+    本地时间清理为服务器时间
+    图片上传blob转File
+    手动接入后3s内无更新，强制更新
+    敏感词增加重新输入功能
+技能组,知识库加搜索，全部的bugfix
+质检需求评审
+埋点需求对接评审
+
+2020年02月08日 12:23
+工单闭环联调
+    去掉冗余库clipboard，使用公共方法
+    table加key解决列错乱问题
+抽取im的pc端sdk
+    使用webpack做为打包工具
+    本地开发时需要为babel配置  sourceType: 'unambiguous'
+    使用externals去除库依赖
+    element-ui的dialog会初始化ui组件2次，自研弹窗无此问题。改为自研弹窗
+    编写readme.md文档
+
+2020年01月18日 16:48
+工单闭环开发继续开发
+  使用公共选择用户组件 AuthUser 简化代码
+  抽取公共 OrgUser 组件
+  使用公共组件 City, 工单分类 组件
+  开发公共组件 wos的 人员 组织 选择器
+IM问题优化
+  修复客户端时间为服务端时间
+
+2020年01月13日 18:30
+im2期联调提测上线
+工单闭环开发暂停
+  添加附件组件拆分代码合并
+客服系统优化
+  优化导航切换岗位弹出层
+  tinymce图片处理弹窗逻辑优化
+
+2020年01月04日 13:20
+im2期开发联调
+  公共的menu栏
+工单闭环开发
+  抽取添加附件组件
+其他
+  github个人主页：ServiceWorker demo页面 https://defghy.github.io/pwa/index.html

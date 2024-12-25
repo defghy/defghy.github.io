@@ -1,0 +1,706 @@
+2024年01月02日 10:04
+aweb-config
+    移除并升级老旧依赖：viser-vue；json2csv；axios老版本
+    跨域不传 Access-Token
+    vue下proxy与createAxios简化统一
+    ace-editor升级移除require
+    webpack切换vite，dev开发环境完成并上线
+        接入vite主题plugin: @kirklin/vite-plugin-vben-theme
+        vite proxy规则
+        moment使用alias解决js:next问题
+ale
+    接入node16 && pnpm
+    替换lodash为lodash-es
+    升级qrcodejs为qrcode
+    移除一些无用依赖
+    迁移modal与useContext
+    改写一些modal组件为composition-api版本
+
+2024年01月10日 14:36
+aweb-world
+    公共loading，支持mini
+    新建aweb-style放置css
+    提升loading、Enable.vue、editable-text到ui
+    vue2.7-ace-editor发布npm
+aweb-config
+    移除webpack相关代码
+    引入element-ui
+aweb-anti-cheat
+    迁移animal-world完成
+ale
+    关卡分组选择器开发
+    探索了新的table下slot写法，形成文章
+关卡分组
+    分组弹窗功能完成
+
+2024年01月16日 16:17
+animal-world
+    vue升级至2.7.16
+ale
+    使用@tanstack/vue-virtual替代vue-virtual-scroller为虚拟滚动方案
+    接入vite本地开发
+aat
+    vue alias导致2个vue解决
+    lodash => lodash-es
+关卡分组
+    重构关卡映射为checkbox模式
+约束工具
+    出具需求方案
+    json数据暂定树形展示
+
+2024年01月23日 10:57
+约束工具
+    约束树第一、二版上线
+    搜索与切换约束版本功能
+年会
+
+2024年01月29日 10:16
+约束工具
+    单独查看弹窗
+    无限展开支持or、map
+关卡分组
+    关卡映射弹窗重构
+    复用分支选择组件
+分享monorepo
+ale
+    部署优化：node升级至16，改用pnpm
+    迁移至animal-world；
+        husky脚本支持push后自动部署
+        可复用组件迁移
+
+2024年02月04日 10:07
+约束工具
+    依赖树弹窗改造：节点自适应宽度，文字换行
+    无限展开继续支持并上线
+ale
+    自动部署增加username
+config
+    老版本common包vue版本不一致问题，使用pre.js处理
+AImage组件支持tooltip
+抽取freeModal组件，交互参照pc文件窗口
+
+2024年02月20日 10:04
+约束工具
+    varToken增加menu
+    无限展开使用太极图
+    右键json
+    按类型区分颜色
+world
+    提取ace-editor到ui
+constraint-form
+    优化action的搜索
+vite线上build，引入了vue.runtime.common.js
+    dev和prod打包逻辑不一样
+    https://github.com/vitejs/vite/issues/15800
+vue-tree自研
+    - 解决 vue2.7 报错
+    - 支持slot
+
+2024年02月26日 10:40
+约束工具
+    spread优化展示
+    兼容record<string, any>与普通属性融合：randomField
+    匿名map支持搜索
+    依赖树支持节点点击搜索
+    依赖分析支持递归多层
+tree-editor
+    提供group获取graph方案
+vue-tree自研
+    支持typescript类型
+    具体props传递，防止dom臃肿
+vite下2个vue问题
+    `issue`拆分git
+    尝试使用`stackblitz`
+    `dedupe: ['vue']`解决2个vue问题
+整理github项目
+
+2024年03月04日 11:13
+aweb-console
+    pnpm，node16，vue2.7升级
+    迁移至world项目
+    macOS启动electron报错：Library not loaded: @rpath/Electron Framework.framework/Electron Framework
+        解决：pnpm store prune
+        解法2：rm -rf /Users/happyelements/Library/Caches/electron
+animal-config
+    新增test环境
+ate
+    or升级改动检测不合理fix
+    兼容enum选项为obj和arr情况
+    enum初始化代码迁移至模块儿内部
+gpt项目初始化
+调研
+    web端服务框架：nestjs + fastify
+docker问题追踪
+image
+    查看: docker images
+    创建: docker build . -t ccr.ccs.tencentyun.com/he-animal/config-platform-web-test-front:20240227000001 -f ./build/Dockerfile
+    删除: docker rmi ccr.ccs.tencentyun.com/he-animal/config-platform-web-test-front:20240227000001
+最终原因：node_modules/.cache 加入了docker build的context，尝试.dockerignore发现必须放在根目录不能设置位置，stackoverflow提供的 DOCKER_BUILDKIT=1 不成功；将node_modules clean后解决
+
+2024年03月11日 14:37
+world
+    'vue$'替换为/^vue$/，vite和webpack不一致
+    分支弹窗使用input search
+    添加usePage功能，配合<a-pagination />使用
+ate
+    完善comment中的交互与样式
+    约束升级+使用测试约束json文件
+console迁移vite
+    extension-install使用自定义包开发
+    electron27可以正常加载vue-devtoolsd
+    mac兼容
+        require替换为import；
+        移除service-worker；
+console
+    升级electron-store；electron-updater；
+    3层组件components设置问题
+
+2024年03月18日 11:05
+cheat
+    自动封禁监控：增加查询条件
+    layout布局方式修改flex
+    blockListTable重构为新的格式
+    增加useTable
+    modal增加props类型绑定，增加loading快捷方式
+    优化页面布局
+console
+    实现新老隔离
+        webconsole-test环境；
+        /new；/old；
+        使用 /new 作为转发节点
+    添加 fse；remote；ipcRenderer；类型
+    web端与平台端代码隔离
+        抽取find代码
+    兼容svg
+    搜索快捷键改
+    增加back与main之间通信invoke方法
+
+2024年03月25日 11:44
+ate
+    退出后重新编辑，撤销/重做失效
+    搜索体验优化
+ale
+    接入vite的analyze
+    对echarts和xlsx进行代码分割
+cheat
+    优化历史表格popover交互
+    使用el-table替换a-table；bug更少
+console
+    增加mac版本客户端下载
+world
+    添加aweb-cli包，增加 upload 命令
+install --filter 不生效问题
+- 来源：https://pnpm.io/cli/install#--filter-package_selector
+- 解法：pnpm install --filter=@aweb/tree-editor... --config.dedupe-peer-dependents=false
+
+关于coscmd的CDN：
+- oss命令：coscmd -b animal-cdn-resource-1252149920 upload -r ./dist /cdn-test/
+- url：https://animal-cdn-resource-1252149920.cos.ap-beijing.myqcloud.com/cdn-test/dist/assets/CNode-GP6RBbEJ.js
+- 直接从oss访问，速度慢：未接入cdn（http1, 无gzip）
+
+2024年04月01日 16:00
+ate
+    map升级为or的时候，尝试匹配选项
+    右键菜单
+        公共组件
+        文件操作添加右键菜单
+        编辑侧；分析侧；接入公共组件
+    cursor区分预览和编辑
+world
+    增加tap，区别于click，不会响应拖拽
+
+2024年04月07日 10:05
+console
+    debugList接入公共右键菜单
+ate
+    spread兼容ref情况展示
+    约束分析工具增加cLog + vscode跳转
+ale
+    关卡棋盘配置化
+        需求对接
+        技术内部评审
+
+2024年04月15日 17:58
+ale关卡新增维度个数
+    拆分store为关卡、废弃、棋盘
+    废弃：extendInfo拆分： 关卡 && 棋盘
+    拆分Board.vue
+    Board与Config入口提供数据
+ale
+    vuex-module getter不继承问题(https://github.com/championswimmer/vuex-module-decorators/issues/287)
+ate
+    v-dragEffect右键与拖拽冲突fix
+console
+    background在public下不编译fix
+
+2024年04月24日 14:24
+ale关卡新增维度个数
+    BoardModule采用pinia，解决vuex参数只能1个，不支持extends
+    board.paths, board.grids，extendInfo 相关逻辑迁移
+    undo统一api
+ate
+    undo增加extractEdge，防止循环对象无法序列化
+
+2024年05月06日 18:46
+ale关卡新增维度个数
+    LevelModule下的board相关state迁移至BoardModule
+    parser processor拆分关卡和棋盘
+    提取searchIndex逻辑，移除store
+调研同构tooltip方案
+
+2024年05月13日 11:00
+ale
+    拆分Portal.vue组件
+    使用svg替代transform画图方案
+    使用uiEventHub统一处理grid和coord
+    统一cLog处理
+ate
+    约束分析支持本地文件
+    type-enum的fromNode逻辑细化
+    dynamic-input拆分组件
+
+2024年05月20日 15:09
+ale扩展棋盘
+    3层flex布局实现滚动+居中
+    selectedGrid相关逻辑增加boardId
+    标尺累积来进行高亮
+    提取editor中grid的store到pinia
+ate
+    mcfGroup增加groupWithId遍历方法
+    解决mcfGroup选项顺序变化问题
+    map变成array兼容
+    历史导出数据缺失fix
+
+2024年05月27日 10:58
+ale扩展棋盘
+    解决切换关卡相关bug；清理boardCtx；清理edit的store；
+    boardCtx增加调用栈；使用需要try catch
+    改造方法，r和c改为grid
+    增加test环境
+    攻城模式使用多棋盘数据
+    历史对比支持多棋盘数据
+world
+    Auth组件公共化
+
+2024年06月03日 10:23
+ale扩展棋盘
+    对于produceV3判断，问题修复
+    测试ubf数据脚本
+        - 支持批量生成levelDetail
+        - 支持从数据库文件生成levelDetail
+        - 支持接口获取数据测试，并发20，1000条数据2分钟
+    iconCountMaps支持多棋盘
+    移除魔数8
+ale bugfix
+    查询增加loading
+    点击时记录selectedIcon位置
+    最总2663的太阳数字缺失问题，回滚并恢复关卡
+    getExtendDataByPath少传side问题
+    product特殊逻辑fix，移除tmpExportProduce
+
+2024年06月11日 09:58
+config-center
+    对接新告警需求，书写技术文档，共分3-4期
+    完成：新告警&静默
+ale扩展棋盘
+    自动化测试完成
+ale bugfix
+    移除icon时同步移除extendInfo，覆盖时保留配置
+    切换棋盘导致攻城无法试玩
+    8455 棋盘旧的行列配置兼容多棋盘
+ate
+    追踪extraVal和导出的bug
+
+2024年06月18日 11:11
+config-center
+    分配用户；特殊策略；详情列表优化；
+anti-cheat
+    合并枚举
+ate
+    自动化测试相关代码准备
+    使用alias和mainFields兼容node和web对于package.json的差别
+ale
+    拆分webpack相关文件到单独文件夹
+    升级ts至4.9.5
+world
+    加入fs相关type
+    复用ts的`declare module`
+
+2024年06月24日 10:52
+config-center告警
+    树形选择，增删功能
+    表单：business, group
+    反作弊防封需求对接
+ate
+    自动化测试开发
+    使用固定的token
+    行为树死循环问题，通过在vue的代码中定位
+    set: function reactiveSetter(newVal) {
+        if (window.test) {
+            console.log(newVal);
+        }
+    }
+绩效自评
+
+2024年07月01日 17:18
+config-center告警
+    指标表单完成
+反作弊防封校验弹窗
+    防作弊页面支持跳转定位tab
+ate
+    nodeCompute存放推断值
+ale
+    统一分发事件绕过了pointerevents: none；fix
+    棋盘icon替换为AImage，AImage接入v-tooltip
+
+2024年07月05日 18:47
+config-center告警 已上线
+    展开优化
+    表单全部完成
+    更多功能完成
+ate
+    typeNonNullCheck一移动至nodeCompute
+    bugfix: mcfGroup中forEach和return冲突fix
+    自动化测试
+        第一版上线
+        修剪测试用例
+        coexist问题fix
+        上线最终版；已知问题修复
+ale
+    替换icon为iconV2
+    devtools下的flush方法使用stringify序列化1个大对象，当页面有大量vue组件改动时，会频繁触发flush方法导致卡顿。新版本devtools没有这个问题，但是很难用。尝试使用直接操作dom方法避开flush，不通用。
+
+2024年07月15日 09:57
+ale
+    高级排序使用modal
+    增加移动棋盘，缩放手势
+    统一跟随鼠标逻辑
+console
+    版本号加入页面展示
+    mac打包为universal版本
+    可以利用afterSign打空签名？
+world
+    测试结果发群
+    手势功能：useWheel用于判断触摸板，缩放手势
+    线上也使用vue devtools
+技术优化
+    二次开发vue-devtools
+        - 解决flush性能问题
+        - 支持setup state
+
+2024年07月22日 10:02
+ale性能优化
+    技术文档
+    移除无效的 ExtendInfoTriggerSource 枚举
+    grid增加side属性，side相关代码简化
+    对path，produceV3，进入页面几个场景兼容
+    extendInfo删除功能迁移，上线
+自动化测试
+    解决内存泄露问题 + 形成文章
+    扩展为所有棋盘参加测试
+
+2024年07月27日 11:40
+ale性能优化
+    删除补充
+        生成口也影响对应icon的extendInfo
+        规范 BoardModule.removeIcon 使用
+        替换时需要保证r和c完全一致：多格场景
+    搜索优化
+        icon搜索重构支持截流
+        关卡搜索拆分ListItem组件，红色高亮
+world
+    html缓存策略方案
+
+2024年08月05日 14:02
+ale性能优化
+    历史数据icon缺失extendInfo问题
+        测试时不进行extendInfo数据修复
+    生成口移除联动移除生成口icon
+    重新规范ExtendInfo的响应式写法
+config
+    需求：公告页配置兼容小游戏
+    detail和list路由由父子路由改为平级路由
+监控验收功能
+自动化测试
+    改为webhook触发
+    数组对齐重写
+
+2024年08月12日 10:49
+web-console
+    设备选择器性能优化
+    筛选器
+        优化样式
+        提升设备选择器性能
+        预设按钮迁移至预设模块儿
+        复用useCheckAll, FormItemList
+        复杂冗余逻辑进行简化
+config
+    platform-checkbox拆分组件，优化useCheckAll
+    设备选择器性能优化，拆分组件
+    拆分platform-selector组件; firstRow中平台、排除渠道复用此组件
+    GroupFirstRow使用css统一控制样式
+公共组件
+    clickOutsideDirective兼容元素消失情况
+    FakeInput增加select样式
+
+2024年08月20日 14:05
+ale
+    定位到iconCountMap性能问题
+    boardTips性能问题：v-for误用导致所有格子一起更新
+    store的viewMap性能问题：extendInfo改动导致所有boardViewMap更新
+web-console
+    使用usePress简化代码
+    优化调试页面样式和交互
+config
+    移除aimanagerTest
+优化
+    pinia升级，修复ts类型问题
+    vxe-table统一使用方法，支持代码分割
+    echart统一api使用方法
+
+2024年08月26日 15:51
+Ubfuuu难度反馈需求联调完成
+config
+    优化BasicLayout页面布局
+    替换<a-tooltip>为v-tooltip
+    a-tabs的scroll样式；mini样式；bordered样式；
+    活动配置增加XML链接
+优化
+    增加InputNumnerRange组件
+    ale替换统一echarts，实现EChart.vue异步组件
+    开发基于ant-design-vue的unplugin resolver
+devtools
+    解决大量vuex:mutation导致页面卡死问题
+    解决router:changed序列化大量数据导致切换页面不响应问题
+
+2024年09月02日 10:16
+Ubfuuu难度反馈需求上线
+    echarts线图交互需要hack实现，尝试替换g2
+    增加diffFix分布页面
+优化
+    chrome升级128，导致zoom时的getBoundingClientRect()的坐标逻辑不一样了
+    统一的userQuery持久化
+    重构localStorage，拆分模块儿 GroupStorage 和 CommonStorage；拆分中间件 ExpireMid 和 AssignMid
+devtools
+    形成文章：https://segmentfault.com/a/1190000045204638
+关于g2 
+    v5版本如何实现自定义交互？https://github.com/antvis/G2/discussions/6446
+
+2024年09月09日 10:03
+Ubfuuu难度反馈需求-图
+    tooltip使用.vue实现
+    增加versions和suffix参数；合并diffFix数据；
+    使用boundaryGap解决边缘操作问题，追踪tooltip消失原因，失败。问了正确的边缘问题，由chatGpt解决
+ale
+    useBoardPerf生成性能数据，供给vue渲染使用
+        selectedGrid, iconCountMaps，perfIcons...
+        利用watch的flush为sync，同步联动boardInfoMap，切换棋盘兼容
+        extendComplexInfo延迟显示会导致错误的数据设置到错误的grid，需要移除其中compute里面设置值的逻辑
+    plugin的写法，解除循环依赖
+    bugfix：序列生成口增加extendInfo联动
+devtools
+    双端与service-worker增加重连能力，测试中
+优化
+unplugin方案作废，风险高，收益低，成本高
+
+2024年09月15日 10:51
+ale
+    iconHandler完全使用plugin
+    替换一些Icon.vue
+    icon分层需求开发联调
+        CommonIcon.vue和ProducerIcon互斥
+        useChoose公共代码
+cheat
+    失败原因enum使用后端接口；store中的use表示1个功能相关逻辑
+console
+    优化json格式数据展示
+    解决命令checkbox默认值失效问题
+config-center
+    使用WeakMap来对数组无key进行兼容
+devtools
+    @Ref性能问题解决 5.3.6
+    双端与service-worker增加重连能力，测试中
+        devtools端：devtools.js；@front/index.js；
+        web端：proxy.js；backend.js；
+
+2024年09月24日 11:31
+像素图需求
+    调研工具，书写技术方案
+    统一的konva引入方式
+工具
+    useIFrame统一管理页面间通信
+        extension，页面间通信，iframe和页面通信有共性
+config-center
+    增加 haveVarEnums 参数
+bugfix
+    预测跳转无效果fix
+    ale使用iframe登录ate失败fix
+        使用useIFrame来统一iframe通信
+
+2024年10月05日 09:41
+像素图需求
+    redo/undo
+    scaleByCenter, scaleByPoint
+    笔刷
+    扩展多格icon功能: width, height, mainPos, placeholderIcon
+自反馈难度小问题修复
+bugfix
+    监控告警
+    棋盘传送门脏数据，层展示fix
+
+2024年10月14日 10:38
+回家
+    k20 pro以旧换新为note 14 pro
+        数据迁移
+    使用电视替换坏掉的显示器
+    平板支架
+    笔记本硬盘更换，准备以旧换新
+    电视替换为央视频
+    听书替换为懒人听书，30元年卡
+    手机修改为极简模式，银行app支持指纹
+    购置窗台床，购置变色眼镜
+像素图
+    总流程完成
+    截图，异步组件方案
+
+2024年10月21日 10:27
+像素图
+ale
+    使用import.meta.glob替代require
+config
+    拆分excel下的modal
+大组tb
+    调研linux替换windows可行性
+    c++开发ffmpeg的video
+    台式机电源问题和一线通线有关？
+
+2024年11月04日 10:26
+像素图联调
+    支持透明背景色，使用KImage做透明背景图
+    vue2不支持worker中使用
+    羽毛笔工具
+    hotkeys的scope互斥问题解决
+config
+    excel优化方案
+        技术文档
+        构造db，精简数据modifyJson, originData, referenceTotalList...
+        Map不能使用computed，有性能问题
+    jexcel使用截流优化性能
+    登录跳转问题fix
+ate
+    增加diff时ver标识
+打点sql工具需求对接
+
+2024年11月11日 17:12
+像素画
+    更新颜色列表
+    多格拷贝，extendInfo和boardInfo联动逻辑
+ate
+    增加批量临时发布功能
+config
+    handleFindOriginData逻辑考虑index
+    修复数字正则，增加整数选项
+    增加平台选择配置
+devtools
+    重新实现通信机制，更加健壮，支持返回值 
+    devtool(chrome.tabs.sendMessage) <=> 
+    content-script(chrome.runtime.sendMessage <=> window.postMessage) <=>
+    web(window.postMessage)
+cheat
+    作弊明细接入useQuerySave
+
+2024年11月18日 18:14
+像素画
+    选择工具 + 预设 功能
+打点查询开发联调
+devtool
+    简单事件替换为exBridge
+ate
+    分支弹窗逻辑数据统一
+试用windows的wsl2
+    需要修改dns，改动涉及 
+        /etc/wsl.conf 增加 
+            [network]
+            generateResolvConf = false
+        /etc/resolv.conf 修改
+            nameserver 8.8.8.8
+
+2024年11月25日 16:34
+打点查询功能fix
+自反馈diffFix异常，倒挂开发
+对接发布引导需求
+devtool
+    更新文档
+config-center
+    关卡一致性使用xml获取枚举
+    统一csv导出
+    数据库类型暴露给用户，统一的pattern枚举
+ate
+    重构外部使用ate方式，采用use
+console
+    支持自研的vue-devtools
+    更新extension-installer中的包版本
+    优化动更样式，提取use，简化代码
+优化
+    统一的useFormValidate
+    iframe通信支持接口返回
+wsl支持vpn
+    翻墙vpn：使用vpn.sh脚本
+    easyConnect：wsl --shutdown 后重启，vpn生效
+    注意：升级windows11后，不需要上面2个步骤
+
+2024年12月02日 10:02
+对接发布引导需求
+    编辑部分联调
+    从LevelList拆分tag逻辑&组件，便于复用
+    拆分复用diff组件
+        样式交互优化：横纵向滚动条；固定行号；
+        所有diff功能替换为公共组件
+    抽象ListTable和ListColumn组件
+pixel-art开源
+    build && publish
+
+2024年12月09日 10:05
+发布引导需求完成联调
+pixel-art开源
+    github actions && github pages 生成帮助文档
+bugfix
+    生成口组增删，需要保存时纠正index
+    diffFix分布，无数据特殊展示
+像素图
+    需求：另一个画板
+        尝试使用数学方法自动分类
+    性能: move减少调用次数
+    导入兼容透明颜色
+jexcel性能
+    使用html的data
+    使用onchange替代updateTable
+项目
+    vite版本无用文件依赖收集
+
+2024年12月16日 11:31
+发布引导
+    textDiff增加统一开关raw
+devtools
+    支持pinia：查询，数据联动，编辑
+    setup支持修改
+开源vue-pixel-core
+    编写 README.md
+    生成 demo 页面和 stackblitz 页面
+    defghy项目支持seo
+        使用jekyll的sitemap制作地图
+
+2024年12月23日 10:30
+anti-cheat
+    回放结果交互优化：modal改造；table改造；
+config-center
+    devProtocol页面增加自动填充：使用useQuerySave
+关卡引导清洗数据方案
+    回滚：批量历史回滚，直接在页面上操作？
+项目
+    虚拟滚动select
+    OverflowText改造使用单例tooltip
+    支持命令式的popover
+    支持命令式的excel的dropdown
+
+49周

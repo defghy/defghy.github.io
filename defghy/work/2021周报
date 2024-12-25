@@ -1,0 +1,510 @@
+
+2021年12月20日 10:05
+非系统时间求同环比联调测试
+图表标注需求开发
+线上问题
+    dayjs的timezone有性能问题，尽量先使用普通dayjs
+    天策下olap分享url正确性
+    移动端与pc端看板下载逻辑一致
+    extension支持reset功能
+    筛选器编辑字段样式
+    iso的周标准不支持周滚动，使用普通周定义
+    修复对比日期的weekStart生成策略
+技术需求
+    配合后端修改mock对应cookie
+    移除冗余代码
+
+2021年12月13日 12:00
+筛选器埋点开发测试上线
+非系统时间求同环比待联调
+olap融合洗数据提测
+    洗数据洗回看板问题
+图表标注需求对接
+调研：表格滚动截图
+迁移prd:
+    上传下载文件逻辑：aws-sdk
+
+2021年12月06日 10:16
+非系统时间求同环比开发
+    支持olap融合
+筛选器埋点开发上线
+olap融合提测支持
+    fix: 字段showName逻辑
+    fix: ErrorInfo全局变量问题
+    fix: originFilterValue生成逻辑错误
+技术需求
+    extension下mock olap账号优化
+    迁移prd: 导入列表数据逻辑完成，完成列表页面
+    修复dayjs下timezone的问题 https://github.com/iamkun/dayjs/issues/1730；提交pr；
+puzzle-server迁移容器云
+
+2021年11月29日 10:14
+非系统时间求同环比开发
+olap融合提测支持
+    支持季度日期转换
+    结果值过滤器范围问题修复
+技术需求
+    radar上传sourcemap开发
+    urlMap与extension兼容release新环境
+    extension添加移动端页面预览功能
+    radar移动端拆分项目
+线上问题修复
+    给出埋点新老库迁移文档
+    数据集关闭单位，kwaibi无法设置问题
+    级联筛选器校验图表勾选情况
+    文本下拉单选超长兼容
+迁移prd
+    建立必要的controller,module,service；新建库
+puzzle-server迁移容器云
+
+2021年11月22日 10:53
+oncall小问题集合开发上线
+    抽取公共axis-area-container容器
+非系统时间求同环比开发
+olap融合提测支持
+    魔表数据走valueText
+    动态时间未来时间支持
+    指标筛选器补充轴上字段
+puzzle-server迁移容器云
+oncall解决线上问题
+埋点
+    补充移动端fmp
+    补充看板自定义埋点
+
+2021年11月15日 10:06
+单位与格式分离上线
+非系统时间求同环比开发
+    复用批量配置逻辑
+    优化common-tip展示逻辑
+olap融合提测支持
+    modal弹窗lock-scroll导致布局变动问题修复
+    第三组对比日期清洗
+
+2021年11月12日 15:45
+单位与格式分离上线
+非系统时间求同环比开发
+    复用批量配置逻辑
+    优化common-tip展示逻辑
+olap融合提测支持
+    modal弹窗lock-scroll导致布局变动问题修复
+    第三组对比日期清洗
+puzzle-server迁移容器云
+线上问题
+补充看板埋点和docs
+
+2021年11月08日 10:10
+时间筛选器年月日 && 申请权限优化 测试上线
+单位与格式分离开发
+    优化下载参数逻辑
+    优化格式弹窗默认值逻辑
+非系统时间求同环比开发
+    复用field同环比逻辑
+olap融合提测支持
+    提取下钻图标组件公共给olap
+puzzle-server迁移容器云
+    新建流水线，部署项目
+    适配流水线的打包脚本
+线上问题
+    修复切换新版埋点sql适配
+    node发布时间过长，cypress导致，优化打包脚本
+
+2021年11月01日 21:18
+时间筛选器年月日 && 申请权限优化 开发
+单位与格式分离开发
+非系统时间求同环比
+优化
+    长按收藏坐标位置修复
+    线上问题集合修复
+puzzle-server迁移容器云
+    新建流水线，部署项目
+
+2021年10月25日 10:17
+图表字段备注开发提测上线
+首页配置切换权限交互优化测试上线
+告警公众号，处理开发提测上线
+修复
+    筛选器、书签配置和值不匹配问题修复
+上线
+    老版埋点删除
+    portal移除iframe
+
+2021年10月18日 09:59
+移动端告警开发测试上线
+外链看板新看板开发测试上线
+图表字段备注开发提测
+告警公众号，处理开发
+首页配置优化后续开发测试
+    二级页面切换权限，保留tab
+优化
+    extension添加sgp域名，ug域名
+    theme-ocean包兼容kwai-ui
+    eruda添加toast提示，方便后续开发；添加看板引导开关
+    iframe头部展示排除洞察开关
+    移除portal下老看板iframe逻辑
+前端server优化
+    pm2日志重复了，禁用pm2日志，仅使用egg日志
+    解决一个 puzzle-server 的 config.field undefined 问题
+    前端根据核心数有56个worker，使用命令 top -M -p $(pgrep -P 214739 | head -n 20 | awk '{print $1}' | tr "\
+" "," | sed 's/,$//') 查看cpu和内存占用。内存占用最大5g，cpu占用较少。
+    实现qps.js日志统计代码，日志下qps一天内最大为 (2021-10-03 10:00:08: 160)
+    添加watchdir配置，支持import代码热更新
+
+2021年10月09日 09:57
+移动端告警开发
+外链看板新看板开发
+假期学习
+    g2交互api
+    图形学课程
+
+2021年09月28日 20:18
+首页配置显示优化开发提测上线
+移动端告警开发
+外链看板新看板开发
+紧急
+    洞察按钮添加tooltip开发上线
+    备注支持富文本开发上线
+优化
+    eruda支持style，调整navbar顺序，添加引导弹窗开关
+
+2021年09月22日 10:21
+时间筛选器支持时分秒，快捷上线
+    形成知识库
+首页配置显示优化开发提测
+    提取记录滚动 position 组件
+移动端告警开发
+    迁移复用告警配置弹窗
+优化
+    线上转交，字段图例开关问题修复
+    默认跳转海外，接口报错时不跳转，防死循环
+
+2021年09月13日 11:56
+时间筛选器支持时分秒，快捷测试
+首页配置显示优化开发
+    统一树形ui组件，collapse-transition组件
+优化
+    提取 too large 的日志
+    容量限制提升到20m
+
+2021年09月09日 11:52
+时间筛选器支持时分秒，快捷
+隐藏筛选器上线
+优化
+    统一typescript版本，降低无意义报错
+
+2021年08月30日 10:07
+隐藏筛选器开发提测
+插件一键复制看板
+    公共代码复用
+    完成一键看板分身功能
+实时数据突出标记提测上线
+分享/推送返回首页联调提测上线
+线上问题
+    请求提过大限制改为10m
+    单期日期洞察时转换原始值过滤器结束时间问题修复
+
+2021年08月23日 10:16
+插件一键复制看板
+    支持 background|content|page|popup 四方的通信机制
+    chrome的插件zip方式，解压路径/private/var为临时文件夹
+实时数据突出标记开发提测
+分享/推送返回首页开发
+日历交互调研
+    https://demo.mobiscroll.com/javascript/range/date-time-range#
+    https://nutui.jd.com/#/datepicker
+    http://mint-ui.github.io/docs/#/en2/datetime-picker
+    https://didi.github.io/cube-ui/#/zh-CN/docs/date-picker
+    https://muse-ui.org/#/zh-CN/time-picker
+radar添加必要参数
+知识库添加文章-移动端入口
+
+2021年08月13日 21:40
+推送弹窗组件化拆分开发上线
+插件一键复制看板
+    background已经支持module，无需打包
+    采用 rollup plugin方式，将contentScript采用iife方式打包
+对接分享截屏实现方案
+    推送：数据不全
+    open-api接入：无法代替用户发消息
+线上问题
+    修复 指标卡 与 折线图 副指标 format 策略不一致问题
+    修复 dayjs 的 plugin 多版本缺失问题
+
+2021年08月06日 16:57
+移动端垂直步长联调上线
+指标卡支持无时间字段开发上线
+推送接口widget/query接入pc端开发上线
+全量替换cdn域名，增加全局变量配置
+推送增加同环比分列联调提测上线
+    使用info.ts过滤无效field
+级联单选多选级联初始选中状态开发提测上线
+plugin插件优化：整合content和background与popup
+
+2021年08月02日 10:08
+移动端垂直步长开发
+小功能集合开发（清空按钮，表格备注）提测上线
+指标卡支持无时间字段开发提测
+推送增加同环比分列开发
+优化
+    关于ts加载png文件方案，利用废弃的api：require.extensions['.png']实现
+关于跨域
+    withCredentials 和 Access-Control-Allow-Credentials 与 Access-Control-Allow-Headers 配合使用，而且要求 Access-Control-Allow-Origin 为具体域名，要求比较多，charles无法复现场景
+    对跨域请求头进行校验并给出必要报错
+
+2021年07月26日 10:29
+海外移动开发提测
+    先等待account接口写入cookie再请求跨域，因为没有特殊请求header走了简单请求
+    handleLogin限制跳转次数
+移动端垂直步长开发
+调研发现 vite-plugin-chrome-extension 不够成熟
+    不匹配manifest v3的 content_security_policy
+线上问题
+    时区问题修复
+
+2021年07月19日 10:31
+推送2期提测上线
+    使用 transpileOnly 跳过tsl检查
+    相关指标：qps 2.02
+海外移动开发提测
+步长调研
+    修复 grid-layout 下的 vertical margin 问题：采用firstCollision来回溯累加的个数
+
+2021年07月12日 10:49
+oncall问题
+    悬浮球下移
+    移动端入口图标改小，文字换行，logo闪烁灯问题修复；消息推送返回首页；监听字段名改动并动态适配大小；
+    天策搜索框定高滚动
+    template的v-show问题
+    筛选器组的空数据样式问题
+    设置用户配置为请求队列
+    文本筛选器平铺监听
+    筛选器快照覆盖，文本恒为disabled问题
+推送2期数据format功能开放给后端
+    解除图表info与国际化t函数之间依赖
+    拆包为puzzle-public和puzzle-node
+
+2021年07月05日 14:43
+解决 mobile-editor 和 puzzle-mobile 语法报错
+推送2期数据format功能开放给后端
+    申请内部域名 + nginx配置
+    初始化test测试用例
+    eslint添加root字段，阻止向上查找
+    对后端提供queryVO功能
+
+2021年06月29日 16:21
+接入天策走查上线
+    search兼容pc端
+推送2期数据format功能开放给后端
+    puzzle-server需要独立打包，添加到nohoist
+    打包方案：删除无拥包 + install + build + zip
+    commonjs(egg) 与 esm(lodash-es) 不兼容：使用module-alias重定向lodash-es为lodash
+    npm只能设置唯一main入口，直接引用到index来避免
+    线上打包，前端代码单独打包，以甩掉多余node_modules
+    理清日志 + 错误日志逻辑
+优化
+    puzzle-types转化为ts语法，处理衍生的语法错误
+
+2021年06月21日 10:22
+接入天策提测
+    lazy-list支持前端分页
+    复用代码：logger、auth按钮
+线上问题修复
+    文本 级联 数据集字段选择 相关问题修复
+    新建统一测试看板，发现一个富文本问题
+调研推送2期数据format问题
+
+2021年06月15日 14:39
+接入天策联调
+    page-stack破坏了push，replace的Promise功能，使用setTimeout hack下；
+    添加图片组件，骨架占位功能
+    使用props传递update函数，代替直接修改props
+线上问题修复
+    移交看板，错误的移交了数据集
+
+2021年06月04日 16:35
+接入天策联调
+移动端接入条件颜色开发
+extension升级
+    代码适配vue3
+    调整样式
+显示洞察需求开发
+线上问题修复
+    批量数据集替换数据集查询每次请求接口
+    筛选器周聚合本周第一天问题修复
+分享周
+
+2021年05月30日 16:31
+消息推送测试
+    使用range计算是否触发了省略号逻辑
+移动端接入条件颜色逻辑
+    与pc端共享编辑弹窗代码
+天玑埋点参数添加
+extension升级架构：pnpm + vite + vue3 + element-plus
+线上问题修复
+    重构7天平均实现方式
+
+2021年05月24日 11:42
+接入天策开发
+    Vue dev tools的events的recording有性能问题，关闭
+消息推送开发
+
+2021年05月16日 10:58
+移动端配置明细表测试上线
+接入天策开发
+    修复拖拽scrollTop问题
+    手势库调研
+        https://github.com/any86/any-touch
+        https://github.com/zingchart/zingtouch
+        https://github.com/wensiyuanseven/better-gesture
+
+2021年05月10日 16:33
+移动端配置明细表测试
+    自动检测全局手机容器，供给modal，dialog使用
+接入天策开发
+oncall解决线上bug
+    节假日preformat问题
+    数据集补跑数据日历无故刷新问题
+
+2021年05月06日 10:14
+移动端配置明细表开发测试
+    折线图，指标卡，明细表共用备注弹窗
+接入天策开发
+线上问题
+    widget不依赖整个widgetViewMap
+
+2021年04月27日 20:19
+折线图副指标遗留问题修复
+数据集字段修改检测禁用开发上线
+移动端配置明细表开发
+洞察问题修复
+    时间增加交集计算
+其他
+    hsl自动触摸反馈：文章 + 专利
+    听取导师培训课程
+
+2021年04月20日 17:23
+消息推送联调测试
+移动端明细表测试上rc
+    svgicon在iphone12上展示不全
+折线图副指标测试上rc
+优化
+    rgb => hsl 实现触摸反馈
+谈话
+    业务再忙，也要留出时间思考技术
+形成文章
+    vant的postcss问题解决
+
+2021年04月12日 20:52
+消息推送开发
+移动端明细表开发提测
+    aggrid ?? revogrid
+折线图副指标开发
+优化
+    label传递方式由slot改为props
+    vant转换rem适配monorepo
+    pc端reset样式移除
+    dayjs迁移puzzle-common
+
+2021年03月29日 09:59
+移动端指标卡优化测试上线
+    富文本组件支持rem
+    mobile-editor下部分组件支持px => rem
+滚动周覆盖graunlarity和format补走rc
+筛选器收起展开重新开发提测上线
+优化loadfont，去除await
+线上问题修复
+    移动端起始时间参数问题
+    老时间聚合筛选器兼容覆盖graunlity
+    数据集页面兼容移动端看板
+
+2021年03月14日 13:00
+兼容老版filterConfig上线
+线上问题修复
+    时间筛选器年周月季范围fix
+    时间筛选器时分秒快捷fix
+    Google翻译导致文案异常
+移动端指标卡优化需求对接开发
+    阴影样式问题修复
+    px2rem支持pc端
+    pc端手机框宽度可调节
+    富指标卡预加载font逻辑，防止文字swap
+
+2021年03月01日 10:09
+筛选器组收起展开开发提测
+兼容老看板filterConfig参数
+移动端指标卡优化需求对接
+优化
+    sentry去掉无效错误
+    替换loading为css动画，不会被js阻塞
+
+2021年02月22日 16:52
+移动端
+    mobile支持线上mock账号能力
+    解决radar和eruda的冲突
+线上bug与优化
+    替换图表，去掉边框，去空格
+节前功能集合上线
+天策，新看板 添加 接入公共sentry
+开发环境去掉 async，解构 的babel转义，方便调试
+筛选器组收起展开开发
+
+2021年02月18日 10:04
+移动端
+    修改nginx，去缓存
+    sentry rate limit
+    SENTRY_RELEASE 放入 process.env
+线上问题
+    节前小问题集合修复
+    切换sheet加loading
+cdn fallback方案
+
+2021年02月07日 14:44
+移动端
+    rc，prod发布测试
+    safe-area组件
+    引导
+    sentry支持区分环境发版本
+kwaibi
+    合并 puzzle-public 与 puzzle-common
+    移除 puzzle-common 的js代码
+线上问题
+    @ks/puzzle-*包需要alias，包体积减少约25%
+
+2021年02月01日 10:14
+移动端
+    beforeEach中增加参数延续功能
+    extension支持天玑
+    解决sentry跨域报错
+    ts下router添加注册导航
+线上问题
+    洞察原始值过滤器支持单期时间
+    发布过时sheetId兼容
+    日历dayjs与moment的兼容
+    国际化接口本地报错去除
+    原始值过滤器陈旧字段删除
+
+2021年01月25日 16:35
+移动端pc侧自测问题修复
+移动端移动测
+    cdn增加命名空间 修改分隔符
+    接入筛选器 + filterConfig
+粒度滚动周验收问题解决修复
+    回车自动添加
+线上问题
+    iframe隐藏header页面支持自动刷新
+提取打包脚本安装依赖功能: 自研bootstrap
+
+2021年01月18日 17:29
+移动端pc侧
+    迁移整体框架、store、右侧边栏功能
+    筛选器组配置 + render
+移动端移动测
+    devtool: vconsole || eruda
+    组件库：vant
+    路由：vue-router + vue-page-stack
+    接入kim sdk
+    modal自定义弹层
+    页面白屏loading
+线上问题解决
+    数字筛选器验证问题
+粒度滚动周验收问题解决修复
+    回车自动添加

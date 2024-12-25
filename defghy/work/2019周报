@@ -1,0 +1,522 @@
+12.22 17:54
+实时工单监控开发联调
+110前工作台风控，兜底小需求集合联调测试上线
+  工单详情图片预览优化
+  优化复制粘贴提示
+im2期
+  新系统支持im
+  im拆分组件支持查看聊天记录
+  相似问题重构开发提测
+  合力电话条与im状态互斥准备接口
+客服系统优化
+  申请新的test机器
+  test机器支持root登录
+  晚点数据迁移新系统
+推送系统
+  申请test机器，使用客服的test环境redis，是否支持哨兵？
+
+12.15 10:17
+im后期问题修复
+  -1未读数开关
+  工作时间，导入，客服状态修复
+实时工单监控开发
+  使用render + createElement实现动态列表格并形成文档
+110前工作台风控，兜底小需求集合开发
+
+12.02 10:08
+im联调提测
+  借助oss压缩正确展示图片
+  增加amr录音播放
+工作台重构联调提测
+  替换售后url
+  样式优化
+下周计划: im，工作台联调提测
+
+11.23 16:31
+im开发联调
+  队列模块儿修改
+工作台开发联调
+客服系统优化
+  vue-cli升级
+  test环境联调打包问题解决
+
+11.17 10:38
+质检提测上线
+im开发
+  邀请评价，快捷回复模块儿
+  与小程序联调对话功能
+工单开发
+  在线反馈
+  售后赔偿
+  商品审核
+  身份，商户切换
+  订单
+  新用户信息维护
+客服系统优化
+  图片预览使用兼容图片格式与非图片格式
+本周总结: im开发
+工作台重构开发
+
+11.09 15:50
+质检提测
+im开发
+  收发消息（支持状态）
+  当前队列开发
+工作台开发
+  公共搜索
+  用户基础信息
+客服系统优化
+  mock增加js解析功能
+
+11.01 19:14
+质检提测
+自研im开发
+  后台配置页面开发完毕，达到联调状态
+客服系统优化
+  上传脚本优化，支持复杂文件夹结构
+  删除下线页面
+    短信模板相关代码
+    公告管理相关代码
+    老版短信批量发送
+  迁移页面
+    门店过滤
+    商城评价下载
+    仓库路线商户下载
+
+10.26 17:32
+留存率上线
+一诺千金图片预览开发上线
+公告多组织开发联调上线
+质检提测
+自研im开发
+  队列聊天框切图
+  后台智能客服页面开发
+  新老系统不可复用组件：icon, tabs,
+  新老系统可复用组件：dialog，message
+客服系统优化
+  删除文件postcss.config，加入vue.config.js
+  优化mock开关，不再需要环境变量以及每次重启
+
+10.20 09:56
+质检联调自测
+留存率联调提测
+一诺千金开发联调提测上线
+自研im开发
+  客服人工时间页面开发
+  富文本聊天框切图
+test2机器环境问题解决
+客服系统优化
+  定义1024错误码，弹窗提示登录失效
+
+10.14 09:58
+质检联调
+流通与公告优化开发
+  组织多选器组件开发
+客服优化
+  fontawesome拆出为npm
+
+09.28 23:33
+工单优化上线
+知识库二期测试上线
+质检1期开发联调
+商品留存率开发
+  所有特殊选择器组件化
+对接自研im需求
+
+09.22 10:01
+公共导航栏上线灰度
+质检1期开发完成
+  质检模板联调完毕
+工单优化需求开发
+  标签组件
+  删减冗余全局变量
+  使用后端动态域名替换本地域名
+  iframe增加loading
+
+09.13 17:22
+质检1期开发(任务，模板，发布任务)
+table与表单混用+校验
+客服系统优化
+迁移上线，删除B端大屏数据页面
+使用setTimeout替换setInterval，优化轮询机制
+
+09.08 10:04
+质检1期开发切图
+  迁移 工单详情 模块儿
+  公共导航栏前端实现
+    1. 根据业务线切换menu
+    2. auth权限组件实现，支持全局权限开关以及查询
+    3. 外链跳转domain实现
+司机催单联调测试应届生培训科目准备与宣讲
+
+
+08.31 21:39
+商户留存率联调提测
+司机催单开发
+老系统迁移（跟随其他项目迁移）
+  新建rdm项目，技术评审
+  大屏数据迁移测试上线
+    phone配置区分3个环境
+客服系统优化
+  增加公共Page与PageHeader组件
+test2环境支持：crm-mobile
+环境迁移问题解决
+  curl无效问题
+  test环境pm2版本过低失效问题
+  crm_mobile上传失败问题
+
+08.25 16:18
+电话条互踢方案解决提测灰度上线
+商户留存率联调提测
+分职场查看实时接起率开发
+  实时接起率页面迁移至 main/index
+  拆分报表模块儿和chart模块儿
+客服系统优化：
+  工单列表使用新版弹层交互
+  新增 main/index 路由，后面迁移的页面会全部部署到此路由下面
+  修改 sourcemap 为 cheap-module-eval-source-map，速度提升明显，功能待验证
+  优化top menu样式
+
+08.16 20:36
+诊断提测上线
+商户留存率开发
+知识库平台2期开发
+客服系统优化
+  增加触发式弹窗组件: iframe使用新版交互
+  解决电话条互踢：新开页面当做特殊弹层，不展示导航条
+  增加keep-alive页面支持
+
+
+08.11 14:56
+指挥系统诊断项目
+  升级mc-upload工具
+商户留存率开发
+客服系统优化
+  支持本地非侵入式mock功能
+  和crm统一域名，端口号
+  取消prefetch优化：config.plugins.delete('prefetch-index')
+  电话条php迁移前端
+    迁移js，css，img为组件
+    兼容window全局变量
+    接口转发增加 /account, /company
+node server迁移进度：全部完成
+QA的test环境支持：crm-fe crm-manager支持
+
+08.05 10:04
+指标诊断项目开发联调
+  增加判断 merge master 功能
+    n_commit_id=`git rev-parse origin/master`
+    git_check=`git log --pretty=oneline -n 1000 | grep $n_commit_id`
+    if [ -n "$git_check" ];then
+      echo "检测 merge master 通过"
+    else
+      { echo "Error: 当前代码未merge master，验证不通过" 1>&2; exit 1; }
+    fi
+离线订单线上接口替换
+商户画像pd端开发联调
+  增加3套命令支持本地化开发
+智齿跳转自动关联用户开发
+培训：
+  增加多环境调试演示环节
+  完善新人入职wiki，增加 node环境安装、 git配置、mac环境
+node server迁移进度：
+  csp_fe: test stage
+
+07.27 16:04
+PK项目重新开发联调提测上线
+node server迁移进度：
+crm_manager: test stage production
+crm_mobile: test stage production
+csp_fe: test stage
+
+07.20 16:01
+知识库迁移测试上线
+pk项目联调
+  使用localStorage兼容无参数调试模式
+诊断项目开发完成
+node server迁移
+  增加cdn 热发布功能，支持1次发布
+  test，stage环境测试完成，已上线
+  线上临时公网域名
+        https://img-oss.yunshanmeicai.com
+        https://registrymnpm.stage.yunshanmeicai.com
+        https://registrymnpm.yunshanmeicai.com
+        https://nodejs.org
+        https://raw.githubusercontent.com
+        http://registry.npm.taobao.org
+        http://registry.npmjs.org
+        https://cdn.npm.taobao.org
+  迁移进度：
+    crm_manager: test stage
+    crm_mobile: test stage
+    command_manager: test stage production
+    csp_fe: test stage
+
+07.13 15:02
+团长裂变修改库容上线
+csp知识库测试
+pk项目开发
+诊断项目开发
+  基于react-d3-tree增加功能，发布react-d3-tree-extended完成需求
+
+07.07 15:19
+crm销售区站区切换上线
+csp知识库联调提测
+node server迁移10%
+  申请机器，域名，ops资源
+  git初始化
+  完善环境安装脚本
+pk项目开发70%
+  page组件支持style属性
+  使用:global语法来书写标准css  使用：react-router-cache-route实现keep-alive页面
+
+
+06.28 20:10
+订单统计分析2期上线
+知识库迁移csp开发
+  增加权限功能：组件和页面通过auth权限控制显示
+  登录用户鉴权：支持角色选择和岗位选择
+amp-hotfix同版本ops发布热更新版本号重置，问题追踪
+ops的crm-rn的test环境发布过慢追踪
+
+
+06.21 19:53
+裂变2期测试上线
+指挥系统测试上线
+  追踪解决现有sentry问题
+销售积分联调测试
+裂变3期联调测试
+区域切换售卖区站区开发联调
+知识库迁移开发
+
+06.14 20:55
+指挥系统联调
+销售积分后台开发联调
+团长裂变2期联调提测
+  工具箱增加前端文案存储方案
+团长裂变3期联调
+区域切换售卖区站区
+
+
+06.07 18:55
+团长裂变2期开发
+  popup组件完善支持任意组件弹出
+  文案使用工具箱配置
+订单统计分析二期开发
+  合计组件开发
+指挥系统开发
+  支持本地server多套api路由 + mock
+  nginx路由配置完毕
+团长裂变3期开发：切图
+qa的test2环境支持
+
+
+06.01 13:34
+团长裂变2期开发
+指挥系统需求
+  工程化工作(ops, 域名, mall-fe)联调完毕等待接口
+  分支：
+  command_manager: develop
+  crm_mobile: feature-20190527-huyu-command
+  crm-rn: feature-20190527-huyu-command
+  mall-fe: develop_command_manager
+crm_mobile:
+  rmc-calendar不满足需求，clone下来自己维护
+  sentry接入完成
+  使用html-webpack-plugin的template设置js引入
+  埋点对接云图2.0
+
+
+05.24 19:05
+调试经验分享
+决策分析开发联调
+  多指标选择器抽取组件
+团长裂变
+  收尾需求开发
+  白屏问题分析：
+    ios：mobx5不支持非proxy环境，降级
+    android：
+      polyfill不生效：优化babel-polyfill, eruda, sentry引入顺序:
+      第三方脚本报错：浏览器认为脚本跨域，script标签增加crossorigin标识
+      空script标签：删除
+  接入sentry
+    sentry能直接利用线上source map
+
+
+05.17 22:36
+团长裂变
+document.title切换，
+返回键监听·获取当前位置、关闭webview、跳转原生页面，获取token鉴权
+鉴权逻辑重写，调试功能优化，集成埋点功能，mock功能中间件，路由切换loading,
+调试工具支持ios复制信息，微信+普通浏览器适配
+
+05.12 16:16
+拜访打点提测
+代售后上线：ops线上环境问题修复
+陪访重构联调提测
+mnpm失效解法: 先发个私有包，然后等正式包更新
+react-navigation: 多步表单
+  1. push => push => navigate
+  2. navigation.addListener('didFocus', callback)
+react-native 对接 ops
+  1. 使用 unset npm_config_prefix 解决 nvm 报错
+  2. 使用 github 方式安装包在线上机器会有权限问题，兼容性不佳
+  3. 关键语句需要报错退出  || { echo "node版本切换失败"; exit 1; }
+crm_manager:
+    用户初次访问加载时间过长问题：是因为引用了cdnjs的资源，将资源上传到阿里云并修改plugin.config.js中的lessUrl字段
+ops发布支持设置版本，npm开发技巧
+    1. npm包使用本地的git工程：npm link
+&nbsp;&nbsp;&nbsp;&nbsp;https://www.jianshu.com/p/aaa7db89a5b2
+    2. node命令调试
+    npx --node-arg=--inspect-brk mc-hotfix push -e test -r 0.0.1 -d
+crm-rn
+    从门店详情拆分拜访打点相关功能
+    冲突功能：电话拜访、任务接口提示
+crm_mobile 团长裂变
+    增加图片、Modal、Loading、Icon、Form、地图支持
+&nbsp;&nbsp;&nbsp;&nbsp;单文件组件讨论中：https://github.com/facebook/create-react-app/issues/5224
+
+04.29 10:09
+陪访重构 联调提测上线
+代售后统计 上线
+拜访打点提测
+多步表单实现：
+1. 使用push => push => navigate方式跳转
+2. 起点页面使用
+navigation.addListener('didFocus', callback)
+react-native 对接 ops
+1. 发布脚本新增关键步骤报错退出
+2. github安装包方式在线上机器会报权限错误，改为npm包方式安装
+
+04.19 20:07
+拜访需求联调提测
+ops迁移跟踪
+代售后需求提测上线
+陪访统计重构开发联调
+crm-mobile
+  知识库支持缩放
+  webview兼容新老2版
+  知识库支持所有文章未登录查看
+crm_manager
+  多维指标选择组件
+
+04.15 10:15
+拜访需求开发联调
+代售后后台开发
+crm_manager
+  增加flat的polyfill
+crm_mobile知识库
+  cors问题
+  无法播放问题：换wkwebview
+
+04.07 16:34
+推送消息二期测试发布
+组织架构优化联调提测
+拜访需求开发
+  未到店操作列表
+  疑似异常拜访列表
+  拜访详情需求对接
+
+03.30 14:42
+消息推送联调提测
+组织架构优化开发完毕准备联调
+主管拜访统计需求开发(拜访统计，拜访记录)
+
+03.23 15:40
+组织架构优化开发(40%)
+知识库提测上线
+推送2期联调提测
+
+crm_mobile: 区分3个打包环境，保证不会互相覆盖
+crm-rn: 团队页面增加key以减少报警，所有.map生成的jsx都需要且必要加key
+
+03.17 17:01
+陪访分页功能上线
+非登录知识库页面开发(90%)
+组织架构优化开发(30%)
+crm-mobile
+  增加参数调试功能，
+  增加code-split功能
+  引入eruda支持pc端调试
+高版本antd国际化需要升级umi，升级
+
+03.09 19:14
+组织架构 测试上线
+销售区划分 联调提测上线
+知识库推荐 开发联调
+区域管理 查看地区弹窗 提取公共组件
+
+03.02 14:20
+数据迁移：拜访分析、充值分析、销售分析 模块儿开发测试上线
+人员管理私海权限 开发上线
+组织架构页面开发
+升级antd来解决列表非排序列会请求后端接口bug
+制作触发式modal弹窗组件，实现原理：
+  关闭弹窗：ReactDOM.unmountComponentAtNode(div)来关闭弹窗
+  打开弹窗：ReactDOM.render(<ConfirmDialog {...props} />, div)
+  使用：Modal.popup({content: reactNode})
+组织架构组件增加初始默认选中特定节点功能
+chrome devtools原理探索
+
+02.02 12:00
+小程序ui交互优化上线，mjt-fe bugfix上线
+crm_manager
+  地图增加滚轮缩放
+  使用local.yunshanmeicai.com域名来兼容cookie
+  框架，发布步骤，工具库整理到readme.md
+路由器中继方案实现，保证屋子里面wifi信号无死角
+
+01.27 16:07
+crm_manager熟悉
+  使用do语句在模板中实现if-else功能
+  登录失败后100%弹窗跳转登录页面
+  左边栏异步权限步骤
+    request => authority/setAuthority => Authorized/reloadAuthorized
+  面包屑：getContext().provider => pageHeaderWrapper => 层级路由（/base, /base/company, /base/company/1291154）
+  弹窗：独立modal为组件，使用ref引用子组件open方法
+mjt-fe
+  打印特殊字符处理（ios与android不同需要分别处理）
+  项目添加favicon.ico帮助监控宝收集数据
+  红包样式fix
+小程序对接神策埋点
+
+01.20 22:11
+接口增加签名
+打印引擎永远居左，完全由后端控制
+mjt-fe
+node sentry使用用户ip区分用户
+上传favicon.ico到cdn
+webpack vendor自定义，其他单独引入的npm包单独打包
+小程序
+长列表优化方案：只渲染当前屏幕商品，其他商品位置使用占位符，要求所有商品高度已知
+增加骨架功能
+增加线上test环境支持
+
+01.12 15:09
+小程序
+订单请求失败处理
+订单详情页样式优化 透明背景使用伪元素
+更新产品列表性能较差，改为更新购物车字典
+长列表（>600）性能较差，调研：饿了么做法是跳转h5，美团未知；拆分h5页面会无法调用微信api
+repeat不允许遍历undefined，改
+滚动切换分类+截流
+mjt-fe
+sentry细化请求失败日志（status, responstText）
+axios公共请求头与公共参数写法优化
+调试工具eruda支持test与stage环境，只有线上移除
+node server对公共错误处理添加sentry上报
+
+01.06 17:09
+erp 4期测试上线
+h5项目工程化：
+qps对接运维
+上传路径申请对接
+sentry追踪
+showModal需要提供默认报错
+使用polyfill实现Object.values
+增加hash信息
+打印
+支持空格可视化
+支持真机mock数据
+h5埋点对接小程序业务线
+wepy小程序每次全量更新对象，控制对象的规模能提升1倍性能

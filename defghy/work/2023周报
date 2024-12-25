@@ -1,0 +1,614 @@
+
+2023年12月25日 15:24
+aweb-config
+    调研&初步实现pinia替换vuex
+    appEnv&configAppEnv迁移pinia
+    接入aweb-request
+    router支持按页面入口代码分割
+animal-world
+    nodejs升级18，失败；centos7缺少新版本依赖
+    node: /lib64/libm.so.6: version `GLIBC_2.27' not found (required by node)
+
+2023年12月18日 10:09
+aweb-request
+    创建，包含api与login逻辑
+aweb-devtools
+    增加ate统一登录
+aweb-config
+    APP_ENV统一一处管理
+    querystring改为qs
+
+2023年12月11日 10:12
+撤销重做2期
+monorepo改造
+    tree-editor迁移完成
+    拆分common和ui包
+    改造文档
+项目
+    config页面任务表格性能优化
+    world项目改为精准依赖，移除hoist
+知识
+    查看dependency依赖状况：pnpm why webpack@5 -r
+
+2023年12月04日 10:14
+撤销重做1期开发
+    缓存增加undo支持
+    升级版本号增加undo支持：清空处理
+    produceBatch提供大量chang合并情况
+    combineDesc从getter推断
+    1期上线
+monorepo改造
+    初始化git
+    本地serve完成
+项目
+    抽取useRevert，useShortcut
+
+2023年11月27日 10:31
+撤销重做技术方案&原型开发
+使用react实现node，1期上线
+项目
+    graph实例修改为非响应式
+    现有form的updateName采用统一onChangeForm
+    移除configId，移除无用store(treeRef.node...)，移除configInfo
+    简化跳转登录代码，只记录url
+bugfix
+    粘贴支持 _parentId 和 _beContainedObj 更新
+    constraintVer需要和data绑定一起，升级版本后未保存触发
+    进入页面不再根据read接口设置lock
+    edge的sourceNode字段导致序列化失败
+填写绩效
+知识
+    g6动画所有shape共用1个timeline，其内部timer只能开不能停
+
+2023年11月20日 09:58
+复用行为树
+    上线以及bugfix
+    node填充引入zIndex，后续需要精确zIndex
+    drawer重写为modal
+    shouldExec机制禁用行为
+项目
+    多选代码精简移除
+    重构节点拖拽shadow与ui
+    使用react实现node
+
+2023年11月16日 12:08
+复用行为树
+    移除store和无用方法
+    copy拆分模块儿，拆分tranverse
+bugfix
+    质检mcfGroup变动兼容
+项目
+    拆分select-node为：check-node；click-expand；click-pasete；
+    尽早展示iconfont
+    图初步分层级与占位
+
+2023年11月07日 14:52
+约束版本号质检
+    数组提示在路径中
+    type-or
+        拆分fromNode
+撤销重做前期工作
+    拆分 updateView 为 renderView 和 layout 计算
+复用行为树
+    出具技术方案
+    统一enum
+    迁移行为树约束到行为树项目
+项目
+    行为树现状统计脚本detect
+
+2023年10月30日 10:01
+约束版本号需求上线后问题
+    升级时，mcfGroup下选项，未选中不展示变动
+    增加质检 && 质检过程中问题修复
+        type-or：区分subType以及猜测selected
+        type-map: mcfGroup选中问题; extraval兼容; 
+    约束格式错误，在根节点时会报错
+项目
+    node增加tranverse；transform；clone；tranverseUp；等公共方法
+    useDefineForClassFields防止可选属性被创建出来
+    html格式化丑陋问题
+        使用"editor.defaultFormatter": "Vue.volar" 格式化template
+        使用htmlWhitespaceSensitivity解决prettier格式化html丑陋问题，详见：https://prettier.io/blog/2018/11/07/1.15.0.html#whitespace-sensitive-formatting
+    统一vue；ant-design-vue；lodash-es；引用全局唯一
+    同步ate的相关项目设置到ale
+
+2023年10月23日 14:10
+约束版本号需求开发-约束窗口交互
+    guess增加add和delete
+    升级窗口 关联 节点form；支持值联动
+复制增加跨分支支持
+复用BranchSelect、BranchTag组件
+项目
+    增加Overflow-text组件，未来可以优化成render，性能好
+    auth.vue使用wrapper方式支持tooltip展示
+    缓存：只有正在编辑时才会使用缓存，并提示
+    提供getRealType方法，ref的getRealType采用递归到底
+知识
+    mac滚动条可以通过外观配置实现
+
+2023年10月16日 12:03
+约束版本号需求开发
+    node2node升级api开发
+        主逻辑开发完成
+        导入；升级；接入新功能
+        针对condition的TypeOr变更为TypeMap，使用fromConfig逻辑
+按钮增加权限控制
+项目
+    增加default字段序列化时删除功能
+    移除参数topNode改为getRoot实现
+
+2023年10月08日 10:01
+约束版本号需求开发
+    约束升级工具开发；v1版本上线
+项目
+    使用闭包代替直接引用：parentNode；
+    每个node增加id；全局id保持一致性
+    拆分type-map的2种逻辑
+    vetur替换为volar
+    v-emphasis对于textNode的替换会导致响应式失效；改为slot实现
+
+2023年09月25日 10:18
+约束版本号需求开发
+    约束升级第二期上线
+    约束升级工具开发
+项目
+    @kxxxl-front-end/configuration 
+        - 采用源码拷贝方式实现源码引入
+        - 陆续移除currentRectiveNode
+知识
+    采用闭包形式代替直接属性引用，比如lib，parentNode
+        调试时可以使用getLib方法的[[scope]]获取实际对象
+
+2023年09月18日 10:13
+约束版本号需求开发
+    约束页面开发
+        拆分store与逻辑依赖：采用context模式
+    行为树约束版本切换准备
+        移除 editor 中的 eventBus
+        移除 keep-alive 特性
+        迁移 editor-btn 到模块儿内部
+项目
+    增加 onBeforeRouteLeave 支持
+
+2023年09月11日 12:01
+约束版本号需求开发
+    列表页试用版上线
+    列表页增加浏览状态store
+    约束页面重写分支选择弹窗
+项目
+    迁移emphasis
+    增加CustomTreeSelect
+知识
+    ts中的函数可以根据参数推断出泛型类型，modal通过content推断出props的类型
+
+2023年09月04日 10:07
+animal-tree-editor 6期需求
+    约束需求开发
+项目优化
+    modal弹窗改造
+        增加provide支持
+        老弹窗改为modal：新增，文件选择
+    调研immer的patch支持undo，redo
+    mode提取上线 && 线上问题解决
+        onDrag拖拽发生时触发；注意off会打乱执行顺序，需要延时
+    移除 @kxxxl-front-end 无用代码
+    traceInfo由参数改为context
+    增加v-loading
+    增加CustomTree，封装a-tree支持自定义节点slot
+知识
+    lerna支持只对某个包进行install：pnpm install --filter website...
+        - 需要删除pnpm-lock才能生效
+        - 还是需要删除对应包的package-lock才能满足
+        - pnpm速度很快，也许不需要部分安装
+
+2023年08月25日 20:22
+animal-tree-editor 6期需求
+    节点高亮样式：使用d3-scale实现多次闪烁
+    约束需求调研，出具技术文档
+项目优化
+    添加launch.json统一调试方式
+    去掉上线ts-check
+    mode 与 behavior 拆分
+    缩短npm包开发流程
+        - 废弃constrained_core_code；
+        - 代码暂时迁移至kxxxlcomponentlibrary
+        - run.ts拆分模块儿开发
+        - 修改代码不需要build，直接源码引入
+        - animal-config；ate；项目兼容并上线
+
+2023年08月19日 09:24
+animal-tree-editor 文档
+    mutex: { conditionUnit: {} } || { children: [] }
+    spread: 
+    mcfGroup: 
+animal-tree-editor 6期需求
+    目录树增加导出
+        FileTree拆分按钮组件
+    目录树记录滚动位置
+        SingleCard加入class结合setup写法，拆分use
+    节点高亮样式改
+        降低颜色饱和度，减低视觉疲劳
+        文字加粗
+        采用闪烁方案
+ate项目优化
+    升级vue为2.7
+    统一lodash引入方式
+    引入modal弹窗
+    重写localStorage，方便未来扩展
+整理2020-2022年份周报
+
+2023年08月14日 10:55
+animal-tree-editor 熟悉项目+写文档
+    关于约束json的类型描述
+    关于编辑窗口
+animal-level-editor 写文档
+    文档补充手机测试方式
+
+2023年08月07日 16:16
+## 熟悉项目
+关于部署
+    - 由master对/home/happyelements/.jenkins/workspace/animal-web-ace-front目录进行编译
+    - 先通过`npm run build:k8s`生成前端产物到`dist`
+    - 根据`Dockerfile`将前端产物迁移至一个`jetty`的docker下的`webapps`目录中
+    - docker推送至线上
+ale 形成文档
+    - board数据含义
+    - 项目规模
+animal-config
+    - canvas使用原生语法进行绘制？未使用包
+    - 多数为js组件
+web-console
+    - 有electron
+        - electron 更新在 GlobalConfigSave.vue 中
+        - 判断是否electron，关键字：isWebEnv
+        - 执行build时会执行npm run patch，push代码，需要注意
+        - 打包mac不好使，preload、node_modules文件路径不太对
+        - 使用wss协议方式链接websocket，没有跨域问题，本地开发方便很多
+    - websocket使用原生api，未使用库
+简单过：anti-cheat-web；
+animal-tree-editor
+    - 形成文档
+    - G6: shape, group, node, edge, graph
+pnpm改造
+- pnpm import: 使用现有package-lock.json
+- pnpm i --shamefully-flatten: 老项目大量依赖平铺的node_modules
+
+## 乐元素入职
+vpn申请
+新人课程&考试
+入职一周内设置任务目标
+学习路径：docs(先看本组的新人引导)；乐元素大学(只能实时，鸡肋)
+前端学习：新人入职课程
+
+2023年07月31日 09:59
+## 通过面试题梳理前端知识点
+node中多进程(child_process)、多线程(worker_threads)、cluster之间的关系？
+
+    - child_process 和 worker_threads 的区别实际就是进程线程的区别：是否共享存储空间，切换上下文时的成本高低等等
+    - cluster实际使用的child_process模型，在此基础上提供了端口复用（master监听），负载均衡等集群功能
+    - 注意cluster中的master和workder来自于集群概念，worker_threads中的worker大体类似于webworker。两者不是一个概念
+react中的事件代理机制
+## 装修公司
+    网站：土巴兔，齐家网(良宅吾品、龙坤、北京麒麟尚品)
+    公司：小红书（赫朗装饰）
+## 乐元素入职
+搬家相关
+机器基础环境
+熟悉项目，以ale为主
+    使用了vuex-module-decorators的自动注册，原理如下
+    - 他的装饰器实际是一个函数的返回值；因此装饰器这里实际被调用2次
+    - 第1次调用时为生成装饰器
+    - 第2次调用时为开始装饰`store class`
+    - 装饰store时会对`store class`进行`new`
+    关于undo和redo
+    - 维护了一个state[30]的数组
+    - 主要操作：undo、redo、pushState
+    关于board数据格式的主要含义
+
+2023年07月24日 10:36
+## 技术学习
+
+### [VueDraggable](https://github.com/SortableJS/Vue.Draggable)时发生了什么？
+
+- 拖拽时，dom树发生变更，节点有增删；此时vnode树(virtualDom)无变化。
+    - 由于vue更新比较的是新老vnode树，拖拽时即使vue不小心发生了render也不会导致拖拽数据重新渲染，因为新老vnode并没有变化，变化的只是el在dom树中的位置
+    
+- 拖拽结束后，需要根据拖拽结果修改data，此时vnode树发生变化进行了patch工作
+
+- 关于单元测试jest；还有e2e测试和视觉回归测试
+
+### css的`clip-path`根本功能是什么？
+
+- 之前使用过clip-path的polygon方法，在div中扣一个洞
+- 还能用来画圆`circle(50px at center)`，相当于把矩形的四角裁剪掉
+    - 这种语法语义强于`border-radius: 50%`
+- 不支持多个图形组合，如果要画个圆环，没办法使用2个circle实现，此时只能使用`path`了
+
+总结下：所有异形都能使用clip-path来实现
+
+### css的`conic-gradient`渐变
+- `linear-gradient`: 笛卡尔坐标，矢量方向
+- `radial-gradient`: 极坐标，由内向外
+- `conic-gradient`: 旋转方向
+
+### CanvasKit
+Google出的一个绘图框架`skia`，支持web端和app端。针对web端就是`CanvasKit`，使用`canvas`作图使用`WebAssembly`执行`skia`逻辑运算性能高。
+
+2023年07月17日 10:18
+react & vue 学习vite源码分析&实现原理
+    根据etag与if-none-match判断是否304
+    非依赖包代码刚启动服务时需要重新编译
+    修改import的路径，逻辑在插件：vite:vite:import-analysis
+        /node_modules/.vite
+        /src/component/Comp.vue
+hmr：@vite/client.ts
+    更新style：updateStyle
+    更新js：@vue/runtime-core 下的reload：
+        更新record.initialDef，等价于instance.type
+        然后调用：instance.parent.update
+关于offsetWidth导致reflow
+    -查看源码（chromium\src\third_party\blink\renderer\core\dom\element.cc）下的 Element::OffsetWidth 发现确实会触发reflow，关键函数：UpdateStyleAndLayout；函数注释一般在h文件
+    - 通过stackoverflow和gpt问答：这么设计可能的原因是需要给出一个准确值，如果这个时候已经有style改动就会触发重新计算。
+    - 设计实验：改动style触发reflow，之后多次获取offsetWidth没有触发重排；
+vue的virtual Dom更新流程
+
+杂项
+    认知觉醒2
+找工作
+    笔试题热身
+回家
+    电视家apk
+心得
+    昨晚天冷，而且有蚊子，缩在被子里面&打蚊子没有解决。换成长袖可以解决。
+    在不舒服的时候如果超过30分钟，需要跳出当前环境审视自身，寻求其他维度解决办法。
+
+2023年07月09日 20:53
+react & vue 学习
+    添加demo-vue2例子
+        @vue/composition初始化：beforeCreate中代理data方法
+    添加demo-react例子
+        完全依赖闭包记录useState，每次重新执行函数组件
+    watch的flush参数
+杂项
+    认知觉醒2
+找工作
+    笔试题热身
+    总结了有思考的项目以便面试
+    优化简历
+回家
+    pad环境整理
+    路由器升级
+    电视app重新安装
+    饮水机换滤芯
+    手机nfc门禁
+    电脑回收与数据迁移
+
+2023年07月01日 12:04
+需求
+    queryClass需求
+    lod表达式优化需求提测
+    node-server接口参数不一致导致返回内容问题定位
+    vue-cli-service打包lib时publicPath无效方案(https://github.com/vuejs/vue-cli/issues/4896)
+    publicPath为空问题，并形成文章
+离职事宜
+    最后50行权；
+    走完离职流程；
+杂项
+    认知觉醒2
+    npm：post install && prepare 效果一致
+        关于gis
+        做过的：使用百度地图api，在地图上做mark与path；
+        geoJSON与tile的区别；实际是矢量瓦片与栅格瓦片的区别；
+        geoJSON在echarts中表示中国省级地图，世界地图，可以对区域进行交互；
+        leftlet的start中使用的tile技术，可以支持缩放。
+找工作
+    笔试题热身
+    京东面试：只问项目，结合segmengDefault解答；
+    liblibai面试：体感不好，问题抽象，反问时给出的信息量太少；
+
+2023年06月21日 20:02
+需求
+    自定义组件 Vue.component 劫持防止被覆盖
+    queryClass需求
+    lod表达式优化需求
+    element-ui全量引入问题追踪，形成文章
+离职事宜
+    完善新人文档docs与readme.md
+优化
+    阅读认知觉醒 100%；开始复读
+    开始每日冥想10分钟
+    周报增加反思，不一定每周都有，有了就记一下
+找工作
+    笔试题热身
+    面试字节：通过录音发现
+        - 沟通时冗余口头语太多，然后之类的，改为停顿试试
+        - 笔试题最重要的是理解题意，不要着急去写；朝着快速理解题意去有目的训练
+        - 关于缓存
+![image](https://hy911.oss-cn-hangzhou.aliyuncs.com/tech/http_cache.png)
+
+2023年06月17日 17:25
+queryClass需求
+    交接需求
+    移动端h5开始支持
+其他问题
+    禁止custom图表修改Vue.prototype.$ELEMENT
+离职事宜
+    行业调研
+    离职流程：签约
+阅读认知觉醒 进度 60%
+找工作
+    面试-字节：1面未通过
+    笔试题热身
+
+2023年06月12日 09:58
+queryClass需求
+    书写query改造关键信息文档
+olap推广前优化
+    另存为问题定位修复
+    相关样式优化
+接到不续签通知，开始进入离职流程
+    卖出股票
+    总结3年经历为简历
+    简历更新
+    离职后时间管理制定
+    kim代码？ 只有rtc代码有些价值
+    行业调研
+
+2023年06月05日 10:48
+queryClass需求开发
+    puzzle-editor
+        action: queryData done
+olap推广前优化
+    样式修改
+    createNew策略修改
+
+2023年05月31日 14:35
+queryClass需求开发
+    走通流程
+线上问题
+    新老切换触发2次问题
+    unit带有-时非空校验
+    字段名字包含.特殊处理
+
+2023年05月24日 11:20
+手动纠错轴配置与筛选器配置测试上线
+queryClass需求开发
+    出具技术文档
+
+2023年05月12日 14:14
+全选全部拆分筛选开发上线
+手动纠错轴配置与筛选器配置开发联调
+线上
+    切换图时移除isHide
+    切换图时如果不支持日期对比，移除日期对比
+    ip开发访问导致跨域问题：origin字段覆盖修复
+
+2023年04月28日 14:16
+olap 禁用全部筛选项开发上线
+表达式同步逻辑修改
+全选全部拆分筛选
+
+线上
+    级联缺少层数，兼容
+    node-server微前端兼容d3-format
+    天策
+        挂出olap3.1问题fix
+        $t与setup冲突fix
+        全屏问题fix
+
+2023年04月24日 11:18
+olap3.1 2期
+    筛选器2期；系统时间图内筛选与全局筛选互斥 测试上线
+    图内筛选与筛选器组：毫秒清零
+表格重新渲染
+    sizeToFit 与 flex: 1 效果一样，有闪烁
+自定义图表打包加入vite方式
+    报错信息透出
+    vite跟着升级4.0
+测试
+    js会阻塞dom渲染，但是单步调试时，会每一步渲染1次
+线上
+    axios升级导致headers.common失效问题
+    mobile预览页下压缩布局，死循环问题
+
+2023年04月17日 15:32
+olap3.1 2期筛选器开发
+系统时间图内筛选与全局筛选互斥 开发
+自定义图表打包加入vite方式
+
+2023年04月10日 11:40
+olap3.1 1期上线
+    追查删除sheet数据覆盖问题
+    清空删除指标筛选记录
+olap3.1 2期筛选器开发
+olap文档助手，迁移到代码中实现
+面试
+
+2023年04月03日 17:20
+kwaibi 3.1 开发
+    拆分 多选下拉 组件
+    多选，全部改版筛选器
+    插件式埋点方案
+
+2023年03月24日 10:37
+kwaibi 3.1 开发
+    分析功能兼容
+    跨轴穿梭检测
+    删除轴字段移除fieldList
+    updateWidgetConfig支持初始化
+
+2023年03月06日 11:22
+kwaibi 3.0 开发
+    统一vue版本为2.6最后一个版本
+线上问题
+    推送移除同环比基准单位为空逻辑
+    洞察数据集无法申请权限问题
+    分析-表单无轴字段时不校验
+    级联筛选有默认值时，重置报错问题
+    node server
+        too large 问题：修改 nginx 配置：client_max_body_size 80M;
+        自定义图标版本老导致取不到info问题
+
+2023年02月27日 17:16
+kwaibi 3.0 技术方案
+    available接口复用
+开发
+    轴新增：先新增原始轴，再新增rabbit轴，再排序
+
+2023年02月13日 16:45
+node服务502问题
+    尝试移除@infra-node：依然报错，排除
+    netstat抓不到问题端口占用的进程
+    使用文件替换方法解决，tcp内存飙升问题
+kwaibi 3.0 技术方案
+
+2023年02月06日 10:47
+node服务502问题
+    排查过程：https://github.com/eggjs/egg/issues/5130
+    进度：
+        发现tcp的服务接收了http的请求头数据，导致无法解析
+        请求url为：/app/kibana
+        发起方为localhost，每次端口会不一样，无法找到端口对应进程号
+图内筛选器
+    技术文档
+线上问题
+    tooltip下slot的组件，不支持store和provider等问题
+    表格第1列cellStyle失效问题
+    切换明细表，轴字段重复问题
+    移除多域名query接口
+    筛选器传递明确time
+
+2023年01月30日 10:52
+node服务优化日志
+    stdout 与 stderr 日志也放在logs中
+    移除参数：disableConsoleAfterReady
+    移除graphql
+    增加文件下载功能
+趋势表需求上线后问题
+    编写文档
+线上问题
+    tree-select样式导致老组件样式被覆盖，改老组件样式名
+
+2023年01月16日 11:45
+趋势表需求提测
+    大量错误和2套vue有关
+    编辑侧添加异步loader
+
+2023年01月09日 11:37
+趋势表需求
+    modal 与 自行引入business-ui组件，不是一套kwai-ui问题
+    ag-grid样式模块儿化
+    缓存功能兼容性提升
+    针对大量字段优化：批量配置弹窗
+    el-tree的expand-icon决定了拖拽交互时坐标的计算，不能移除
+线上
+    移动端lifeKey为{value}问题
+    config保存没有await问题
+
+2023年01月03日 11:25
+趋势表需求
+    puzzle-service代码复用
+    移除无效依赖，依赖库会引入完整element-ui，导致Vue.prototype.$ELEMENT被覆盖
+    增加项目的alias，外部依赖集中在export.ts
+    添加queryVO的node服务
+    复用状态组件

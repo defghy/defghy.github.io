@@ -1,0 +1,304 @@
+2018.12.30 11:37
+app下载页面，团长佣金页面，开发提测发布
+vue工程stage发布环境done
+打印模板引擎，使用library打包
+支持分隔符
+支持少文字补空格
+支持多文字补多行
+支持分列
+支持留白
+小程序首页拆分，负责跳转
+cors跨域添加Access-Control-Max-Age来去掉预检option
+在axios的interceptor中处理接口错误
+jsbridge方案调研，使用dsbridge库支持三端
+h5发布生产环境测试
+饿了么对接需求开发
+sentry
+sourcemap 区分环境
+取消数据清洗
+local与test环境不报错误
+
+2018.12.22 14:08
+点餐3期联调测试上线
+node server初始化
+暂无 agenthub mc-hotfix
+不使用babel转码
+申请sentry
+instances数量需要写死
+3个环境都使用config/default.json，使用运维系统的配置文件
+新增日志 错误日志（请求，返回，用户ip--headers['x-real-ip'] || headers['x-forwarded-for']）
+环境config都为config/default.json
+接入pr工具
+崩溃重启测试
+vue初始化，和node同一工程
+重新支持eruda与动态切换环境
+server使用本地服务
+删除无用包，关键包升级到最新
+小程序通过修改编译参数，自动切换环境
+
+2018.12.15 13:37
+口味+加料3期功能开发
+小程序依然有滚动穿透问题，可以直接popup层stop解决
+小程序mock依然可以使用http server形式，将商城server简化后给小程序使用
+登录记录session_key到storage
+扫码静态引导页面开发
+
+2018.12.09 17:02
+美家通点餐需求联调测试上线
+小程序老版本ios，flex下的scroll-view的height:100%不生效，使用获取元素高度实现
+git拆分子工程的sourcemap命名空间不再需要修改文件夹名称，webpack原生支持(output.library)
+由于业务线拥有了命名空间，因此不再需要独立的runtime manifest。业务线可以将manifest与bundle合并
+拆分步骤形成markdown，已提交
+
+2018.12.01 18:48
+小程序融合开发
+增加less压缩配置
+增加dev下不压缩配置
+scroll-view height 100%无效，给scroll-view增加max-height解决
+多层repeat中的component无法使用this获取相应数据，但是可以使用 @tap.stop=“click(｛｛item｝｝)“
+方式获取
+repeat中多层组件嵌套无法传递props，需要给嵌套的子component套一层只有1个元素的repeat来hack
+
+2018.11.23 19:35
+小程序融合方案确认
+gradle依赖安装问题 Unable to resolve dependency for vpn解决。
+git工程拆分v1
+其他工程webpack的entry.js，如何使用
+重命名 bundle，重命名 manifest，vendor：不分包，入口越少越好
+sourcemap覆盖：重命名根路径src解决
+route拆分
+方法： 特殊路由拦截
+addRoutes
+问题：中转路由会永久存在，不能被后加的路由替换
+解决：使用*匹配的beforeEnter，*匹配不会按照顺序匹配，而是最后匹配
+store拆分
+store.registerModule
+namespaced: true
+接口拆分
+resources + applyMallTicket
+共用接口域名
+公共(component, mixins, directives, 工具方法tick)
+自引用或者挂载
+本地开发时如何使用公共组件（dialog，$catch, 字体, directives）
+可以直接用
+图片
+不能复用
+调试发布
+webpack plugin(@mc/service-update-plugin)实现，区分本地调试和发布线上2种情况
+子项目使用官方devServer: 需要升级webpack-cli
+
+2018.11.17 15:10
+餐饮需求购物车尝试开发
+本地开发不做urlCheck
+wepy的repeat bug较多，涉及到repeat的功能只做维护不做重构，等待wepy2.0
+购物车数据与action放进redux
+localStore区分门店和超时
+小程序无法自定义tabbar，因为页面栈数量写死10个，而且reLaunch体验很差
+实现一个wepy plugin，功能是wepy打包结束后把大图片自动上传cdn，并修改引用文件图片引用地址
+
+
+2018.11.10 11:44
+加价购需求测试
+npm stage环境安装build.sh增加参数allow-root
+eruda使用webpack的entry数组形式引入，可以保证先于entry加载，去掉依赖
+提升babel-polyfill到最上
+首页滚动时间派发混乱，多处组件eventHub监听同一事件，导致非预想的触发，使用eventHub派发scrollTop，所有监听的组件都会修改，包括非当前页面的组件。所有滚动容器保存自己的scrollTop并向子元素派发，子元素使用boradcast来设置父元素scrollTop
+小程序普通二维码唤起调研
+wepy接入redux实现状态管理
+
+2018.11.03 15:19
+259测试上线
+加价购需求开发
+滚动缓动工具提取，应用于商品详情与全部菜品二级菜单
+page增加bottom-tab参数，用于包含底部tab的5个页面支持flex布局
+门店基础信息模仿cookie保存在localStorage中，不需要所有页面都传递company_id
+independent增加server.js帮助本地调试
+购物车cartList缓存改为cartDict，使用对象做缓存更合适
+ios滚动穿透，使用禁用touchmove+betterScroll解决
+
+2018.10.27 16:55
+司机物流开发联调
+巡店工具登录兼容开发
+加价购开发
+商品优惠活动改为使用$modal组件
+$modal监听路由自动关闭，不需要组件单独处理
+cms拆分mapp与entry，mapp以mixins方式集成
+
+2018.10.20 15:10
+订单状态外露开发
+交互优化需求开发
+百度地图绘制dom overlay功能组件
+轮播组件carousel支持动态双向绑定
+$modal引入store和router，以后使用modal打开的组件不再需要单独引入
+消息轮播内容模板化，支持文字变色，大小，加粗，链接；消息按钮配置化，支持文案，图片，行为设置
+
+2018.10.13 13:33
+门店申诉测试上线
+vue3.0改动研究
+门店微信sdk的js使用阿里云cdn
+商城采用vue-cli的babel配置，支持tree-shake和async
+
+2018.09.28 19:05
+门店申诉需求开发联调
+现在开发经常需要修改url，开发chrome extension可以直接从3套环境跳转到本地url，支持门店和商城
+公共的errorhandler兼容actionWrapper返回的错误
+门店不上传sourcemap文件到cdn
+
+2018.09.22 16:20
+门店申诉与审核开发
+拆出门脸照与地理信息模块儿公用
+route仿照商城写法，前后置操作在router的beforeEach和afterEach中
+图片预览增加图片上传方式更稳定，去掉本地预览的图片压缩增加预览速度
+
+2018.09.15 15:05
+首页搜索与首页常用清单业务需求
+Android app不支持某些机型input元素capture属性，需要在商城安卓App中暂时禁用掉
+使用js方式发包，打zip包时排除掉app和node_modules，zip包从70M降低为20，打包速度提升2倍
+eruda被打包进vendor，正常用户不会请求拆解出来
+下周计划: 门店申诉业务需求对接开发
+备注:首页滚动时间派发混乱，多处组件eventHub监听同一事件，导致非预想的触发
+使用eventHub派发scrollTop，所有监听的组件都会修改，包括非当前页面的组件
+改进：
+1. scrollTop放进vuex，一个滚动容器只保留1个scrollTop
+2. 组件复用时会出现不知道该使用vuex中的哪一个scrollTop，所以所有子元素的scrollTop都由父组件props传递可保证唯一
+3. 子元素想设置当前页面的scrollTop需要使用emit而不是eventHub，因为eventHub可能把不是当前页面的scrollTop给设置了，因为层级过深emit使用不方便可以使用我们自己的broadcast方法
+
+2018.09.07 21:00
+257联调提测
+删除define的中mapp配置，直接将入口配置到webpack的entry
+sentry面包屑拦截了以下方法，可能造成一定的性能影响
+1. onreadystatechange
+2. onpopstate
+3. console.(log, error...)
+4. addEventListener（会获取dom的path路径，不过没有监听touch和scroll这种比较损耗性能的事件）
+better-scroll升级到最新版本
+所有ssu统一处理promote_type
+uiwebview会默认对ajax接口缓存，需要主动添加cache-control:no-cache请求头
+operator.vue支持与app同步数据
+
+2018.08.31 20:01
+会员页面开发联调
+entry与mapp支持不keep-alive
+userCenter, rmd使用规范action报错
+尝试在会员页使用async await语法组织Promise
+cms页面移入mapp单页，mapp所有页面以后皆为单页
+尝试使用带有hash的mapp页面，之后添加mapp页面不需要改php
+bugfix
+cms goods_2xn小屏手机换行，调小margin
+sentry: 尝试修复 WeixinJSBridge undefined 问题
+门店上传图片使用click，label+for属性的形式兼容性有问题
+商城阿里云图片压缩代码迁移至门店
+
+2018.08.25 12:49
+大商户促销与cms改造需求测试stage
+会员页面开发
+价格展示有统一的策略，因此将价格独立为组件，价格逻辑写入组件
+后端ssu共用一套对象模板，因此前端也对所有的ssu做统一处理，所有sku,ssu拿到数据后统一数据格式化，包括常用清单，全部菜品，购物车，商品详情等
+sentry
+sentry下vue的errorHandler打印错误
+追踪问题 (null)('[｛“ssu_id“:“144383“,“num“:1｝,
+地理信息报错过滤以下错误
+1. 用户不授权
+2. 使用http协议导致无权限获取
+
+2018.08.18 15:36
+门脸照联调提测上线，corp需要合并以便于平时开发
+错误日志 cms模块儿漏引模块儿Vue问题fix
+大商户放开促销需求开发
+鲁班智能广告需求开发
+会员需求价格颜色变化，由于所有商品都涉及修改，将价格展示独立为模块儿，关于会员的判断与颜色的设置都放在组件中
+
+2018.08.11 14:51
+256测试与上线
+门店业务逻辑熟悉，门店门脸照页面需求开发
+搜索结果页增加埋点，由于需要祖级页面的数据，将埋点逻辑整合进公共埋点代码
+eruda调试工具试验，商城调试功能整合进eruda
+
+2018.08.03 19:56
+256联调
+商城切换环境不重启node server，需要抽取配置文件； 将server配置抽取后watch
+手机h5调试解决方案现有最佳实践，并形成wiki，娇娇测试可用
+倒计时多次需求需要使用，独立出功能方法，并将商品详情页做成demo
+团购页面，订单评价，edm，订单对账 移入mapp单页框架，移除城市活动代码，使用independent工程。
+
+2018.07.28 15:04
+2.5.6需求研发，门店标签与为你推荐抽取组件（请求数据与处理，本地存储逻辑迁入组件内部）并复用
+埋点page_id原来需要对同一个页面写mapp和entry2个，mapp合成单页后只需hash部分就可完成页面识别。现有mapp与entry合并1个并测试
+mapp单页合并，畅销榜、订单追踪与取消 移入mapp单页
+经过2.5.5测试，mapp的chunkname可以共用。现有mapp页面和h5页面共用chunk
+信息轮播公共组件增加息屏与离开时停止处理，离开或关闭屏幕时停止轮播，点亮后继续。information使用公共信息轮播组件
+toast多次会互相覆盖，验证组件输入时错误提示有问题。toast实现单例，多次Toast支持只弹一个，增加hide功能，关闭当前页面中的toast
+滚动导航公共mixin，商品详情页使用公共导航组件scrollNav
+1. 导航栏滚动吸顶（未完成）
+2. 点击导航页面滚动动画
+3. 滚动页面，导航栏自动增加active class
+4. 滚动中缓存页面height，scrollMax，滚动item的top等属性，滚动中使用scrollTop与缓存坐标进行比较以减少开销
+
+2018.07.22 15:53
+隔日达极速达+256
+1. useAppNav 自动隐藏h5 nav
+2. cms使用公共分享组件
+3. entry h5页面使用微信jsapi
+4. 手势swipe支持mouse
+5. build.sh向外报错
+6. 删除世界杯代码
+7. 滚动导航公共mixin
+
+2018.07.07 14:37
+255需求
+1. 分享功能公共方法，包含公共埋点与app，js-sdk兼容
+2. 首页接口摘除 首页沙县，首页优惠券，tabbar，其他页面不在调用无关接口
+3. 错误日志解决无效历史函数错误调用： iosGetCart
+4. 摘除app js-sdk功能，兼容share与location功能；来解决错误日志 WeixinJSBridge is not defined
+5. 错误日志格式优化，删除冗余字段，超长信息截取
+备注:setWebContentsDebuggingEnabled依然只能本地apk有效，一上amp就没效果，继续跟踪
+
+2018.06.30 00:34
+255需求
+1. 资讯页面加入单页
+2. mlink提取为模块
+3. 售后页面，运费页面加入单页
+4. mapp与entry共用chunk
+5. 全部菜品页面采用手势
+6. mapp导航公共处理
+
+2018.06.22 21:29
+世界杯
+1. 跑马灯轮播组件
+2. 主体功能
+3. 倒计时组件
+
+2018.06.15 20:41
+254测试，有以下优化
+1. mapp支持单页
+2. app页面导航解决方案
+3. android webview测试方法适配
+4. 参数获取优化
+
+2018.06.08 19:26
+254新品需求完成
+1. 关于键盘弹出，ios与android，android各个厂商机制都不一致，提出了flex+maxHeight兼容性方案。使得键盘收起展开，页面能自适应。
+2. 关于表单验证，尝试使用mixin方式来处理，扩展性根据未来的需求再观察
+3. 关于长列表的优化，尽量将不展示的东西使用v-if来节省dom。比如sku下的ssu列表。
+4. 制作accordion动画，使用transition能复用。现有动画fade，accordion
+5. 菜品布局使用flex达到复杂ui需求
+
+2018.06.01 17:12
+253测试发布，254需求对接与开发
+1. 253收尾工作以及ui改动已上线
+2. 254调研二维码app与微信方法
+微信只能简单使用扫码，无法修改ui。app可以。
+3. 优惠券优先级进入开发
+4. 新品需求对接
+
+2018.05.25 15:18
+253需求测试
+git工作流修改并统一 https://wiki.sprucetec.com/pages/viewpage.action?pageId=11423927
+本次需求有2个mapp页面，发现ios的webview跳转有一些问题，测试的结果和我们自己的单webview app结果不一样，app开webview跳页面以后交给app端
+mapp端有时候会使用公共组件，但是公共组建依赖的directive，filter，plugin可能会忘记引入，需要注意
+
+2018.05.18 09:36
+253需求，需关注功能：
+error的记录与维护
+手势逻辑的提取
+operator的复用与做减
