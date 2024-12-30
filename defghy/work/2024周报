@@ -704,3 +704,17 @@ config-center
     支持命令式的excel的dropdown
 
 49周
+ate
+    使用use替代provide
+    批量回滚功能
+项目
+    替换虚拟滚动，移除jsuites
+    全部项目使用资源缓存
+    自动化测试：每次切换master，记录level的修改时间
+小需求
+    v3的ai校验
+        提取预设弹窗
+    开关的超长文字样式
+        替换tooltip，优化开关性能
+git
+    周报记录从钉钉迁移到github
