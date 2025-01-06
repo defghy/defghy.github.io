@@ -1,0 +1,8 @@
+2025年01月06日 10:59
+防作弊误封校验需求
+架构
+    node升级至22
+    pnpm升级至9
+调研vue3与vue2兼容组件方案
+    @vue/compat
+    mkdist && unbuild
