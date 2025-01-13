@@ -6,3 +6,12 @@
 调研vue3与vue2兼容组件方案
     @vue/compat
     mkdist && unbuild
+
+2025-01-13
+发布工具链条需求
+    技术文档 && 技术评审
+    主框架流程
+    user迁移pinia
+公共
+    自研组件KXTabs，用于替换CustomTabs
+    自研组件KXSwitch，支持label
