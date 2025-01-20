@@ -15,3 +15,20 @@
 公共
     自研组件KXTabs，用于替换CustomTabs
     自研组件KXSwitch，支持label
+
+2025-01-20
+发布工具链条需求
+    锁定流程
+    check联动流程
+    init流程
+    新引导迁移
+    关卡配置
+公共
+    优化KXList
+        - checkList受控
+        - 禁用disabled
+        - 支持check事件，传递变化的选项
+    增加popConfirm方法
+devtools
+    解决tab之间信息穿透问题
+    interval创建之前未销毁问题
