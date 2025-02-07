@@ -33,6 +33,36 @@ devtools
     解决tab之间信息穿透问题
     interval创建之前未销毁问题
 
+2025-01-30
+发布工具链条需求
+    关卡配置 90%
+    联动选择 90%
+    区域解锁 90%
+        组件优化，支持预览
+        编辑侧use设计
+    区域Icon
+config-center
+    diff展示内容超长兼容
+公共
+    kxtabs兼容活动场景
+    tooltip兼容超长文案
+devtools
+    解决injectScript中chrome.devtools.eval执行失败问题，延时执行
+jenkins api
+    生成jekins
+    http://ci.kxxxl.com:9090/view/all/job/animal-config-web-test/buildWithParameters?token=FROME_GIT_WEEBHOOK&cause=yu.hu_push&AAA=999
+    Location: http://ci.kxxxl.com:9090/queue/item/1008321/api/json
+    buildId: executable.number
+    
+    
+    未执行完的build
+    http://ci.kxxxl.com:9090//job/animal-config-web-test/api/json?pretty=true
+    http://ci.kxxxl.com:9090//job/animal-config-web-test/api/json?pretty=true&tree=builds[displayName]
+    
+    // 执行参数
+    http://ci.kxxxl.com:9090//job/animal-config-web-test/145/api/json?pretty=true
+    actions.parameters[name, value]
+
 2025-02-08
 领取国行switch游戏
 清理扫地机器人
