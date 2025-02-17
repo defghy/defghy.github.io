@@ -69,3 +69,25 @@ jenkins api
 演示GTA5
 游览：雕塑公园；动物植物园；
 vite fedoration接入 25%
+
+2025-02-17
+重建分支工具页面开发上线
+发布工具链条需求
+    使用关卡配置范围按钮
+    关卡奖励，关卡难度，难度标记 90%
+    使用use替换ref
+    优化expGroup模块儿代码结构
+        拆分data代码
+        移除exp_group拼接代码
+        增加多层级existInput
+    2期功能：缺失项目；点击导航；
+    发布流程：预览=>日志=>发布
+    接入统一登录
+小需求
+    反作弊优化
+    configcenter兼容手机侧
+优化
+    KXList支持横向同步滚动
+    KXTabs增加sortable
+bugfix
+    chrome升级133导致handsontable复制粘贴失效：https://github.com/handsontable/handsontable/issues/11425
