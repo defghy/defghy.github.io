@@ -91,3 +91,21 @@ vite fedoration接入 25%
     KXTabs增加sortable
 bugfix
     chrome升级133导致handsontable复制粘贴失效：https://github.com/handsontable/handsontable/issues/11425
+
+2025-02-21
+发布工具链条需求
+    联调发布
+    关卡配置增加改动项展示
+    定时自动解锁
+    实验分组兼容删除场景
+    验收问题修复
+编辑前置重构
+    复用GoodsModal组件，移除冗余组件
+    拆分RowEditModal组件
+优化
+    支持单例的v-popover，支持自定义渲染
+调研支持虚拟滚动的diff工具
+    vue3: https://github.com/MrWangJustToDo/git-diff-view/blob/main/packages/vue/package.json
+    利用html方法生成一段数据的html
+    v-html渲染这个html
+    需要利用虚拟滚动的scrollOffset进行同步滚动
