@@ -129,6 +129,7 @@ ale
     KXTabs兼容tab整个销毁，修改了currTab问题
     自定义指令使用binding.oldValue来进行响应式监听
 
+2025-03-11
 关卡发布流程
     缺失条目：无差异；不存在；
 关卡工具链-编辑中心
@@ -139,3 +140,35 @@ config-center
 devtool
     单独拆分wtool-bridge库，第一版
     探索iframe的api
+
+2025-03-17
+关卡工具链-编辑中心
+    难关标记
+    1期开发完成
+    发布跳转：技术方案 + 开发
+    联动：技术方案
+关卡发布
+    兼容活动枚举
+    支持自定义选择分支
+组件
+    FakeInputWrapper用于性能优化
+    sessionStorage功能和localStorage同步
+devtools
+    支持performance
+bridge
+    增加iframe支持
+    替换当前项目的iframe通信
+
+2025-03-24
+关卡工具链-编辑中心
+    关卡奖励
+        使用劫持adjustRootElementSize方法解决隐藏滚动条问题
+    区域icon
+        拆分formlist子组件
+        移除removeIcon和addIcon的开关，用slot替代
+        IconV2支持tileId
+KXTabs修改label问题
+    slot 和 $scopedSlot 每次render重新生成
+    panel下的label slot更新，无法通知到navItem，手动调用$forceUpdate解决
+bridge
+    替换aweb-devtools的通信方式
