@@ -172,3 +172,12 @@ KXTabs修改label问题
     panel下的label slot更新，无法通知到navItem，手动调用$forceUpdate解决
 bridge
     替换aweb-devtools的通信方式
+
+2025-03-30
+关卡工具链-编辑中心
+devtools
+    不同的bridge需要区分一下namespace，否则WebBridge传消息会乱
+    统一api的url
+iframe权限？
+    需要明确指定 allow="clipboard-read; clipboard-write"，详见：https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API
+unplugin对于element-ui的api方法比如Message，Notification，需要单独引入
