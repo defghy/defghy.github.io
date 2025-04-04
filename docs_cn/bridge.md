@@ -10,17 +10,19 @@ github:
 
 ## 背景
 之前项目多次遇到隔离环境需要通信，比如`window.top`和`iframe`。`Chrome Extension`环境之间通信。主线程与`web worker`通信等。原生的通信方式会遇到以下问题
-- 原生通信方式不支持`Promise`，比如 `window.postMessage`; `Electron.WebContents.send`;
-- 无法直接通信，需要转发比如：`Chrome Extension`中`devtool`与前台页面通信需要`content script`转发
+- 原生通信方式不支持`Promise`，比如 
+    - `window.postMessage`;
+    - `Electron.WebContents.send`;
+- 无法直接通信，需要转发
+    - `Chrome Extension`中`devtool`与前台页面通信需要`content script`转发
 
 每次遇到这个问题都会封装一个支持`Promise`的工具方法，遇到的次数多了，封装一个统一api的[bridge](https://github.com/defghy/web-toolkits/tree/main/packages/wtool-chrome-bridge)库。
 
-
-解决方法：从[5.3.4](https://github.com/vuejs/devtools/tree/v5.3.4)fork一个新的[devtools](https://github.com/kxxxlfe/devtools)，针对巨石复杂历史页面进行适配
-
 ## 使用
 
-#### 使用 `on` 方法监听`API`
+整个使用过程类似调用后端接口
+
+#### `on` 方法监听`API`
 
 ```typescript
 bridge.on(path: string, async function(params: any) {
@@ -30,9 +32,9 @@ bridge.on(path: string, async function(params: any) {
 ```
 
 说明：
-- path: 接口路径，类似后端接口；
-    - 为区分多个环境，path需要以环境的`key`开头
-    - 模拟后端接口，一个`path`只能对应一个方法。这里与事件监听有所不同
+- path: 接口路径
+    - 为区分多个环境，path需要以环境的key`plat`开头
+    - 与事件监听有所不同，一个`path`只能对应一个方法
 - params: 接口参数
 - response: 接口返回值
 
@@ -43,7 +45,7 @@ const response = await bridge.request(path, { username: 'yh' });
 ```
 
 说明：
-- path: 需要和`on`的path保持一致，类似调用后端接口
+- path: 需要和`on`的path保持一致
 
 ## 示例：`chrome-extension` 通信
 
@@ -95,15 +97,17 @@ console.log(piniaInfo); // { a: 1 }
 ### Chrome Extension Bridges 介绍
 
 #### WebBridge
-- 一个页面可能会定义多个`WebBridge`，比如多个extension或者`iframe`等场景
+- 一个页面可能会定义多个`WebBridge`
+    - 多个`extension`
+    - `extension`与`iframe`共存
 - 为了区分多个`WebBridge`，需要自定义`plat`字段
 
 #### ContentBridge
-- 主要是用来`proxy`各方通信
-- 需要和`WebBridge`配套使用，因此需要定义`platWeb`字段
+- 用于`proxy`各方通信
+- 和`WebBridge`配套，需要定义`platWeb`字段
 
 #### DevtoolBridge
-- 因为不同Chrome Extension的`devtool`是互相隔离的，不需要指定`plat`
+- 不同Chrome Extension的`devtool`是互相隔离的，不需要指定`plat`
 - `popup`，`service-worker`同理
 
 
@@ -114,6 +118,7 @@ console.log(piniaInfo); // { a: 1 }
     - 使用 `iframeEl.contentWindow.postMessage`通信
 - iframe页面：被嵌入的页面
     - 可能有多个
+    - 需要指定`frameKey`
     - 使用`window.top.postMessage`通信
 
 ```typescript
@@ -149,9 +154,12 @@ const topInfo = await iframeTest.request(api.getTopInfo, { topname: '' });
 
 ## 示例：自定义环境通信
 
-我这里只把我需求遇到的场景进行了`bridge`封装，也可以使用`BaseBridge`进行自定义封装。例如：
-- `electron`在`global`上挂了2个窗口`mainWin`和`backWin`；类型为`Electron.BrowserWindow`
-- 监听事件：在各自的代码中调用`ipcRenderer.on`，ipcRenderer来自类型`Electron.IpcRenderer`
+我这里只把我需求遇到的场景进行了`bridge`封装，也可以使用`BaseBridge`进行自定义封装。
+如下是一个`electron`中多个窗口通信场景
+- `electron`在`global`上挂了2个窗口`mainWin`和`backWin`
+    - 类型为`Electron.BrowserWindow`
+- 监听事件：在各自的代码中调用`ipcRenderer.on`
+    - ipcRenderer来自类型`Electron.IpcRenderer`
 - 触发事件：`backWin`中调用`global.mainWin.webContents.send`
 
 基于以上通信方式，构造一个支持`Promise`的`bridge`代码如下
@@ -207,12 +215,11 @@ export class ElectronBridge extends BaseBridge {
 ```
 
 说明：
-- 监听事件
-    - 在初始化时开始监听
-    - 使用`handleRequest`处理请求消息
-        - 提供`sendResponse`具体实现，本例中直接转发
-    - 使用`handleResponse`处理`response`消息
-    - 实现`sendMessage`方法，内容为向其他`bridge`发送消息
+- 在初始化时开始监听事件
+- 使用`handleRequest`处理请求消息
+    - 提供`sendResponse`具体实现，本例中直接转发
+- 使用`handleResponse`处理`response`消息
+- 实现`sendMessage`方法，内容为向其他`bridge`发送消息
 
 
 `ElectronBridge`使用代码如下

@@ -189,3 +189,4 @@ unplugin对于element-ui的api方法比如Message，Notification，需要单独�
         使用block.lines[0].newNumber(oldNumber) 展示部分数据
 devtools
     兼容VNode2情况
+书写`browser-bridge`博客
