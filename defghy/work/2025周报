@@ -181,3 +181,11 @@ devtools
 iframe权限？
     需要明确指定 allow="clipboard-read; clipboard-write"，详见：https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API
 unplugin对于element-ui的api方法比如Message，Notification，需要单独引入
+
+2025-04-04
+关卡工具链-编辑中心
+    diff工具卡顿
+        复用observer
+        使用block.lines[0].newNumber(oldNumber) 展示部分数据
+devtools
+    兼容VNode2情况
