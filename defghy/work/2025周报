@@ -189,4 +189,13 @@ unplugin对于element-ui的api方法比如Message，Notification，需要单独�
         使用block.lines[0].newNumber(oldNumber) 展示部分数据
 devtools
     兼容VNode2情况
+    发布 5.4.8
 书写`browser-bridge`博客
+
+2025-04-12
+anti-cheat
+    接入统一登录，便于复用组件
+汪汪驿站-多棋盘需求
+devtools
+    share-data事件传反了
+    pinia刷新后不自动关联

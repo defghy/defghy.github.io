@@ -38,7 +38,7 @@ bridge.on(path: string, async function(params: any) {
 - params: 接口参数
 - response: 接口返回值
 
-#### 使用 `request` 方法请求接口
+#### `request` 方法请求接口
 
 ```typescript
 const response = await bridge.request(path, { username: 'yh' });
