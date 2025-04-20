@@ -199,3 +199,17 @@ anti-cheat
 devtools
     share-data事件传反了
     pinia刷新后不自动关联
+
+2025-04-20
+汪汪驿站需求
+    使用多棋盘来构造编辑
+    exportGameData增加hook
+    使用useContextStask来处理调用栈参数
+    obsBoard支持extendInfo同步
+    使用portal，复用board容器
+多棋盘兼容
+    校验区分关卡和棋盘
+vitest升级至3
+    无法解决调试时 __vite_ssr_import_0__ 变量问题，详见：https://github.com/vitejs/vite/issues/18325
+增加mock录制
+    经过的项目可复现场景
