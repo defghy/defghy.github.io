@@ -88,7 +88,7 @@ webBridge.on(api.getPinia, async function({ key }) {
 
 // devtool.js
 import { DevtoolBridge } from '@yuhufe/browser-bridge'
-export const devtoolBridge = new DevtoolBridge() // must be required, if you want to request `web`
+export const devtoolBridge = new DevtoolBridge()
 
 const piniaInfo = await devtoolBridge.request(api.getPinia, { key: 'board' });
 console.log(piniaInfo); // { a: 1 }
@@ -187,6 +187,7 @@ export class ElectronBridge extends BaseBridge {
 
   init() {
     ipcRenderer?.on('kxBridgeMessage', (evt, message) => {
+      // 只处理 bridge 的消息
       if (!this.isBridgeMessage(message)) return
 
       const { target, type } = message
