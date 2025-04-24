@@ -179,6 +179,6 @@ Due to port disconnections, devtools becomes unresponsive. The solution involves
 - Replacing persistent connections with direct `sendMessage` transfers. This effectively switches from a `TCP`-like approach to a `UDP`-like approach.
 
 ## Project Repository
-https://github.com/kxxxlfe/devtools
+https://github.com/kxxxlfe/devtools/releases
 
 End
