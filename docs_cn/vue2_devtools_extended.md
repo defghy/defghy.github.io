@@ -179,6 +179,6 @@ devtools收集数据时，移除`computed`中与`$refs`同名的属性
 - 不再使用长连接，改为每次转发消息直接`sendMessage`。这里实际上是`tcp`思路改为了`udp`思路
 
 ## 项目地址
-https://github.com/kxxxlfe/devtools
+https://github.com/kxxxlfe/devtools/releases
 
 完
