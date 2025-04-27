@@ -213,3 +213,17 @@ vitest升级至3
     无法解决调试时 __vite_ssr_import_0__ 变量问题，详见：https://github.com/vitejs/vite/issues/18325
 增加mock录制
     经过的项目可复现场景
+
+2025-04-27
+兼容mac滚动条隐藏下，kxTabs样式
+统一的levelRange组件
+汪汪驿站补给箱新增bug
+    先设置extendInfo再新增icon
+快捷键scope增加bind方法，简化使用流程
+配置改动跳转
+    useScrollModify流程
+iframe嵌入 https://sanimaltgzmobile.happyelements.cn/sso/payCheatMonitor.jsp 失败原因
+    接口：
+https://he-sso.happyelements.com/sso-service/portal/sso/redirect返回的return_url是http的，iframe下安全策略不允许。
+    断点：
+        https://he-sso.happyelements.com/2410151743/static/js/0.js =》this.$http.adornUrl("/portal/sso/redirect")
