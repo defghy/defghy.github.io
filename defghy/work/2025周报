@@ -227,3 +227,20 @@ iframe嵌入 https://sanimaltgzmobile.happyelements.cn/sso/payCheatMonitor.jsp �
 https://he-sso.happyelements.com/sso-service/portal/sso/redirect返回的return_url是http的，iframe下安全策略不允许。
     断点：
         https://he-sso.happyelements.com/2410151743/static/js/0.js =》this.$http.adornUrl("/portal/sso/redirect")
+
+2025-05-06
+复用SceneLabel组件，支持多选
+ale公共登录
+    anticheat接入时同时登录ale
+CountDown库：短时间检测能否规避页面挂起？
+关卡奖励批量配置
+实验分组拆分组件，解决闪烁
+vxe-table升级到3.9，更高版本有性能问题
+electron-extension-installer
+    prodversion32失效，改成999999
+    支持使用本地overrides文件夹内文件
+    本地link开发直接import index.ts
+devtools
+    yarn切换到pnpm
+    webpack同一目录打包多份，需要设置resolve.symlinks=true
+    inspectInstance时，函数式组件id不存在，向上查找
