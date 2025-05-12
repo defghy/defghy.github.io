@@ -253,11 +253,9 @@ devtools
 chrome升级导致a-table的td的max-width失效
     替换为el-table，使用固定width
 尝试引入tinyVue，为升级vue3准备
-    对2.7支持不够完美，引入了@vue/composition，有bug风险
-    https://github.com/opentiny/tiny-vue/issues/3394
-    解决：自己打包一个2.7版本的vue-common
-    
-    $confirm命名冲突，需要设置 Vue.prototype.$apiPrefix = '$tiny_'
-    https://github.com/opentiny/tiny-vue/issues/3286
+    - 对2.7支持不够完美，引入了@vue/composition，有bug风险
+        - 详见：https://github.com/opentiny/tiny-vue/issues/3394
+    - $confirm命名冲突，需要设置 Vue.prototype.$apiPrefix = '$tiny_'；
+        - 详见：https://github.com/opentiny/tiny-vue/issues/3286
 devtools
     监听click可能被disabled元素拦截，改为pointerdown
