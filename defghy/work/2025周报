@@ -244,3 +244,20 @@ devtools
     yarn切换到pnpm
     webpack同一目录打包多份，需要设置resolve.symlinks=true
     inspectInstance时，函数式组件id不存在，向上查找
+
+2025-05-12
+了解mermaid
+优化useQuery
+    减少url参数，如果和默认值一致不记录
+    支持主动记录
+chrome升级导致a-table的td的max-width失效
+    替换为el-table，使用固定width
+尝试引入tinyVue，为升级vue3准备
+    对2.7支持不够完美，引入了@vue/composition，有bug风险
+    https://github.com/opentiny/tiny-vue/issues/3394
+    解决：自己打包一个2.7版本的vue-common
+    
+    $confirm命名冲突，需要设置 Vue.prototype.$apiPrefix = '$tiny_'
+    https://github.com/opentiny/tiny-vue/issues/3286
+devtools
+    监听click可能被disabled元素拦截，改为pointerdown
