@@ -259,3 +259,17 @@ chrome升级导致a-table的td的max-width失效
         - 详见：https://github.com/opentiny/tiny-vue/issues/3286
 devtools
     监听click可能被disabled元素拦截，改为pointerdown
+
+2025-05-22
+bugfix
+    新的数据格式luatable；使用正则纠正数据
+web-console
+    使用正则纠正lua-table左边key
+ale
+    path可能有多个候选障碍，增加配置startCandidateIcons
+usePress
+    需要watch，el改动。
+handsontable@14.6.2复制不能过多，升级至15.3.0
+devtools
+    stringify时考虑ref数据
+    长数组需要裁剪，裁剪个数动态计算，需要考虑嵌套数组时裁剪到正确的层级
