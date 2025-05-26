@@ -273,3 +273,10 @@ handsontable@14.6.2复制不能过多，升级至15.3.0
 devtools
     stringify时考虑ref数据
     长数组需要裁剪，裁剪个数动态计算，需要考虑嵌套数组时裁剪到正确的层级
+
+2025-05-26
+checkLegality提示代码统一；每条单独展示error或者warn
+障碍规则从代码改成页面配置，当前4个配置
+tileId与前端不一样，修改为itemType？
+devtools
+    在传递state时尝试使用flatted；发现小对象卡顿，还是用JSON
