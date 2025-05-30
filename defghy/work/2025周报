@@ -280,3 +280,18 @@ checkLegality提示代码统一；每条单独展示error或者warn
 tileId与前端不一样，修改为itemType？
 devtools
     在传递state时尝试使用flatted；发现小对象卡顿，还是用JSON
+
+2025-05-30
+自动化测试兼容tinyVue，使用alias排除
+障碍规则
+    手动备份功能
+障碍棋盘
+    builder增加对randomFields支持
+    增加对border的支持
+devtools
+    events使用exBridge
+    elementMouseOver增加截流
+bridge
+    增加MasterBridge和WorkerBridge
+worker
+    尝试获取token、调用fetch接口
