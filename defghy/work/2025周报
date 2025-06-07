@@ -295,3 +295,14 @@ bridge
     增加MasterBridge和WorkerBridge
 worker
     尝试获取token、调用fetch接口
+
+2025-06-07
+tileId与前端不一样，修改为itemType？
+    使用iconId替换tileId
+    ale增加洗数据脚本
+devtools
+    connect因为刷新过快多次调用，截流
+    detector-exec.js中嗅探到Vue后，复用，不再只依赖页面Vue通知
+    简化shared-data的初始化流程
+bridge
+    WebBridge需要单例，extension出现了多次inject导致多次new的情况，由库兼容
