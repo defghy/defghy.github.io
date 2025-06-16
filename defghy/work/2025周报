@@ -306,3 +306,9 @@ devtools
     简化shared-data的初始化流程
 bridge
     WebBridge需要单例，extension出现了多次inject导致多次new的情况，由库兼容
+
+2025-06-16
+弹球配置开发
+    移除星星瓶在extend-info的配置，改为代码生成
+    extend-info增加layout设置
+config接入g6与reactNode
