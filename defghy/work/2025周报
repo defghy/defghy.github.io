@@ -312,3 +312,16 @@ bridge
     移除星星瓶在extend-info的配置，改为代码生成
     extend-info增加layout设置
 config接入g6与reactNode
+
+2025-06-23
+公共
+    抽取LitPreset.vue组件
+config-center
+    使用useMetaDropdown统一下拉数据的获取
+    ViewConfigExcel支持namespace的plugin
+    GoodsSelect拆分object_array, tuple_array为modal
+ale
+    棋盘支持eachByType，新的遍历
+devtools
+    替换contextmenu，switch-tab为exbridge
+    使用injectBackend拦截多次重复初始化
