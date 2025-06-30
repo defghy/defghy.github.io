@@ -325,3 +325,13 @@ ale
 devtools
     替换contextmenu，switch-tab为exbridge
     使用injectBackend拦截多次重复初始化
+
+2025-06-30
+config-center
+    移除referenceShowList相关逻辑
+    化简meta现有依赖更新逻辑，移除参数addlist,keycol,refcol
+    拆分ConfigFormItem组件
+    RefSelect复用MetaNumWeightEdit    
+devtools
+    shared-data改为使用ref和Proxy
+
