@@ -335,3 +335,19 @@ config-center
 devtools
     shared-data改为使用ref和Proxy
 
+2025-07-05
+config-center
+    从ViewConfigExcel拆分col功能
+    统一使用useMetaInfo中的col数据
+wechat_user
+    并入animal-world
+    开发使用vite
+新的useTinyIcon使用icon
+devtools
+    stop-component-selector在devtools漏掉fix
+    接入exBridge: router; routes;
+    兼容device模拟
+        pointer事件替代mouse事件
+        更长的点击时间：400ms
+    发版5.4.12
+
