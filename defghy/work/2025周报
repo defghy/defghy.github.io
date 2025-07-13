@@ -306,3 +306,48 @@ devtools
     简化shared-data的初始化流程
 bridge
     WebBridge需要单例，extension出现了多次inject导致多次new的情况，由库兼容
+
+2025-06-16
+弹球配置开发
+    移除星星瓶在extend-info的配置，改为代码生成
+    extend-info增加layout设置
+config接入g6与reactNode
+
+2025-06-23
+公共
+    抽取LitPreset.vue组件
+config-center
+    使用useMetaDropdown统一下拉数据的获取
+    ViewConfigExcel支持namespace的plugin
+    GoodsSelect拆分object_array, tuple_array为modal
+ale
+    棋盘支持eachByType，新的遍历
+devtools
+    替换contextmenu，switch-tab为exbridge
+    使用injectBackend拦截多次重复初始化
+
+2025-06-30
+config-center
+    移除referenceShowList相关逻辑
+    化简meta现有依赖更新逻辑，移除参数addlist,keycol,refcol
+    拆分ConfigFormItem组件
+    RefSelect复用MetaNumWeightEdit    
+devtools
+    shared-data改为使用ref和Proxy
+
+2025-07-05
+config-center
+    从ViewConfigExcel拆分col功能
+    统一使用useMetaInfo中的col数据
+wechat_user
+    并入animal-world
+    开发使用vite
+新的useTinyIcon使用icon
+devtools
+    stop-component-selector在devtools漏掉fix
+    接入exBridge: router; routes;
+    兼容device模拟
+        pointer事件替代mouse事件
+        更长的点击时间：400ms
+    发版5.4.12
+
