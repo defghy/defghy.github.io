@@ -351,3 +351,15 @@ devtools
         更长的点击时间：400ms
     发版5.4.12
 
+2025-07-14
+ate
+    inject替换为useCompExp
+    a-tooltip替换为v-tooltip
+    公共的useDirectoryFS，提供一些fs的公共操作
+constraint
+    合并form和common
+    迁移analyze工具
+devtools
+    增加`Force Devtools Enable`开关
+    兼容本地开发，利用iframeBridge实现
+        iframe中top和iframe也要有plat概念
