@@ -363,3 +363,19 @@ devtools
     增加`Force Devtools Enable`开关
     兼容本地开发，利用iframeBridge实现
         iframe中top和iframe也要有plat概念
+
+2025-07-21
+constraint
+    layoutFun使用use
+    拆分dinput-radio;dinput-checkbox-mul;
+    简化globalLayout相关代码
+tooltip
+    使用多层visible，实现渲染时间功能
+ale
+    高级搜索：把关卡目标障碍合并进筛选
+bridge
+    key不能有/，否则无法split出正确target
+    frameBridge需要plat，兼容devtools
+devtools
+    使用iframeBridge实现本地开发时通信
+    复杂数据ref替换为shallowRef，否则自引用数据无法正确访问，爆栈
