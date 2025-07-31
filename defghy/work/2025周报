@@ -379,3 +379,10 @@ bridge
 devtools
     使用iframeBridge实现本地开发时通信
     复杂数据ref替换为shallowRef，否则自引用数据无法正确访问，爆栈
+
+2025-07-28
+uuid替换为crypto.randomUUID
+活动配置中心开发
+devtools在关卡活动卡顿分析
+    vuex初始化时，如果没有打开开关，不记录store
+    router的matched数据只打印了path，序列化时剪枝instances和其他vnode
