@@ -386,3 +386,16 @@ uuid替换为crypto.randomUUID
 devtools在关卡活动卡顿分析
     vuex初始化时，如果没有打开开关，不记录store
     router的matched数据只打印了path，序列化时剪枝instances和其他vnode
+
+2025-08-04
+关卡内活动
+    复用ate中约束升级的逻辑
+    移除form.vue中很多无效的参数和方法
+平台v2改为从后端获取数据
+    公共数据迁移至use中(platforms, platformMap)
+自动化测试
+    extend数据修复：1000+关卡不进行此步骤
+    id改为支持expgroup
+config-center
+    configJexcel等待dep加载完成再初始化
+devtools发布5.4.13版本
