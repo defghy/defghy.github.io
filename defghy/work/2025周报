@@ -399,3 +399,23 @@ devtools在关卡活动卡顿分析
 config-center
     configJexcel等待dep加载完成再初始化
 devtools发布5.4.13版本
+
+2025-08-11
+关卡内活动
+    加5步功能：老页面抽取use，新页面对齐
+    收藏功能
+    接入分析工具，活动跳转
+tabs
+    排序功能使用新的参数tabIndex
+    provide替换为useCompExp
+ale
+    150000以上关卡保存为新关格式(先不上线)
+    parse错误改为弱提示，兼容大多数老关卡报错情况
+    productRuleGroupIndex为-1时，保存被删除fix
+v-tooltip
+    置为全局指令
+    tooltip和refEl需要紧挨着，否则容易闪烁
+bridge
+    添加plugin开发方式
+    拆分TimeoutPlugin
+    ChunkPlugin开发 40%
