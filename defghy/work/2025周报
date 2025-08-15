@@ -419,3 +419,14 @@ bridge
     添加plugin开发方式
     拆分TimeoutPlugin
     ChunkPlugin开发 40%
+
+2025-08-15
+关卡内活动
+    tooltip显示时马上占用own锁
+    同一个ref的tip，重复显示时，不进行初始化，防止闪烁
+    OperateBtn改为1处，使用css展示在不同位置
+    优化label样式
+猩猩拳
+    移除对tileList和tileId的依赖
+tooltip
+    popup计算位置时，首先根据space来修正placement
