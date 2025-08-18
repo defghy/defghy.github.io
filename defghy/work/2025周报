@@ -430,3 +430,9 @@ bridge
     移除对tileList和tileId的依赖
 tooltip
     popup计算位置时，首先根据space来修正placement
+devtools
+    content-script执行时机document_start还不够早
+        - 受`disable-cache`影响可能晚于vue加载导致`init`未调用
+        - 使用`service-worker`的生命周期解决时机问题
+bridge
+    完成chunkPlugin主要逻辑
