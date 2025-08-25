@@ -436,3 +436,10 @@ devtools
         - 使用`service-worker`的生命周期解决时机问题
 bridge
     完成chunkPlugin主要逻辑
+
+2025-08-25
+关卡内活动
+    搜索功能完成；tranverseVisible
+    enums处理统一到一个模块儿
+xlsx公式没被抛弃bug
+    https://git.sheetjs.com/sheetjs/sheetjs/issues/3323
