@@ -443,3 +443,14 @@ bridge
     enums处理统一到一个模块儿
 xlsx公式没被抛弃bug
     https://git.sheetjs.com/sheetjs/sheetjs/issues/3323
+
+2025-09-01
+AI支持多场景输入
+    公共组件LevelIdSegInput
+    移除watch:$route, 有误触风险
+猩猩拳跟测
+ale
+    bugfix: PathCrossline.kForbidByAny校验逻辑修正
+    多棋盘支持gap
+tiny-vue
+    新的使用vue-common包的方式，利用alias返回空包的形式移除@vue/composition-api
