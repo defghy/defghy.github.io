@@ -154,9 +154,9 @@ const topInfo = await iframeChild.request(api.getTopInfo, { topname: '' });
 
 ## 自定义bridge: electron下2个窗口通信
 
-我这里只把我需求遇到的场景进行了`bridge`封装，也可以使用`BaseBridge`进行自定义封装。
+上面只把常用的场景进行了`bridge`封装，你也可以使用`BaseBridge`进行自定义封装，如下例。
 
-### 通信方: `electron`在`global`上挂了2个窗口
+### 通信方: `electron`在`global`上挂了2个窗口需要通信
 - mainWin(`Electron.BrowserWindow`)
 - backWin(`Electron.BrowserWindow`)
 
@@ -165,7 +165,7 @@ const topInfo = await iframeChild.request(api.getTopInfo, { topname: '' });
     - ipcRenderer来自类型`Electron.IpcRenderer`
 - 触发事件：`backWin`中调用`global.mainWin.webContents.send`
 
-基于以上通信方式，构造一个支持`Promise`的`bridge`代码如下
+基于以上通信方式，构造`bridge`如下
 
 ```typescript
 import { BaseBridge, MsgDef } from '@yuhufe/browser-bridge'
@@ -305,6 +305,8 @@ import { IFrameBridge } from '@yuhufe/browser-bridge'
 export const vscodeWebBridge = new IFrameBridge({ frameKey: EXTENSION_PLAT.jsonViewer });
 
 ```
+
+之后`vscodeWebBridge` 与 `vscodePanelBridge`通信方式同上
 
 ## 项目地址
 https://github.com/defghy/web-toolkits/tree/main/packages/wtool-chrome-bridge
