@@ -9,8 +9,8 @@ github:
 ---
 
 ## 背景
-之前项目多次遇到隔离环境需要通信，比如`window.top`和`iframe`。`Chrome Extension`环境之间通信。主线程与`web worker`通信等。原生的通信方式会遇到以下问题
-- 原生通信方式不支持`Promise`，比如 
+隔离环境通信，比如`window.top`和`iframe`；`Chrome Extension`各环境之间通信；主线程与`web worker`通信等；原生的通信方式会遇到以下问题
+- 原生通信方式不支持`response`，比如 
     - `window.postMessage`;
     - `Electron.WebContents.send`;
 - 无法直接通信，需要转发
@@ -20,7 +20,7 @@ github:
 
 ## 使用
 
-整个使用过程类似调用后端接口
+整个使用过程类似调用后端接口，如下
 
 #### `on` 方法监听`API`
 
@@ -32,7 +32,7 @@ bridge.on(path: string, async function(params: any) {
 ```
 
 说明：
-- path: 接口路径
+- path: 接口路径，比如 'web/getUserInfo'
     - 为区分多个环境，path需要以环境的key`plat`开头
     - 与事件监听有所不同，一个`path`只能对应一个方法
 - params: 接口参数
@@ -145,19 +145,22 @@ const userInfo = await iframeTestTop.request(api.getFrameInfo, { username: '' })
 
 // iframe.js
 import { IFrameBridge } from '@yuhufe/browser-bridge'
-const iframeTest = new IFrameBridge({ frameKey })
-iframeTest.on(api.getFrameInfo, async function({ username }) {
+const iframeChild = new IFrameBridge({ frameKey })
+iframeChild.on(api.getFrameInfo, async function({ username }) {
   return { user: '', age: 0 }
 });
-const topInfo = await iframeTest.request(api.getTopInfo, { topname: '' });
+const topInfo = await iframeChild.request(api.getTopInfo, { topname: '' });
 ```
 
-## 示例：自定义环境通信
+## 自定义bridge: electron下2个窗口通信
 
 我这里只把我需求遇到的场景进行了`bridge`封装，也可以使用`BaseBridge`进行自定义封装。
-如下是一个`electron`中多个窗口通信场景
-- `electron`在`global`上挂了2个窗口`mainWin`和`backWin`
-    - 类型为`Electron.BrowserWindow`
+
+### 通信方: `electron`在`global`上挂了2个窗口
+- mainWin(`Electron.BrowserWindow`)
+- backWin(`Electron.BrowserWindow`)
+
+### 通信方式
 - 监听事件：在各自的代码中调用`ipcRenderer.on`
     - ipcRenderer来自类型`Electron.IpcRenderer`
 - 触发事件：`backWin`中调用`global.mainWin.webContents.send`
@@ -188,12 +191,9 @@ export class ElectronBridge extends BaseBridge {
   init() {
     ipcRenderer?.on('kxBridgeMessage', (evt, message) => {
       // 只处理 bridge 的消息
-      if (!this.isBridgeMessage(message)) return
+      if (!this.isMyMessage(message)) return
 
       const { target, type } = message
-
-      // 只处理发给我的页面消息
-      if (target !== this.plat) return
 
       if (type === MsgDef.REQUEST) {
         this.handleRequest({
@@ -236,6 +236,74 @@ backBridge.on(WinAPI.cptDynamicUpdateFileInfo, async data => {
 // mainWin
 const mainBridge = new ElectronBridge({ plat: WinPlat.mainWin })
 const data = await mainBridge.request(WinAPI.cptDynamicUpdateFileInfo, {})
+```
+
+## 自定义bridge: `vscode extension`与tab页通信
+
+vscode extension通过一个`json`文件，打开一个新的tab页面，tab页面展示json的图形化结构
+
+### 通信方
+- `vscode.extension`: vscode扩展代码执行环境
+- `panel.webview`: vscode扩展的webview执行环境
+- `jsonViewer`: 真正的json图形化展示页面，页面地址（http://localhost:9999）
+
+希望实现`jsonViewer`与`vscode.extension`的bridge，代码如下
+```typescript
+export const EXTENSION_PLAT = {
+  vscode: 'vscode',
+  jsonViewer: 'jsonViewer',
+}
+
+// vscode.extension: 收发消息通过panel.webview
+import { WebviewPanel } from 'vscode'
+import { BaseBridge } from '@yuhufe/browser-bridge'
+export class VSCodePanelBridge extends BaseBridge {
+  panel: WebviewPanel
+
+  constructor({ panel }: { panel: WebviewPanel }) {
+    super({ plat: EXTENSION_PLAT.vscode })
+    this.panel = panel
+    this.init()
+  }
+
+  init() {
+    this.panel.webview.onDidReceiveMessage(message => {
+      if (!this.isMyMessage(message)) return
+
+      const { target, type } = message
+      if (type === MsgDef.REQUEST) {
+        this.handleRequest({
+          request: message,
+          sendResponse: response => {
+            this.sendMessage(response)
+          },
+        })
+      } else {
+        this.handleResponse({ response: message })
+      }
+    })
+  }
+
+  async sendMessage(message: any) {
+    await this.panel.webview.postMessage(message)
+    return
+  }
+}
+
+// panel.webview: 仅用来进行转发
+window.addEventListener('message', event => {
+  if (event.data?.target === 'vscode') {
+    vscode.postMessage(event.data)
+  }
+  if (event.data?.target === 'jsonViewer') {
+    iframe.contentWindow.postMessage(event.data, '*')
+  }
+})
+
+// jsonViewer: 在iframe中，与panel.webview通信等同于IFrameBridge
+import { IFrameBridge } from '@yuhufe/browser-bridge'
+export const vscodeWebBridge = new IFrameBridge({ frameKey: EXTENSION_PLAT.jsonViewer });
+
 ```
 
 ## 项目地址
