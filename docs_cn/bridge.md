@@ -110,6 +110,9 @@ console.log(piniaInfo); // { a: 1 }
 - 不同Chrome Extension的`devtool`是互相隔离的，不需要指定`plat`
 - `popup`，`service-worker`同理
 
+#### BackgroundBridge
+#### PopupBridge
+
 
 ## 示例：`iframe`通信
 
@@ -117,39 +120,70 @@ console.log(piniaInfo); // { a: 1 }
     - 只有1个
     - 使用 `iframeEl.contentWindow.postMessage`通信
 - iframe页面：被嵌入的页面
-    - 可能有多个
-    - 需要指定`frameKey`
-    - 使用`window.top.postMessage`通信
+    - 可能有多个，因此需要指定`frameKey`
+    - 使用`window.parent.postMessage`通信
 
 ```typescript
-import { Plat } from '@yuhufe/browser-bridge'
-// because we have only 1 top and multi iframe;
-const frameKey = 'iframeTest' // multi iframe, so every iframe has a key
-const topKey = Plat.iframeTop // 1 top so key is only one
+const Plat = { frame1: 'iframeText', top: 'iframeTop' };
 const api = {
-  getFrameInfo: `${frameKey}/getInfo`,
-  getTopInfo: `${topKey}/getTopInfo`
+  getFrameInfo: `${Plat.frame1}/getInfo`,
+  getTopInfo: `${Plat.top}/getTopInfo`
 }
 
 // top.js
-import { IFrameTopBridge, Plat } from '@yuhufe/browser-bridge'
-const iframeTestTop = new IFrameTop({ 
-  frameKey, 
+import { IFrameTopBridge } from '@yuhufe/browser-bridge'
+const iframeTopBridge = new IFrameTop({ 
+  frameKey: Plat.frame1, 
   frameEl: document.querySelector('iframe') 
 })
-iframeTestTop.on(api.getTopInfo, async function({ topname }) {
+iframeTopBridge.on(api.getTopInfo, async function({ topname }) {
   console.log(topname);
   return { top: 1 };
 });
-const userInfo = await iframeTestTop.request(api.getFrameInfo, { username: '' });
+const userInfo = await iframeTopBridge.request(api.getFrameInfo, { username: '' });
 
 // iframe.js
 import { IFrameBridge } from '@yuhufe/browser-bridge'
-const iframeChild = new IFrameBridge({ frameKey })
-iframeChild.on(api.getFrameInfo, async function({ username }) {
+const iframeBridge = new IFrameBridge({ frameKey })
+// handle api
+iframeBridge.on(api.getFrameInfo, async function({ username }) {
   return { user: '', age: 0 }
 });
-const topInfo = await iframeChild.request(api.getTopInfo, { topname: '' });
+// call api
+const topInfo = await iframeBridge.request(api.getTopInfo, { topname: '' });
+```
+
+## 示例：`WebWorker`通信
+
+```typescript
+import { Plat } from '@yuhufe/browser-bridge'
+const Plat = { worker1: 'worker1', master: 'master' }
+const api = {
+  getWorkerInfo: `${Plat.worker1}/getInfo`,
+  getMasterInfo: `${Plat.master1}/getInfo`
+}
+
+// master.js
+import { MasterBridge } from '@yuhufe/browser-bridge'
+export const masterBridge = new MasterBridge()
+const worker = new Worker(new URL('./worker.ts', import.meta.url), {
+  type: 'module',
+})
+masterBridge.bindWorker({ plat: Plat.worker, worker })
+// handle api
+masterBridge.on(api.getMasterInfo, async function () {
+  return { accessToken: 'aaa' }
+})
+
+// worker.js
+import { WorkerBridge } from '@yuhufe/browser-bridge'
+
+const workerBridge = new WorkerBridge()
+const init = async function () {
+  const info: any = await workerBridge.request(api.getMasterInfo, null)
+  console.log(info)
+}
+init()
 ```
 
 ## 自定义bridge: electron下2个窗口通信
@@ -272,12 +306,7 @@ export class VSCodePanelBridge extends BaseBridge {
 
       const { target, type } = message
       if (type === MsgDef.REQUEST) {
-        this.handleRequest({
-          request: message,
-          sendResponse: response => {
-            this.sendMessage(response)
-          },
-        })
+        this.handleRequest({ request: message })
       } else {
         this.handleResponse({ response: message })
       }
