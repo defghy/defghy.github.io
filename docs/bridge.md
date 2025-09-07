@@ -1,6 +1,6 @@
 ---
 layout: custom
-title: web bridge which support `Promise`
+title: Web bridge which support `Promise`
 description: A library that supports `Promise` across different isolation environments
 target_github_url: https://github.com/defghy/web-toolkits/tree/main/packages/wtool-chrome-bridge
 show_downloads: true
