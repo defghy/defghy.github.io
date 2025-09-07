@@ -225,21 +225,7 @@ export class ElectronBridge extends BaseBridge {
 
   init() {
     ipcRenderer?.on('kxBridgeMessage', (evt, message) => {
-      // 只处理 bridge 的消息
-      if (!this.isMyMessage(message)) return
-
-      const { target, type } = message
-
-      if (type === MsgDef.REQUEST) {
-        this.handleRequest({
-          request: message,
-          sendResponse: response => {
-            this.sendMessage(response)
-          },
-        })
-      } else {
-        this.handleResponse({ response: message })
-      }
+      this.onReceiveMessage(message);
     })
   }
 
@@ -303,14 +289,7 @@ export class VSCodePanelBridge extends BaseBridge {
 
   init() {
     this.panel.webview.onDidReceiveMessage(message => {
-      if (!this.isMyMessage(message)) return
-
-      const { target, type } = message
-      if (type === MsgDef.REQUEST) {
-        this.handleRequest({ request: message })
-      } else {
-        this.handleResponse({ response: message })
-      }
+      this.onReceiveMessage(message);
     })
   }
 
