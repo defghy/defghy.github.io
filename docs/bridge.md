@@ -1,29 +1,29 @@
 ---
 layout: custom
-title: web端隔离环境通信库
-description: 不同隔离环境之间支持`Promise`的库
+title: web bridge which support `Promise`
+description: A library that supports `Promise` across different isolation environments
 target_github_url: https://github.com/defghy/web-toolkits/tree/main/packages/wtool-chrome-bridge
 show_downloads: true
 github:
   zip_url: https://www.npmjs.com/package/@yuhufe/browser-bridge?activeTab=readme
 ---
 
-## 背景
-隔离环境通信，比如`window.top`和`iframe`；`Chrome Extension`各环境之间通信；主线程与`web worker`通信等；原生的通信方式会遇到以下问题
-- 原生通信方式不支持`response`，比如 
+## Background
+Isolated environment communication, such as between `window.top` and `iframe`; communication between environments in `Chrome Extension`; communication between the main thread and `web worker`; and so on. Native communication methods often encounter the following issues:
+- Native communication methods do not support `response`, for example:
   - `chrome.runtime.sendMessage`
   - `(window | vscode | vscode.panel.webview |worker).postMessage`
   - `Electron.WebContents.send`
-- 无法直接通信，需要转发
-    - `Chrome Extension`中`devtool`与前台页面通信需要`content script`转发
+- Direct communication is not possible, forwarding is required:
+    - In `Chrome Extension`, communication between `devtool` and the frontend page requires forwarding through a `content script`.
 
-每次遇到这个问题都会封装一个支持`Promise`的工具方法，遇到的次数多了，封装一个统一api的[bridge](https://github.com/defghy/web-toolkits/tree/main/packages/wtool-chrome-bridge)库。
+Each time this issue arises, I encapsulate a utility method that supports `Promise`. Since it happens often, I created a unified API library called [bridge](https://github.com/defghy/web-toolkits/tree/main/packages/wtool-chrome-bridge).
 
-## 使用
+## Usage
 
-整个使用过程类似调用后端接口，如下
+The usage process is similar to calling a backend API, as shown below:
 
-#### `on` 方法监听`API`
+#### The `on` method to listen for `API`
 
 ```typescript
 bridge.on(path: string, async function(params: any) {
@@ -32,38 +32,38 @@ bridge.on(path: string, async function(params: any) {
 });
 ```
 
-说明：
-- path: 接口路径，比如 'web/getUserInfo'
-    - 为区分多个环境，path需要以环境的key`plat`开头
-    - 与事件监听有所不同，一个`path`只能对应一个方法
-- params: 接口参数
-- response: 接口返回值
+Explanation:
+- path: API path, e.g., 'web/getUserInfo'
+    - To differentiate between multiple environments, the path must start with the environment key `plat`.
+    - Unlike event listeners, one `path` can only correspond to one method.
+- params: API parameters
+- response: API return value
 
-#### `request` 方法请求接口
+#### The `request` method to call an API
 
 ```typescript
 const response = await bridge.request(path, { username: 'yh' });
 ```
 
-说明：
-- path: 需要和`on`的path保持一致
+Explanation:
+- path: Must be consistent with the `on` path
 
-## 示例：`chrome-extension` 通信
+## Example: `chrome-extension` Communication
 
-### Chrome Extension 环境
-- web: 前台页面
+### Chrome Extension Environments
+- web: frontend page
 - [content script](https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts)
 - [popup](https://developer.chrome.com/docs/extensions/develop/ui/add-popup)
 - [devtool](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools)
-- [service worker](https://developer.chrome.com/docs/extensions/develop/concepts/service-workers/basics)：之前的`background script`
+- [service worker](https://developer.chrome.com/docs/extensions/develop/concepts/service-workers/basics): previously `background script`
 
 ![image](https://hy911.oss-cn-hangzhou.aliyuncs.com/tech/runtime_envs.png)
 
-`devtool`或者其他环境与`web`通信需要经过`content-script`中转，如图
+`devtool` or other environments need to communicate with `web` via forwarding through the `content-script`, as shown in the figure:
 
 ![image](https://hy911.oss-cn-hangzhou.aliyuncs.com/tech/vue_devtools_message.png)
 
-### Chrome Extension 使用 bridge
+### Chrome Extension using bridge
 
 ```typescript
 const Plat = {
@@ -95,34 +95,34 @@ const piniaInfo = await devtoolBridge.request(api.getPinia, { key: 'board' });
 console.log(piniaInfo); // { a: 1 }
 ```
 
-### Chrome Extension Bridges 介绍
+### Chrome Extension Bridges Introduction
 
 #### WebBridge
-- 一个页面可能会定义多个`WebBridge`
-    - 多个`extension`
-    - `extension`与`iframe`共存
-- 为了区分多个`WebBridge`，需要自定义`plat`字段
+- A single page may define multiple `WebBridge`s
+    - Multiple `extensions`
+    - `extension` and `iframe` coexist
+- To differentiate multiple `WebBridge`s, a custom `plat` field is required
 
 #### ContentBridge
-- 用于`proxy`各方通信
-- 和`WebBridge`配套，需要定义`platWeb`字段
+- Used to `proxy` communication between parties
+- Works with `WebBridge`, requires defining the `platWeb` field
 
 #### DevtoolBridge
-- 不同Chrome Extension的`devtool`是互相隔离的，不需要指定`plat`
-- `popup`，`service-worker`同理
+- Different Chrome Extensions’ `devtool`s are isolated from each other, so `plat` does not need to be specified
+- The same applies to `popup` and `service-worker`
 
 #### BackgroundBridge
 #### PopupBridge
 
 
-## 示例：`iframe`通信
+## Example: `iframe` Communication
 
-- top页面：宿主页面
-    - 只有1个
-    - 使用 `iframeEl.contentWindow.postMessage`通信
-- iframe页面：被嵌入的页面
-    - 可能有多个，因此需要指定`frameKey`
-    - 使用`window.parent.postMessage`通信
+- top page: the host page
+    - Only one
+    - Uses `iframeEl.contentWindow.postMessage` to communicate
+- iframe page: the embedded page
+    - There may be multiple, so a `frameKey` must be specified
+    - Uses `window.parent.postMessage` to communicate
 
 ```typescript
 const Plat = { frame1: 'iframeText', top: 'iframeTop' };
@@ -154,7 +154,7 @@ iframeBridge.on(api.getFrameInfo, async function({ username }) {
 const topInfo = await iframeBridge.request(api.getTopInfo, { topname: '' });
 ```
 
-## 示例：`WebWorker`通信
+## Example: `WebWorker` Communication
 
 ```typescript
 import { Plat } from '@yuhufe/browser-bridge'
@@ -187,20 +187,20 @@ const init = async function () {
 init()
 ```
 
-## 自定义bridge: electron下2个窗口通信
+## Custom bridge: Communication between two electron windows
 
-上面只把常用的场景进行了`bridge`封装，你也可以使用`BaseBridge`进行自定义封装，如下例。
+The above only encapsulates common scenarios into `bridge`. You can also use `BaseBridge` to create custom encapsulations, as in the example below.
 
-### 通信方: `electron`在`global`上挂了2个窗口需要通信
-- mainWin(`Electron.BrowserWindow`)
-- backWin(`Electron.BrowserWindow`)
+### Communication parties: Two `electron` windows attached on `global` that need to communicate
+- mainWin (`Electron.BrowserWindow`)
+- backWin (`Electron.BrowserWindow`)
 
-### 通信方式
-- 监听事件：在各自的代码中调用`ipcRenderer.on`
-    - ipcRenderer来自类型`Electron.IpcRenderer`
-- 触发事件：`backWin`中调用`global.mainWin.webContents.send`
+### Communication method
+- Listen for events: use `ipcRenderer.on` in their respective code
+    - ipcRenderer comes from `Electron.IpcRenderer`
+- Trigger events: `backWin` calls `global.mainWin.webContents.send`
 
-基于以上通信方式，构造`bridge`如下
+Based on the above communication method, construct the `bridge` as follows:
 
 ```typescript
 import { BaseBridge, MsgDef } from '@yuhufe/browser-bridge'
@@ -208,8 +208,8 @@ import { BaseBridge, MsgDef } from '@yuhufe/browser-bridge'
 const ipcRenderer = remote.ipcRenderer
 
 export const WinPlat = {
-  backWin: 'backWin', // background页面
-  mainWin: 'mainWin', // 主页面
+  backWin: 'backWin', // background window
+  mainWin: 'mainWin', // main window
 }
 export const WinAPI = {
   backToggle: `${WinPlat.backWin}/toggle`,
@@ -225,7 +225,7 @@ export class ElectronBridge extends BaseBridge {
 
   init() {
     ipcRenderer?.on('kxBridgeMessage', (evt, message) => {
-      // 只处理 bridge 的消息
+      // Only handle bridge messages
       if (!this.isMyMessage(message)) return
 
       const { target, type } = message
@@ -250,21 +250,20 @@ export class ElectronBridge extends BaseBridge {
 }
 ```
 
-说明：
-- 在初始化时开始监听事件
-- 使用`handleRequest`处理请求消息
-    - 提供`sendResponse`具体实现，本例中直接转发
-- 使用`handleResponse`处理`response`消息
-- 实现`sendMessage`方法，内容为向其他`bridge`发送消息
+Explanation:
+- Start listening for events during initialization
+- Use `handleRequest` to process request messages
+    - Provide a specific implementation of `sendResponse`, in this case directly forwarding
+- Use `handleResponse` to process response messages
+- Implement the `sendMessage` method to send messages to other `bridges`
 
-
-`ElectronBridge`使用代码如下
+`ElectronBridge` usage code is as follows:
 
 ```typescript
 // backWin
 const backBridge = new ElectronBridge({ plat: WinPlat.backWin })
 backBridge.on(WinAPI.cptDynamicUpdateFileInfo, async data => {
-    // 业务逻辑
+    // business logic
     return {}
 })
 
@@ -273,23 +272,24 @@ const mainBridge = new ElectronBridge({ plat: WinPlat.mainWin })
 const data = await mainBridge.request(WinAPI.cptDynamicUpdateFileInfo, {})
 ```
 
-## 自定义bridge: `vscode extension`与tab页通信
+## Custom bridge: Communication between `vscode extension` and tab page
 
-vscode extension通过一个`json`文件，打开一个新的tab页面，tab页面展示json的图形化结构
+The vscode extension opens a new tab page using a `json` file, and the tab page displays the graphical structure of the json.
 
-### 通信方
-- `vscode.extension`: vscode扩展代码执行环境
-- `panel.webview`: vscode扩展的webview执行环境
-- `jsonViewer`: 真正的json图形化展示页面，页面地址（http://localhost:9999）
+### Communication parties
+- `vscode.extension`: the execution environment of the vscode extension code
+- `panel.webview`: the execution environment of the vscode extension’s webview
+- `jsonViewer`: the actual json visualization page, page address (http://localhost:9999)
 
-希望实现`jsonViewer`与`vscode.extension`的bridge，代码如下
+We want to establish a `bridge` between `jsonViewer` and `vscode.extension`, code is as follows:
+
 ```typescript
 export const EXTENSION_PLAT = {
   vscode: 'vscode',
   jsonViewer: 'jsonViewer',
 }
 
-// vscode.extension: 收发消息通过panel.webview
+// vscode.extension: send/receive messages via panel.webview
 import { WebviewPanel } from 'vscode'
 import { BaseBridge } from '@yuhufe/browser-bridge'
 export class VSCodePanelBridge extends BaseBridge {
@@ -320,7 +320,7 @@ export class VSCodePanelBridge extends BaseBridge {
   }
 }
 
-// panel.webview: 仅用来进行转发
+// panel.webview: only used for forwarding
 window.addEventListener('message', event => {
   if (event.data?.target === 'vscode') {
     vscode.postMessage(event.data)
@@ -330,15 +330,13 @@ window.addEventListener('message', event => {
   }
 })
 
-// jsonViewer: 在iframe中，与panel.webview通信等同于IFrameBridge
+// jsonViewer: inside an iframe, communication with panel.webview is the same as IFrameBridge
 import { IFrameBridge } from '@yuhufe/browser-bridge'
 export const vscodeWebBridge = new IFrameBridge({ frameKey: EXTENSION_PLAT.jsonViewer });
 
 ```
 
-之后`vscodeWebBridge` 与 `vscodePanelBridge`通信方式同上
+After that, communication between `vscodeWebBridge` and `vscodePanelBridge` works the same way as above.
 
-## 项目地址
+## Project Address
 https://github.com/defghy/web-toolkits/tree/main/packages/wtool-chrome-bridge
-
-完
