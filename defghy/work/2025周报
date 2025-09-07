@@ -454,3 +454,19 @@ ale
     多棋盘支持gap
 tiny-vue
     新的使用vue-common包的方式，利用alias返回空包的形式移除@vue/composition-api
+
+2025-09-07
+海洋之门开发
+    拆分简化LegalityCheckConfig.ts代码
+    重构mode和level-target相关代码
+    modeExtraData增加到processor
+猩猩拳击盒
+    绳子分割公共配置
+多格-path互斥兼容
+vscode-ext技术方案框架
+    接入bridge
+bridge
+    增加timeout参数
+    iframe单例改
+    简化一些公共代码
+    增加文档示例
