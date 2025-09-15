@@ -470,3 +470,15 @@ bridge
     iframe单例改
     简化一些公共代码
     增加文档示例
+
+2025-09-15
+海洋之门开发
+猩猩拳增加起点/终点方向
+过滤器分离
+    plugin增加解析棋盘的声明周期
+vscode-ext技术方案框架
+    多人开发权限设置
+活动配置支持随机类型
+devtools
+    vuex中vuexNewBackend代码拆分到另一个class
+    vuex快照使用cloneDeep替代stringify，性能差距20倍
