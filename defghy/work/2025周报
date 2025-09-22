@@ -482,3 +482,16 @@ vscode-ext技术方案框架
 devtools
     vuex中vuexNewBackend代码拆分到另一个class
     vuex快照使用cloneDeep替代stringify，性能差距20倍
+
+2025-09-22
+config-center
+    移除newSwitchList相关代码，使用db计算
+    bugfix：originData可能有null，导致update报错，兼容
+飞书工时页面问题修复
+    升级cli
+    简化table布局计算，利用flex直接获取容器宽高
+    使用sdk获取workId
+鼹鼠打洞交互优化
+devtools
+    发布5.4.15
+    抛弃chrome.runtime的sendResponse，全部使用通用的handleResponse，这样才能使用chunk
