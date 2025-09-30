@@ -495,3 +495,13 @@ config-center
 devtools
     发布5.4.15
     抛弃chrome.runtime的sendResponse，全部使用通用的handleResponse，这样才能使用chunk
+
+2025-09-30
+鼹鼠打洞交互优化上线
+多棋盘生成口productContext合并
+    测试尽快返回错误
+关卡目标逻辑重构，vue迁移至ts
+飞书页面支持深色模式
+ale
+    生成口仅依赖canProduct，移除依赖tileId
+    抽取useProductV3，用于生成口规则逻辑
