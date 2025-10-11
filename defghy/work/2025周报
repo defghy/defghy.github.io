@@ -505,3 +505,9 @@ devtools
 ale
     生成口仅依赖canProduct，移除依赖tileId
     抽取useProductV3，用于生成口规则逻辑
+
+2025-10-11
+devtools
+    response支持chunk
+    vuex迁移属性到use
+    vuex使用request模式重构代码
