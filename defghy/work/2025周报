@@ -511,3 +511,15 @@ devtools
     response支持chunk
     vuex迁移属性到use
     vuex使用request模式重构代码
+
+2025-10-20
+ai关卡加导入功能
+海洋模式
+    增加同步关卡目标数字
+watch(autocount)问题修复
+bridge发布0.13
+飞书表格替换为antd
+自动化测试
+    使用history接口判断最后修改时间
+    path增加障碍名字，便于排除
+react支持虚拟滚动库：https://visactor.io/vtable/example
