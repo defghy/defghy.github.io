@@ -523,3 +523,15 @@ bridge发布0.13
     使用history接口判断最后修改时间
     path增加障碍名字，便于排除
 react支持虚拟滚动库：https://visactor.io/vtable/example
+
+2025-10-27
+FormItemList增加复制功能
+KXList支持列响应式
+devtools发布5.4.16
+ale
+    vitest如果在模块儿中定义了computed属性imLayout，多个测试用例共享这个imLayout，切换关卡时，store进行了重建，导致imLayout不再变化。
+        - 解法：boardLayout迁入store
+vue>=3.0.8不再支持vue2
+    官方：https://github.com/vuejs/language-tools/discussions/5455#discussioncomment-14534202
+devtools
+    vuex的stroe初始化面临和vue一样的问题，在detector-exec中加入store初始化代码
