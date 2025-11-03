@@ -535,3 +535,12 @@ vue>=3.0.8不再支持vue2
     官方：https://github.com/vuejs/language-tools/discussions/5455#discussioncomment-14534202
 devtools
     vuex的stroe初始化面临和vue一样的问题，在detector-exec中加入store初始化代码
+
+2025-11-03
+海洋之门
+    增加海洋之门不可用障碍规则
+运动/缓动 曲线编辑器
+    技术方案，技术评审，开发
+ale pixel
+    使用useCompExp可以降低代码复杂度
+        外部使用替换为useCompExp
