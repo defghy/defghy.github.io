@@ -544,3 +544,13 @@ devtools
 ale pixel
     使用useCompExp可以降低代码复杂度
         外部使用替换为useCompExp
+
+2025-11-10
+海洋之门跟测
+运动/缓动 曲线编辑器
+    使用bezier-js实现切线split曲线交互
+ai关卡生成-逻辑对接
+ale
+    移除 IconTagType.kTarget 依赖
+ale pixel
+    替换getStage为useCompExp
