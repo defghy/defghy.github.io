@@ -554,3 +554,10 @@ ale
     移除 IconTagType.kTarget 依赖
 ale pixel
     替换getStage为useCompExp
+
+2025-11-17
+ai生成关卡批量导入/导出
+    使用fflate进行多文件压缩
+    导入导出时，editor销毁防止渲染开销
+    导出完成时，直接刷新页面
+替换 JSonToCSV.setDataConver 为公共的 exportCSV
