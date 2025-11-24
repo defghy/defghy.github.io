@@ -565,3 +565,15 @@ ai生成关卡批量导入/导出
 github项目质量评估
     - 指标：opened / solved
     - 按照 comment 排序，挨个看
+
+2025-11-24
+ale导出详细数据
+   使用新的导出方案，支持大量关卡导出
+   ai导出接口切换到v3
+konva动画从requestAnimationFrame换成konva自己的
+/packages中moment替换为luxon
+webconsole
+    clickOutside替换原始实现
+    增加login超时时间
+web端代码封装接口
+    利用vitest的plugins，和vite-node来生成执行环境
