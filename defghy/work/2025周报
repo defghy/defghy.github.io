@@ -566,14 +566,18 @@ github项目质量评估
     - 指标：opened / solved
     - 按照 comment 排序，挨个看
 
-2025-11-24
-ale导出详细数据
-   使用新的导出方案，支持大量关卡导出
-   ai导出接口切换到v3
-konva动画从requestAnimationFrame换成konva自己的
-/packages中moment替换为luxon
-webconsole
-    clickOutside替换原始实现
-    增加login超时时间
-web端代码封装接口
-    利用vitest的plugins，和vite-node来生成执行环境
+2025-12-03
+素材上传
+tsconfig.json的include和exclude无法继承，需要单独配置
+ate升级到vite@7
+    reactTransformPlugin移除requrie.resolve
+新障碍火锅：extendInfo
+    支持radio
+    所有属性支持动态配置
+移除tileId
+    移除`productRuleGlobalConfig`对应的tileId逻辑
+老版本electron没有`Promise.withResolvers`，polyfill一下
+web-console
+    窗口总重置：断网后重连后端感知不到；移除多个连接重置窗口逻辑
+    electron下对于extension支持：不支持webNavigation和contextMenus，需要非空处理
+    electron>=28，对于devtools_page的支持发生变化，导致插件出不来
