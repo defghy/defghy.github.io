@@ -578,6 +578,7 @@ ate升级到vite@7
     移除`productRuleGlobalConfig`对应的tileId逻辑
 老版本electron没有`Promise.withResolvers`，polyfill一下
 web-console
+    增加2个页面联动刷新按钮
     窗口总重置：断网后重连后端感知不到；移除多个连接重置窗口逻辑
     electron下对于extension支持：不支持webNavigation和contextMenus，需要非空处理
     electron>=28，对于devtools_page的支持发生变化，导致插件出不来
