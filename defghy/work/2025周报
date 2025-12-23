@@ -588,3 +588,14 @@ web-console
     文件夹递归校验
 vite升级：除了console全部升级到7
 happy-dom升级
+
+2025-12-23
+素材上传
+    window.showOpenFilePicker 的 id 和 startIn 使用
+pixel-art
+    使用userInner替代userPixEvent，useData，useConfig
+ale
+    荷塘像冰一样作为关卡目标可以配置
+diff2html
+    拆分side-by-side-renderer-extend.ts
+        第一版本：实现html字符串数组
