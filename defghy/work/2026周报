@@ -1,0 +1,24 @@
+2026-01-04
+JsonViewer扩展
+    - 复制文本格式化：利用copy事件和window.getSelection
+    - 右键key复制
+        - 对于对象数组，需要`showArrayIndex`开关，提了issue
+    - vue3版本无法使用，style属性会报错
+diff2html使用统一的import，防止多份代码
+config-center
+    移除subBatch的 watch$route
+bridge
+    background需要区分chrome.tabs.sendMessage和chrome.runtime.send
+
+2026-01-12
+ale
+    新的editMode的api实现
+    鼹鼠自增，使用plugin每次计算，固定值切换棋盘会不正确
+    复制时没有正确移除路径：使用cleanGrid方法
+jsonviewer
+    增加一个解析json字符串开关
+bridge
+    升级版本，ale跟随
+devtools
+    lodash的cloneDeepWith不符合标准，customizer返回的内容不会被再次递归
+    自定义一个cloneDeepWith，支持DELETE的标志
