@@ -22,3 +22,13 @@ bridge
 devtools
     lodash的cloneDeepWith不符合标准，customizer返回的内容不会被再次递归
     自定义一个cloneDeepWith，支持DELETE的标志
+
+2026-01-19
+棋盘翻转
+    陆续移除boardCtx.get().boardView
+施工机器人开发
+    path增加配置hubIcons和kForbidBySameOrient
+    path的实现需要重构：在move时判定是否可以新增
+diff2html
+    需要区分多层组件
+    为了组件泛用性，需要使用selvte或者stencil来封装CustomElement
