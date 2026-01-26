@@ -32,3 +32,15 @@ devtools
 diff2html
     需要区分多层组件
     为了组件泛用性，需要使用selvte或者stencil来封装CustomElement
+
+2026-01-26
+自定义标签上线
+configcenter
+    统一metaData到db，直接使用db的query，不自己组织computed
+modal
+    支持provide，使用 Object.getPrototypeOf 获取完整的 provide
+jsonViewer
+    超长字符串支持收起
+    vue3版本尝试兼容2.7
+monaco-editor调研
+    diff只支持源文件方式，不支持git-diff-patch格式
