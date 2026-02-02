@@ -44,3 +44,12 @@ jsonViewer
     vue3版本尝试兼容2.7
 monaco-editor调研
     diff只支持源文件方式，不支持git-diff-patch格式
+
+2026-02-02
+ai生成关卡
+    iframe实现沙箱通信
+bridge
+    支持typescript泛型定义接口类型
+ale：跨棋盘复制，需要复制全局配置，单棋盘时不需要多棋盘需要
+json-viewer
+    vue3版本的dynamicHeight滚动到底时，高度不对。totalHeight需要ref，向原始项目提pr
