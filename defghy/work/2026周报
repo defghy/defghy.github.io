@@ -53,3 +53,15 @@ bridge
 ale：跨棋盘复制，需要复制全局配置，单棋盘时不需要多棋盘需要
 json-viewer
     vue3版本的dynamicHeight滚动到底时，高度不对。totalHeight需要ref，向原始项目提pr
+
+2026-02-09
+ale
+    extendInfo支持最外层ubfExport, 控制所有字段的导出ubf
+发布流程：是否要根据筛选条件下所有关卡不存在，拦截搜索？
+cursor
+    试用vue改写setup，IconConfig.ts重构 等场景
+    接入飞书项目-mcp
+diff
+    使用AI初始化一个svelte项目，打包为普通函数js
+devtools    
+    stylus替换为普通css
