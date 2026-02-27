@@ -65,3 +65,31 @@ diff
     使用AI初始化一个svelte项目，打包为普通函数js
 devtools    
     stylus替换为普通css
+
+2026-02-13
+ai打关埋点
+    json数据需要转base64
+ale
+    extendInfo的subItems支持递归
+ate
+    Tooltip.vue支持refPos
+
+2026-02-27
+手机配置
+    magic7, magicpad3 省电设置
+        关闭功能；后台活动&电池优化配置
+        去广告
+    荣耀magic7
+        调整大文件夹布局
+        省电场景；
+    荣耀magicpad3
+        迁移pc端数据
+    realme大探2
+        字体字号设置
+依柯胰岛素没效果？？
+    关注睡眠中血糖
+    针头有可能堵塞
+妈妈转给我35万
+devtools
+    shell-chrome接入vite，typescript
+    Component支持vue3开发中，拆分vue2相关代码
