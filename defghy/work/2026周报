@@ -93,3 +93,15 @@ ate
 devtools
     shell-chrome接入vite，typescript
     Component支持vue3开发中，拆分vue2相关代码
+
+2026-03-09
+障碍编辑器
+    原型，会议，需调研：校验；交互；导出ubf；
+    文档：extendInfo联动调研
+    文档：校验调研
+ai生成关卡：支持模型选择
+UBE上传美术资源-流程梳理
+ai-skill
+    增加 ant -> tiny-vue 的skill
+devtools
+    发布5.5.1版本：支持vue3,vite,ts
