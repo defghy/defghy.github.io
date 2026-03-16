@@ -105,3 +105,17 @@ ai-skill
     增加 ant -> tiny-vue 的skill
 devtools
     发布5.5.1版本：支持vue3,vite,ts
+
+2026-03-16
+ale
+    高级搜索：支持shift
+    Icon.vue移除，全量替换为IconV2
+曲线编辑器：重构交互流程
+    - 底层使用生命周期
+    - 不同编辑模式，监听不同生命周期
+    实现了默认模式，支持选择曲线
+devtools
+    搜索问题fix
+    增加一些engine的api
+diff2html
+    项目初始化monaco成功
