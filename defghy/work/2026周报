@@ -119,3 +119,14 @@ devtools
     增加一些engine的api
 diff2html
     项目初始化monaco成功
+
+2026-03-23
+ube本地文件处理
+ate 多选模式 替换为 控制模式
+工具集增加skill
+ale
+    施工机器人：解决铁索连环问题
+    高级搜索：数据清洗，为了过滤器障碍；洗数据脚本都先保留
+diff
+    使用vue3，monaco本来就不小，可以允许组件大一些
+    toolbar使用render作为slot替代
