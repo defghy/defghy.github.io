@@ -130,3 +130,16 @@ ale
 diff
     使用vue3，monaco本来就不小，可以允许组件大一些
     toolbar使用render作为slot替代
+
+2026-03-30
+ale
+    增加障碍的skill
+config-manager
+    增加导出，导入。未来可以用来替换本地保存？
+    init.ts增加重新生成schema判定
+devtools
+    函数式组件搜索
+    发布5.3.3
+使用ai尝试开发：曲线2期
+    冗余代码较多
+    review时发现和项目不匹配代码较多
