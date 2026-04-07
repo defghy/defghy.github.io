@@ -143,3 +143,12 @@ devtools
 使用ai尝试开发：曲线2期
     冗余代码较多
     review时发现和项目不匹配代码较多
+
+2026-04-07
+config-manager
+    ConfigTabs: 迁移setup；移除主要的watch；
+轨迹编辑器：默认拟合；动画按钮；
+diff
+    viewed, rawed 开关支持
+devtools
+    vue3不支持flush事件，替换为component:updated
