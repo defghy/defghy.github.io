@@ -152,3 +152,25 @@ diff
     viewed, rawed 开关支持
 devtools
     vue3不支持flush事件，替换为component:updated
+
+2026-04-16
+ale
+    移除 inheritFields 自动化测试
+webconsole
+    替换EditCode组件为monaco
+    抽取useMonaco
+vscode大json查看提效
+    定位到行：cmd + p; :180318
+    一层一层收起展开：cmd + opt + [
+
+2026-04-21
+ale
+    移除 inheritFields 自动化测试
+    导出障碍：可配置
+webconsole
+    替换EditCode组件为monaco
+    抽取useMonaco
+vscode大json查看提效
+    定位到行：cmd + p; :180318
+    一层一层收起展开：cmd + opt + [
+探索feature_list.json的ai开发方式
