@@ -174,3 +174,13 @@ vscode大json查看提效
     定位到行：cmd + p; :180318
     一层一层收起展开：cmd + opt + [
 探索feature_list.json的ai开发方式
+
+2026-04-26
+vue2, vue3混合开发
+    - 独立v3文件夹用于兼容代码
+    - opentiny使用postinstall方式实现共存
+devtools
+    vue3刷新页面devtools失效
+    buffer有内存泄露风险，超时清理
+ai
+    playwright-cli skill命令都写死了，不能支持 headed
