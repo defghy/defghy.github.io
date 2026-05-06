@@ -184,3 +184,12 @@ devtools
     buffer有内存泄露风险，超时清理
 ai
     playwright-cli skill命令都写死了，不能支持 headed
+
+2026-05-06
+ai建设：
+    需求生成，开发，bugfix，联调
+约束管理：主要功能回归
+diff
+  单独文件DiffViewer完成
+  demo页
+  README.md
