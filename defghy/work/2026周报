@@ -193,3 +193,12 @@ diff
   单独文件DiffViewer完成
   demo页
   README.md
+
+2026-05-11
+legality：基础配置生成完毕
+configcenter
+    CardListNew拆分页面，组件。改setup
+diff生产环境问题修复
+    monacoDiff存在渲染2次问题（先渲染全文；后渲染diff）
+devtools
+    hook事件的instance和engine不匹配问题修复；发布5.5.6
