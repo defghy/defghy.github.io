@@ -202,3 +202,11 @@ diff生产环境问题修复
     monacoDiff存在渲染2次问题（先渲染全文；后渲染diff）
 devtools
     hook事件的instance和engine不匹配问题修复；发布5.5.6
+
+2026-05-25
+校验-配置：迁移8个规则到配置
+diff工具：多文件diff，ui组件设计
+ai建设：
+  增加项目初始化skill
+  引入tiny-vue-skill
+  chrome引入了网页复制Gemini
