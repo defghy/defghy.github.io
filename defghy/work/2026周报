@@ -204,9 +204,14 @@ devtools
     hook事件的instance和engine不匹配问题修复；发布5.5.6
 
 2026-05-25
-校验-配置：迁移8个规则到配置
+校验-配置：完成设计；迁移8个规则到配置
 diff工具：多文件diff，ui组件设计
 ai建设：
   增加项目初始化skill
   引入tiny-vue-skill
   chrome引入了网页复制Gemini
+
+2026-06-01
+vuex触发更新不及时：vuex初始化时检查options和vue.devtools，不开不走后面流程
+尝试codex
+约束表单：支持编辑局部字段。通过混淆id进行数据隔离
