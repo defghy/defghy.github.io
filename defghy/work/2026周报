@@ -215,3 +215,7 @@ ai建设：
 vuex触发更新不及时：vuex初始化时检查options和vue.devtools，不开不走后面流程
 尝试codex
 约束表单：支持编辑局部字段。通过混淆id进行数据隔离
+
+2026-06-08
+调研web页面agent：`LanguageModel.create`
+vue3使用iframe方式调用vue2复杂组件
