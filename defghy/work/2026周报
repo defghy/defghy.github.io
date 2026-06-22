@@ -228,3 +228,11 @@ ale快捷键Space不影响打开弹窗
 页面级别skill
   调研：page-agent；和codex不一样，目标是对浏览器的各种操作
   当前方案：本地skill，利用playwright实现功能
+
+2026-06-22
+页面skill流程v1：
+    - 使用web端接口，获取md，ts相关代码数据
+    - rules.json后端数据暂时由人力不定期更新
+    - SKILL.md在代码中更新，每次发布时打包为zip提供给用户下载
+unity熟悉项目，学习
+    - gameObject & component & cs 关系
