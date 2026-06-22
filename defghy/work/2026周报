@@ -165,14 +165,7 @@ vscode大json查看提效
 
 2026-04-21
 ale
-    移除 inheritFields 自动化测试
     导出障碍：可配置
-webconsole
-    替换EditCode组件为monaco
-    抽取useMonaco
-vscode大json查看提效
-    定位到行：cmd + p; :180318
-    一层一层收起展开：cmd + opt + [
 探索feature_list.json的ai开发方式
 
 2026-04-26
@@ -209,12 +202,13 @@ diff工具：多文件diff，ui组件设计
 ai建设：
   增加项目初始化skill
   引入tiny-vue-skill
-  chrome引入了网页复制Gemini
+  chrome引入了网页agent：Gemini
 
 2026-06-01
-vuex触发更新不及时：vuex初始化时检查options和vue.devtools，不开不走后面流程
 尝试codex
 约束表单：支持编辑局部字段。通过混淆id进行数据隔离
+devtools
+    vuex触发更新不及时：vuex初始化时检查options和vue.devtools，不开不走后面流程
 
 2026-06-08
 调研web页面agent：`LanguageModel.create`
