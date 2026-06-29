@@ -230,3 +230,10 @@ ale快捷键Space不影响打开弹窗
     - SKILL.md在代码中更新，每次发布时打包为zip提供给用户下载
 unity熟悉项目，学习
     - gameObject & component & cs 关系
+
+2026-06-29
+校验配置规则补充：绳子分割校验
+ate登录互踢：根本原因追踪
+unity项目-初始化流程
+    - 随机属性面板
+    - 地图加载：xls => lua => c# => ***.unity
