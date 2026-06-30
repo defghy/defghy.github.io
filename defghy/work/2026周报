@@ -165,14 +165,7 @@ vscode大json查看提效
 
 2026-04-21
 ale
-    移除 inheritFields 自动化测试
     导出障碍：可配置
-webconsole
-    替换EditCode组件为monaco
-    抽取useMonaco
-vscode大json查看提效
-    定位到行：cmd + p; :180318
-    一层一层收起展开：cmd + opt + [
 探索feature_list.json的ai开发方式
 
 2026-04-26
@@ -209,13 +202,38 @@ diff工具：多文件diff，ui组件设计
 ai建设：
   增加项目初始化skill
   引入tiny-vue-skill
-  chrome引入了网页复制Gemini
+  chrome引入了网页agent：Gemini
 
 2026-06-01
-vuex触发更新不及时：vuex初始化时检查options和vue.devtools，不开不走后面流程
 尝试codex
 约束表单：支持编辑局部字段。通过混淆id进行数据隔离
+devtools
+    vuex触发更新不及时：vuex初始化时检查options和vue.devtools，不开不走后面流程
 
 2026-06-08
 调研web页面agent：`LanguageModel.create`
 vue3使用iframe方式调用vue2复杂组件
+
+2026-06-15
+constraint-form替换ant-design-vue组件
+  移除search-input组件
+typescript升级至6.0.3
+ale快捷键Space不影响打开弹窗
+页面级别skill
+  调研：page-agent；和codex不一样，目标是对浏览器的各种操作
+  当前方案：本地skill，利用playwright实现功能
+
+2026-06-22
+页面skill流程v1：
+    - 使用web端接口，获取md，ts相关代码数据
+    - rules.json后端数据暂时由人力不定期更新
+    - SKILL.md在代码中更新，每次发布时打包为zip提供给用户下载
+unity熟悉项目，学习
+    - gameObject & component & cs 关系
+
+2026-06-29
+校验配置规则补充：绳子分割校验
+ate登录互踢：根本原因追踪
+unity项目-初始化流程
+    - 随机属性面板
+    - 地图加载：xls => lua => c# => ***.unity
