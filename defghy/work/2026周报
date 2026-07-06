@@ -237,3 +237,10 @@ ate登录互踢：根本原因追踪
 unity项目-初始化流程
     - 随机属性面板
     - 地图加载：xls => lua => c# => ***.unity
+
+2026-07-06
+校验：按格子校验extendInfo；补充用例
+夺宝：
+  补充extendIconList能力：minChildNum；
+  为特效生成公共处理代码
+unity项目：Player.preftab => zhujue.fbx
