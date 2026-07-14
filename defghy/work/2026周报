@@ -244,3 +244,10 @@ unity项目-初始化流程
   补充extendIconList能力：minChildNum；
   为特效生成公共处理代码
 unity项目：Player.preftab => zhujue.fbx
+
+2026-07-14
+jenkins换成新版本
+  需要auth来触发部署：yu.hu:110da1fb7a54958352531b87616a278fb1
+devtools：pinia几率失效
+  热更新后，重新触发了`initPiniaBackend`, 但是sub只有`api.web.pinia.select`时才会监听。在initPiniaBackend增加sub调用
+ale：新增障碍skill支持生成口；继续移除tileId
