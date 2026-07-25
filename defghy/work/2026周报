@@ -251,3 +251,9 @@ jenkins换成新版本
 devtools：pinia几率失效
   热更新后，重新触发了`initPiniaBackend`, 但是sub只有`api.web.pinia.select`时才会监听。在initPiniaBackend增加sub调用
 ale：新增障碍skill支持生成口；继续移除tileId
+
+2026-07-23
+两次保存生成口不一致问题
+ale: 移除 defaultRow, defaultCol, digRow, digCol；增加当前数据和最新数据的diff；
+曲线编辑器：支持多段缓动曲线
+diff工具：文件列表diff增加搜索栏
