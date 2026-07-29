@@ -257,3 +257,14 @@ ale：新增障碍skill支持生成口；继续移除tileId
 ale: 移除 defaultRow, defaultCol, digRow, digCol；增加当前数据和最新数据的diff；
 曲线编辑器：支持多段缓动曲线
 diff工具：文件列表diff增加搜索栏
+
+2026-07-29
+ale：
+  自动化测试，尽量暴露障碍（itemType）出来
+  冰关卡目标翻倍问题：members被复制了多份
+  拆分一个package，ale同时作为平台以及包。alias改为@ale
+曲线编辑器：
+  统一曲线计算：曲线长度，百分比，点位置 计算
+  zIndex: knova不支持。把所有元素放在同一层（使用div作为容器）。使用getNode().zIndex()手动设置
+diff：
+    diffFiles的v1版本完成：虚拟滚动，导航点击，api设计
