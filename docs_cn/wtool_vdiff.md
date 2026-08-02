@@ -6,7 +6,7 @@ target_github_url: https://github.com/defghy/web-toolkits/tree/main/packages/wto
 show_downloads: true
 github:
   zip_url: https://www.npmjs.com/package/@yuhufe/wtool-vdiff
-last_modified_at: 2026-08-01 00:00:00 +0800
+last_modified_at: 2026-08-02 00:00:00 +0800
 ---
 
 ## Demo
@@ -15,7 +15,7 @@ demo地址：[https://defghy.github.io/web-toolkits/v-diff/](https://defghy.gith
 
 ## 背景
 
-业界已有diff组件库 [rtfpessoa/diff2html](https://github.com/rtfpessoa/diff2html)
+业界已有diff组件库 [rtfpessoa/diff2html](https://github.com/rtfpessoa/diff2html)、[MrWangJustToDo/git-diff-view](https://github.com/MrWangJustToDo/git-diff-view)
 
 > 问题：diff行数过多卡顿。diff文件过多卡顿；
 
