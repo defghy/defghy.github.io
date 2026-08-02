@@ -9,15 +9,15 @@ github:
 last_modified_at: 2026-08-01 00:00:00 +0800
 ---
 
+## Demo
+
+demo地址：[https://defghy.github.io/web-toolkits/v-diff/](https://defghy.github.io/web-toolkits/v-diff/)
+
 ## 背景
 
 业界已有diff组件库 [rtfpessoa/diff2html](https://github.com/rtfpessoa/diff2html)
 
 > 问题：diff行数过多卡顿。diff文件过多卡顿；
-
-## wtool-vdiff
-
-demo地址：[https://defghy.github.io/web-toolkits/v-diff/](https://defghy.github.io/web-toolkits/v-diff/)
 
 基于这些问题，实现大量文件diff的库：[wtool-vdiff](https://github.com/defghy/web-toolkits/tree/main/packages/wtool-vdiff)
 
@@ -81,7 +81,7 @@ createDiffFiles(document.querySelector('#diff-files')!, {
 
 库通过 Web Component 封装，可以用同样的方式接入 Vue、React 或原生 JavaScript 项目。
 
-## Demo
+## 相关链接
 
 [https://defghy.github.io/web-toolkits/v-diff/](https://defghy.github.io/web-toolkits/v-diff/)
 
