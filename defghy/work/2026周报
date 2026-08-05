@@ -268,3 +268,11 @@ ale：
   zIndex: knova不支持。把所有元素放在同一层（使用div作为容器）。使用getNode().zIndex()手动设置
 diff：
     diffFiles的v1版本完成：虚拟滚动，导航点击，api设计
+
+2026-08-05
+ale：
+    棋盘变换支持多格；
+    变换增加平移；
+    复制：支持批量
+configcenter: 支持meta列删除
+diff: 修复一些问题，正式发布，博客
