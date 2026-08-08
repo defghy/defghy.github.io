@@ -21,7 +21,7 @@ demo地址：[https://defghy.github.io/web-toolkits/v-diff/](https://defghy.gith
 
 基于这些问题，实现大量文件diff的库：[wtool-vdiff](https://github.com/defghy/web-toolkits/tree/main/packages/wtool-vdiff)
 
-> 基于 Monaco 封装，支持 `diffPatch`（unified diff）和 `diffPair`（修改前后的完整文件）两种输入；单文件支持自适应高度和折叠未变更区域，文件列表支持搜索、选择联动和虚拟滚动。
+> 基于 Monaco 封装，支持 `diffPatch`（unified diff）和 `diffPair`（修改前后的完整文件）两种输入；支持文件列表，文件导航，单文件3层虚拟滚动。
 
 ## 使用
 
@@ -77,7 +77,7 @@ createDiffFiles(document.querySelector('#diff-files')!, {
 })
 ```
 
-`fullPath` 可以非必填。文件列表实例可通过 `fileOverScan` 调整虚拟滚动的预渲染文件数。
+`fullPath` 可以非必填。
 
 库通过 Web Component 封装，可以用同样的方式接入 Vue、React 或原生 JavaScript 项目。
 
