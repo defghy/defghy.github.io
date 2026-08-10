@@ -276,3 +276,10 @@ ale：
     复制：支持批量
 configcenter: 支持meta列删除
 diff: 修复一些问题，正式发布，博客
+
+2026-08-10
+configcenter
+  goodsSelect: 合并，替换为handsontable，提供一套engine用于整合table和excel
+ale：增加2条路径校验方式
+使用css的highlights
+  需要配合js的range使用，但是虚拟滚动时会有dom复用此时相同的dom可能分配给不同组件，此时可能还需要MutationObserver，因为组件的udpated不会触发
