@@ -283,3 +283,13 @@ configcenter
 ale：增加2条路径校验方式
 使用css的highlights
   需要配合js的range使用，但是虚拟滚动时会有dom复用此时相同的dom可能分配给不同组件，此时可能还需要MutationObserver，因为组件的udpated不会触发
+
+2026-08-17
+ale：支持kLevel级别的extend-info
+configcenter: ai打关目录结构优化，拆分组件
+公司game jam作品遍历
+  ai工具：trae, atoms
+  引擎：godot, Phaser，raylib(c++)
+  平台：itch.io；gd.games(低代码)
+  库：bitecs, flecs(c++)
+  托管：netify.app, vercel.app
