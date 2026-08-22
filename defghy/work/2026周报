@@ -293,3 +293,9 @@ configcenter: ai打关目录结构优化，拆分组件
   平台：itch.io；gd.games(低代码)
   库：bitecs, flecs(c++)
   托管：netify.app, vercel.app
+
+2026-08-22
+ai：文档，业务开发；不参照 useSearch 规范，强制写入文档
+约束：递归mcfGroup && spread 支持
+批量填分工具：拆分ExtraParams.vue；任务优先级手动填写；
+ale: 复用hasColor。抽取fixedFields, randomFields方法
