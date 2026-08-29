@@ -299,3 +299,20 @@ ai：文档，业务开发；不参照 useSearch 规范，强制写入文档
 约束：递归mcfGroup && spread 支持
 批量填分工具：拆分ExtraParams.vue；任务优先级手动填写；
 ale: 复用hasColor。抽取fixedFields, randomFields方法
+
+2026-08-25
+ai：文档，业务开发；不参照 useSearch 规范，强制写入文档
+约束：递归mcfGroup && spread 支持
+批量填分工具：拆分ExtraParams.vue；任务优先级手动填写；
+ale: 复用hasColor。抽取fixedFields, randomFields方法
+
+2026-08-29
+ale：
+  魔术兔配置迁移到ubf-static
+  使用 life-plugin 替换 reactive 下的 ubfExport
+  ai截图：由于像素画截图有延迟，需要ai截图也延迟
+  ubf：extendInfo来源不同，改为getExtendInfo获取
+基础
+  useChoose支持ctrl单选
+devtools
+  解决gbk页面报错，不兼容gbk页面
