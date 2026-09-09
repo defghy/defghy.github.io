@@ -316,3 +316,21 @@ ale：
   useChoose支持ctrl单选
 devtools
   解决gbk页面报错，不兼容gbk页面
+
+2026-08-31
+ale：
+  魔术兔配置迁移到ubf-static
+  使用 life-plugin 替换 reactive 下的 ubfExport
+  ai截图：由于像素画截图有延迟，需要ai截图也延迟
+  ubf：extendInfo来源不同，改为getExtendInfo获取
+基础
+  useChoose支持ctrl单选
+devtools
+  解决gbk页面报错，不兼容gbk页面
+
+2026-09-09
+配合oidc登录测试，兼容
+完善文档
+飞书自动应答机器人
+  - 访问：[https://open.feishu.cn/document/develop-an-echo-bot/introduction?from=op_develop_app](https://open.feishu.cn/document/develop-an-echo-bot/introduction?from=op_develop_app)
+  - 使用 codex-sdk 连接 codex
