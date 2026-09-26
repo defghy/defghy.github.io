@@ -14,8 +14,7 @@
 ```ts
 export const useActivity = ({ isMaster = false } = {}) =>
   useCompExp<{
-    detail: Ref<any>
-    updateDetail: (data: any) => void
+    freshList: () => any
     keyword: Ref<string>
   }>({ isMaster, key: 'activity' })
 ```
@@ -25,16 +24,11 @@ export const useActivity = ({ isMaster = false } = {}) =>
 ```ts
 const { registerFunc, funcs } = useActivity({ isMaster: true })
 
-registerFunc({
-  detail: toRef(state, 'detail'), // 注册为 Ref 才有响应式
-  updateDetail(data) {
-    state.detail = data
-  },
-})
-
-onMounted(() => {
-  console.log(funcs.keyword.value)
-})
+const list = ref([])
+const freshList = function() {
+  list.value = totalList.filter(item => item.name === funcs.keyword.value)
+}
+registerFunc({ freshList })
 ```
 
 **子组件**
@@ -42,12 +36,15 @@ onMounted(() => {
 ```ts
 const { funcs, registerFunc } = useActivity()
 
-console.log(funcs.detail?.value) // 使用
-funcs.updateDetail({ id: 1 })
 // 反向注册自己的能力
 registerFunc({ 
   keyword: ref('')
 })
+
+// 点击搜索按钮，触发列表刷新
+const onSearch = function () {
+  funcs.freshList()
+}
 ```
 
 注意：master 必须是祖先，否则拿到空对象且不报错；子组件别误传 `isMaster: true`
@@ -76,46 +73,6 @@ export const useCompExp = function <T>({ isMaster = true, key = 'compExp' } = {}
 - `funcs` 是普通对象，**响应式要自己负责**：注册 `ref` / `computed`，别注册裸值。
 - 类型只是编译期断言，未注册字段运行时是 `undefined`，需要空值保护。
 
-## 四、实战案例
-
-**属性共享**：棋盘组件把棋盘数据注册给子树。
-
-```ts
-registerFunc({
-  paths: computed(() => board.value.paths),
-  r: computed(() => getBoardInfo('r')),
-  c: computed(() => getBoardInfo('c')),
-})
-// 后代：const { r, c } = useBoardData().funcs
-```
-
-**方法共享**：根组件只建上下文，实际实现由更深的布局组件注册。
-
-```ts
-// 根
-useGlobalActions({ isRoot: true })
-
-// 深层布局
-const { registerFunc } = useGlobalActions()
-registerFunc({ collapseNav: v => { collapsed.value = !v } })
-
-// 任意后代
-useGlobalActions().funcs.collapseNav(true)
-```
-
-这正是它相对 `props` / `emit` 的价值：**注册点和使用点解耦，且都无需关心彼此位置**。
-
-## 五、优劣
-
-| 优点 | 缺点 |
-| --- | --- |
-| 零样板，实现极简 | 非响应式容器，需注册 Ref |
-| 每个实例自动隔离 | 类型运行时失守，需判空 |
-| 可共享任意值（方法/实例） | 仅后代可访问 |
-| 随组件销毁自动回收 | 无 DevTools / 持久化 |
-| 注册与使用解耦 | 依赖隐式，调试偏难 |
-
 ## 结语
 
 把它当 Pinia 的补充：全局状态交给 Pinia，组件树内的能力互通交给 `useCompExp`。
-记住两条——**响应式自己负责，类型需空值保护**——就能用得很顺。
