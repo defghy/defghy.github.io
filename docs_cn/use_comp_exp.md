@@ -1,3 +1,10 @@
+---
+layout: custom
+title: useCompExp：Vue组件树内的数据共享
+description: 基于 provide/inject 的组件树内数据共享方案，与 Pinia 的对比及实现原理
+last_modified_at: 2026-09-26 00:00:00 +0800
+---
+
 # useCompExp：Vue组件树内的数据共享
 
 `useCompExp` 基于 Vue 的 `provide` / `inject`，在组件树内共享数据方法，简化`typescript`类型，无需层层透传 `props` / `emit`。

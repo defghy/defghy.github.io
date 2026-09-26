@@ -2,7 +2,7 @@
 layout: custom
 title: Defghy_Home
 description: blog list
-last_modified_at: 2026-08-08 00:00:00 +0800
+last_modified_at: 2026-09-26 00:00:00 +0800
 ---
 
 ## 页面入口
@@ -14,6 +14,8 @@ last_modified_at: 2026-08-08 00:00:00 +0800
 - [vitest内存泄露追踪](/docs_cn/vitest_memory_leak/vitest_memory_leak)
 - [web端隔离环境通信](/docs_cn/bridge)
 - [一个支持 Patch 与多文件虚拟滚动的 Monaco Diff Viewer](/docs_cn/wtool_vdiff)
+- [useCompExp：Vue组件树内的数据共享](/docs_cn/use_comp_exp)
 - [vue devtools@5.3.4 extend](/docs/vue2_devtools_extended)
 - [Web bridge which support `Promise`](/docs/bridge)
 - [A Monaco Diff Viewer with Patch Support and Multi-File Virtual Scrolling](/docs/wtool_vdiff)
+- [useCompExp: Data Sharing Within a Vue Component Tree](/docs/use_comp_exp)
